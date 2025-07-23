@@ -1,0 +1,25 @@
+<svg width="240" height="280" viewBox="0 0 240 280" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <!-- TM Monogram - exact match to image -->
+    <g fill="#2D2D2D">
+        <!-- T horizontal bar (top) -->
+        <rect x="40" y="40" width="160" height="30"/>
+
+        <!-- Shared vertical stroke (T stem = M left leg) -->
+        <rect x="105" y="40" width="30" height="160"/>
+
+        <!-- M right leg -->
+        <rect x="170" y="70" width="30" height="130"/>
+
+        <!-- M center V-shape -->
+        <!-- Left diagonal stroke -->
+        <polygon points="135,70 155,130 170,120 150,70 135,70"/>
+
+        <!-- Right diagonal stroke -->
+        <polygon points="155,130 170,120 185,70 200,70 185,85 170,130 155,130"/>
+    </g>
+
+    <!-- TEVIN MORAKE Text -->
+    <text x="120" y="240" font-family="Arial, sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#2D2D2D" letter-spacing="4px">TEVIN</text>
+    <text x="120" y="270" font-family="Arial, sans-serif" font-size="24" font-weight="700" text-anchor="middle" fill="#2D2D2D" letter-spacing="4px">MORAKE</text>
+</svg>

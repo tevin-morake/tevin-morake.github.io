@@ -1,3 +1,7 @@
+## Error Handling Policy
+
+**If any errors occur in the terminal from a shell command, you MUST debug and resolve the error before proceeding. Document the error and the solution in the commit message if relevant.**
+
 # Copilot Instructions: Tevin Morake Portfolio
 
 ## Mandatory Reference

@@ -3,11 +3,12 @@
 export const hero = {
   title: "Pragmatic Solutions. For complex digital problems.",
   subtitle: "Senior full-stack architect connecting vision to technology.",
-  description: "Transforming complex business challenges into elegant digital solutions through strategic architecture and modern development practices.",
+  description:
+    "Transforming complex business challenges into elegant digital solutions through strategic architecture and modern development practices.",
   videoPlaceholder: {
     title: "Featured Work",
-    description: "Watch how we solve complex problems"
-  }
+    description: "Watch how we solve complex problems",
+  },
 };
 
 export const projects = [
