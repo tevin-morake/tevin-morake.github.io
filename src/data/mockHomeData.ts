@@ -71,9 +71,46 @@ export const projects = [
 export const testimonials = [
   {
     id: 1,
-    name: "Jane Doe",
-    avatar: "/avatars/jane.jpg",
-    quote: "Tevin is a fantastic developer!",
+    name: "A. Du Plessis",
+    title: "Senior Product Owner",
+    company: "",
+    avatar: "/avatars/sarah.jpg",
+    quote:
+      "Tevin's technical intuition is matched only by his ability to bring people together around a vision.",
+    rating: 5,
+    project: "Team Leadership",
   },
-  // Add more testimonials here
+  {
+    id: 2,
+    name: "M. Mahlangu",
+    title: "Tech Lead",
+    company: "",
+    avatar: "/avatars/marcus.jpg",
+    quote:
+      "A digital architect who turns complexity into clarity. Partnering with Tevin is always transformative.",
+    rating: 5,
+    project: "System Architecture",
+  },
+  {
+    id: 3,
+    name: "L. Ndlovu",
+    title: "Engineering Manager",
+    company: "",
+    avatar: "/avatars/emily.jpg",
+    quote:
+      "His code is clean, his thinking precise, and his results consistently exceed expectations.",
+    rating: 5,
+    project: "Code Quality",
+  },
+  {
+    id: 4,
+    name: "N. Dlamini",
+    title: "CTO",
+    company: "",
+    avatar: "/avatars/david.jpg",
+    quote:
+      "Strategic, thoughtful, and honest — exactly what you want in a senior engineer.",
+    rating: 5,
+    project: "Technical Strategy",
+  },
 ];
