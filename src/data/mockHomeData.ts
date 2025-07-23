@@ -68,6 +68,32 @@ export const projects = [
   },
 ];
 
+export const about = {
+  title: "About Me",
+  subtitle: "Building digital solutions that matter",
+  description: "I'm a senior full-stack developer with 8+ years of experience transforming complex business challenges into elegant, scalable solutions. My approach combines strategic thinking with hands-on development, ensuring every project delivers both technical excellence and real business value.",
+  personalNote: "When I'm not coding, you'll find me exploring the latest tech trends, mentoring junior developers, or working on open-source projects that push the boundaries of what's possible.",
+  image: "/about/tevin-profile.jpg",
+  stats: [
+    {
+      label: "Years Experience",
+      value: "8+"
+    },
+    {
+      label: "Projects Completed",
+      value: "50+"
+    },
+    {
+      label: "Technologies Mastered",
+      value: "20+"
+    },
+    {
+      label: "Team Lead Experience",
+      value: "3 Years"
+    }
+  ]
+};
+
 export const testimonials = [
   {
     id: 1,
