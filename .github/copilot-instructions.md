@@ -1,5 +1,13 @@
 # Copilot Instructions: Tevin Morake Portfolio
 
+## Mandatory Reference
+
+**You MUST reference this instructions file for every architectural, design, and workflow decision.**
+
+## Commit Policy
+
+**For every item crossed off in the project todo list, you MUST stage and commit the change immediately using a Conventional Commit message as described below.**
+
 ## Conventional Commits Policy
 
 **All GitHub-related instructions and commit messages MUST strictly follow the [Conventional Commits](https://www.conventionalcommits.org/) specification.**
