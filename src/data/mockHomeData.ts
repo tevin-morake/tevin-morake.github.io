@@ -1,10 +1,13 @@
 // Example mock data for the homepage. Replace with API data in the future.
 
 export const hero = {
-  title: "Hi, I'm Tevin Morake",
-  subtitle: "Full-Stack Developer",
-  description:
-    "Building high-performance, modern web applications with Next.js.",
+  title: "Pragmatic Solutions. For complex digital problems.",
+  subtitle: "Senior full-stack architect connecting vision to technology.",
+  description: "Transforming complex business challenges into elegant digital solutions through strategic architecture and modern development practices.",
+  videoPlaceholder: {
+    title: "Featured Work",
+    description: "Watch how we solve complex problems"
+  }
 };
 
 export const projects = [
