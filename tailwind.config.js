@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'inter': ['var(--font-inter)', 'sans-serif'],
+      },
+    },
   },
   darkMode: "media", // or 'class' if you want manual toggle
   plugins: [],
