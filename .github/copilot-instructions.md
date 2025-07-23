@@ -1,5 +1,34 @@
 # Copilot Instructions: Tevin Morake Portfolio
 
+## Conventional Commits Policy
+
+**All GitHub-related instructions and commit messages MUST strictly follow the [Conventional Commits](https://www.conventionalcommits.org/) specification.**
+
+### Commit Message Structure
+
+```
+type[optional scope]: <description>
+```
+
+#### Common Commit Types
+
+- **feat:** For a new feature.
+- **fix:** For a bug fix.
+- **docs:** For changes to documentation.
+- **style:** For formatting changes that do not affect the meaning of the code (e.g., white-space, semi-colons).
+- **refactor:** For a code change that neither fixes a bug nor adds a feature.
+- **perf:** For a code change that improves performance.
+- **test:** For adding missing tests or correcting existing ones.
+- **chore:** For changes to the build process or auxiliary tools and libraries.
+
+### Key Benefits
+
+- Automated changelogs
+- Automatic versioning (SemVer)
+- Improved readability and collaboration
+
+**This policy is mandatory. All commits and GitHub instructions must comply.**
+
 ## Project Vision
 
 A high-performance, responsive portfolio website for Tevin Morake, full-stack developer, built with Next.js. The site will be a single-page application (homepage only) at first, with a focus on modern best practices, responsiveness, and future extensibility.
