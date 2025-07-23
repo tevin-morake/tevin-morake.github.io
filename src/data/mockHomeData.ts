@@ -19,7 +19,7 @@ export const projects = [
       "Full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include payment processing, inventory management, and analytics dashboard.",
     link: "https://github.com/tevin-morake/ecommerce-platform",
     image: "/projects/ecommerce.jpg",
-    tech: ["React", "Node.js", "PostgreSQL", "Stripe"]
+    tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ export const projects = [
       "Modern project management application built with Next.js and TypeScript. Real-time collaboration, team workspaces, and advanced reporting.",
     link: "https://github.com/tevin-morake/task-management",
     image: "/projects/task-manager.jpg",
-    tech: ["Next.js", "TypeScript", "Prisma", "WebSocket"]
+    tech: ["Next.js", "TypeScript", "Prisma", "WebSocket"],
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export const projects = [
       "Real-time financial analytics platform with data visualization. Built with React, D3.js, and Python backend for complex financial calculations.",
     link: "https://github.com/tevin-morake/finance-dashboard",
     image: "/projects/finance.jpg",
-    tech: ["React", "D3.js", "Python", "FastAPI"]
+    tech: ["React", "D3.js", "Python", "FastAPI"],
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ export const projects = [
       "HIPAA-compliant patient management system with appointment scheduling, medical records, and telemedicine capabilities.",
     link: "https://github.com/tevin-morake/healthcare-portal",
     image: "/projects/healthcare.jpg",
-    tech: ["Vue.js", "Laravel", "MySQL", "WebRTC"]
+    tech: ["Vue.js", "Laravel", "MySQL", "WebRTC"],
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ export const projects = [
       "Cross-platform mobile banking application with biometric authentication, transaction history, and budget tracking features.",
     link: "https://github.com/tevin-morake/mobile-banking",
     image: "/projects/banking.jpg",
-    tech: ["React Native", "Node.js", "MongoDB", "JWT"]
+    tech: ["React Native", "Node.js", "MongoDB", "JWT"],
   },
   {
     id: 6,
@@ -64,8 +64,8 @@ export const projects = [
       "Machine learning-powered content creation tool with natural language processing and automated SEO optimization.",
     link: "https://github.com/tevin-morake/ai-content-generator",
     image: "/projects/ai-content.jpg",
-    tech: ["Python", "TensorFlow", "FastAPI", "React"]
-  }
+    tech: ["Python", "TensorFlow", "FastAPI", "React"],
+  },
 ];
 
 export const testimonials = [
