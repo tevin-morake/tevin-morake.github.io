@@ -13,45 +13,78 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full px-4 sm:px-8 py-4 flex items-center justify-between bg-white/80 dark:bg-black/80 backdrop-blur-md fixed top-0 left-0 z-50 border-b border-black/10 dark:border-white/10">
-      <a href="#home" className="flex items-center gap-2">
-        <Image src="/logo.svg" alt="Tevin Morake Logo" width={40} height={40} priority />
-        <span className="sr-only">Tevin Morake Home</span>
+    <header className="fixed top-0 left-0 z-50 flex items-center justify-between w-full px-6 py-4 bg-white border-b border-gray-100 lg:px-12">
+      <a href="#home" className="flex items-center">
+        <Image src="/logo.png" alt="Tevin Morake Logo" width={90} height={90} priority />
       </a>
-      <nav className="hidden md:flex gap-8">
+      
+      {/* Desktop Navigation */}
+      <nav className="hidden gap-8 md:flex">
         {navLinks.map((link) => (
           <a
             key={link.name}
             href={link.href}
-            className="text-base font-medium text-foreground hover:text-primary transition-colors"
+            className="text-sm font-bold text-gray-600 transition-colors hover:text-gray-900 font-inter"
           >
             {link.name}
           </a>
         ))}
       </nav>
-      {/* Hamburger menu for mobile */}
+
+      {/* CTA Button */}
+      <div className="hidden md:block">
+        <a
+          href="#work"
+          className="px-4 py-2 text-sm font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
+        >
+          View My Work
+        </a>
+      </div>
+      {/* Mobile Hamburger Menu */}
       <button
-        className="md:hidden flex flex-col justify-center items-center w-10 h-10 rounded focus:outline-none focus:ring-2 focus:ring-primary"
+        className="flex flex-col items-center justify-center w-8 h-8 md:hidden focus:outline-none"
         aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
         onClick={() => setMenuOpen((open) => !open)}
       >
-        <span className="block w-6 h-0.5 bg-foreground mb-1 transition-transform" style={{ transform: menuOpen ? "rotate(45deg) translateY(7px)" : "none" }} />
-        <span className={`block w-6 h-0.5 bg-foreground mb-1 transition-opacity ${menuOpen ? "opacity-0" : "opacity-100"}`} />
-        <span className="block w-6 h-0.5 bg-foreground transition-transform" style={{ transform: menuOpen ? "-rotate-45 translateY(-7px)" : "none" }} />
+        <span 
+          className={`block w-5 h-0.5 bg-gray-800 mb-1 transition-transform ${
+            menuOpen ? "rotate-45 translate-y-1.5" : ""
+          }`} 
+        />
+        <span 
+          className={`block w-5 h-0.5 bg-gray-800 mb-1 transition-opacity ${
+            menuOpen ? "opacity-0" : "opacity-100"
+          }`} 
+        />
+        <span 
+          className={`block w-5 h-0.5 bg-gray-800 transition-transform ${
+            menuOpen ? "-rotate-45 -translate-y-1.5" : ""
+          }`} 
+        />
       </button>
-      {/* Mobile menu */}
+      
+      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="absolute top-full left-0 w-full bg-white dark:bg-black shadow-lg flex flex-col items-center py-4 md:hidden animate-fade-in z-40">
+        <div className="absolute left-0 z-40 flex flex-col w-full py-6 bg-white shadow-lg top-full md:hidden">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="py-2 text-lg font-medium text-foreground hover:text-primary w-full text-center"
+              className="px-6 py-3 text-base font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50"
               onClick={() => setMenuOpen(false)}
             >
               {link.name}
             </a>
           ))}
+          <div className="px-6 pt-4">
+            <a
+              href="#work"
+              className="block w-full px-4 py-2 text-sm font-medium text-center text-white transition-colors bg-black rounded-full hover:bg-gray-800"
+              onClick={() => setMenuOpen(false)}
+            >
+              View My Work
+            </a>
+          </div>
         </div>
       )}
     </header>
