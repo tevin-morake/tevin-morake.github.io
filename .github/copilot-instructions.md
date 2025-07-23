@@ -22,6 +22,8 @@
 type[optional scope]: <description>
 ```
 
+**Commit messages MUST be condensed to one line that encompasses all changes, whether big or small. Use concise, descriptive language that captures the essence of the entire changeset.**
+
 #### Common Commit Types
 
 - **feat:** For a new feature.
