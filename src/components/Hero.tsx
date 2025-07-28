@@ -9,10 +9,10 @@ export default function Hero() {
       <div className="max-w-4xl mx-auto">
         {/* Hero Text Content */}
         <div className="text-center">
-          <h1 className="mb-6 text-4xl font-bold tracking-tight text-black sm:text-5xl lg:text-6xl font-inter">
+          <h1 className="font-bold text-black font-inter" style={{ fontSize: '39px', letterSpacing: '-0.04em' }}>
             {hero.title}
           </h1>
-          <p className="max-w-3xl mx-auto mb-16 text-lg font-normal leading-relaxed sm:text-xl lg:text-2xl font-inter" style={{ color: '#999999' }}>
+          <p className="max-w-3xl mx-auto mb-16 font-inter" style={{ color: '#999999', fontWeight: 700, fontSize: '35px', letterSpacing: '-0.04em' }}>
             {hero.subtitle}
           </p>
         </div>
