@@ -1,8 +1,12 @@
 "use client";
 
 import { testimonials } from "@/data/mockHomeData";
+import Link from "next/link";
 
 export default function Testimonials() {
+  // Show only the first 3 testimonials on the homepage
+  const featuredTestimonials = testimonials.slice(0, 3);
+
   // Create initials from name for avatar fallback
   const getInitials = (name: string) => {
     return name
@@ -32,8 +36,8 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
+        <div className="grid gap-8 mb-12 md:grid-cols-3">
+          {featuredTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}
               className="relative p-8 transition-all duration-300 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:border-gray-200"
@@ -76,19 +80,32 @@ export default function Testimonials() {
           ))}
         </div>
 
+        {/* View All Testimonials Button */}
+        <div className="mb-16 text-center">
+          <Link
+            href="/testimonials"
+            className="inline-flex items-center px-6 py-3 text-base font-bold text-black transition-colors border-2 border-black rounded-full hover:bg-black hover:text-white font-inter"
+          >
+            View all testimonials
+            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
+
         {/* Call to Action */}
-        <div className="mt-16 text-center">
+        <div className="text-center">
           <div className="mb-4">
             <p className="text-lg font-medium text-black font-inter">
               Ready to work together and create something exceptional?
             </p>
           </div>
-          <a
-            href="#contact"
+          <Link
+            href="/contact"
             className="inline-block px-8 py-4 text-base font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
           >
             Let's Collaborate
-          </a>
+          </Link>
         </div>
       </div>
     </section>

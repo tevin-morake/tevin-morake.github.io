@@ -1,20 +1,35 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
-const navLinks = [
+const homeNavLinks = [
   { name: "Work", href: "#work" },
-  { name: "Blog", href: "#blog" },
-  { name: "About", href: "#about" },
-  { name: "Contact", href: "#contact" },
+  { name: "Blog", href: "/articles" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
+
+const otherPageNavLinks = [
+  { name: "Home", href: "/" },
+  { name: "Blog", href: "/articles" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  
+  // Determine which navigation links to show based on current page
+  const isHomePage = pathname === "/";
+  const navLinks = isHomePage ? homeNavLinks : otherPageNavLinks;
+  const logoHref = isHomePage ? "#home" : "/";
+  const ctaHref = "/contact";
 
   return (
     <header className="fixed top-0 left-0 z-50 flex items-center justify-between w-full px-6 py-4 bg-white border-b border-gray-100 lg:px-12">
-      <a href="#home" className="flex items-center">
+      <a href={logoHref} className="flex items-center">
         <Image src="/logo.png" alt="Tevin Morake Logo" width={90} height={90} priority />
       </a>
       
@@ -34,10 +49,10 @@ export default function Header() {
       {/* CTA Button */}
       <div className="hidden md:block">
         <a
-          href="#work"
+          href={ctaHref}
           className="px-4 py-2 text-sm font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
         >
-          View My Work
+          View My Resumè
         </a>
       </div>
       {/* Mobile Hamburger Menu */}
@@ -78,11 +93,11 @@ export default function Header() {
           ))}
           <div className="px-6 pt-4">
             <a
-              href="#work"
+              href={ctaHref}
               className="block w-full px-4 py-2 text-sm font-medium text-center text-white transition-colors bg-black rounded-full hover:bg-gray-800"
               onClick={() => setMenuOpen(false)}
             >
-              View My Work
+              View My Resumè
             </a>
           </div>
         </div>

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 // Mock articles data - replace with CMS/API data in the future
 const articles = [
   {
@@ -210,15 +212,20 @@ export default function Articles() {
           ))}
         </div>
 
-        {/* View All Articles CTA */}
-        <div className="text-center">
-          <a
+        {/* View All Articles Button */}
+        <div className="mb-12 text-center">
+          <Link
             href="/articles"
-            className="inline-block px-8 py-4 text-base font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
+            className="inline-flex items-center px-6 py-3 text-base font-bold text-black transition-colors border-2 border-black rounded-full hover:bg-black hover:text-white font-inter"
           >
-            View All Articles
-          </a>
+            View all articles
+            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
+
+
       </div>
     </section>
   );

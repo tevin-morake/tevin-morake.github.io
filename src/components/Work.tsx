@@ -1,8 +1,12 @@
 "use client";
 
 import { projects } from "@/data/mockHomeData";
+import Link from "next/link";
 
 export default function Work() {
+  // Show only the first 3 projects on the homepage
+  const featuredProjects = projects.slice(0, 3);
+
   return (
     <section className="min-h-screen px-4 py-16 bg-white sm:px-6 lg:px-8" id="work">
       <div className="max-w-6xl mx-auto">
@@ -19,7 +23,7 @@ export default function Work() {
 
         {/* Projects Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <div
               key={project.id}
               className="relative overflow-hidden transition-all duration-300 group bg-gray-50 rounded-2xl hover:shadow-xl"
@@ -67,15 +71,20 @@ export default function Work() {
           ))}
         </div>
 
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <a
-            href="#contact"
-            className="inline-block px-8 py-4 text-base font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
+        {/* View All Projects Button */}
+        <div className="mt-12 text-center">
+          <Link
+            href="/projects"
+            className="inline-flex items-center px-6 py-3 text-base font-bold text-black transition-colors border-2 border-black rounded-full hover:bg-black hover:text-white font-inter"
           >
-            Let's Work Together
-          </a>
+            View all my projects
+            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
+
+
       </div>
     </section>
   );
