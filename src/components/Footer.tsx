@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { contact } from "@/data/mockHomeData";
 
 export default function Footer() {
@@ -16,12 +17,12 @@ export default function Footer() {
 
           {/* Center: Quick Nav */}
           <nav className="flex flex-wrap justify-center gap-6 text-base font-medium">
-            <a href="/" className="hover:text-gray-300 transition-colors">Home</a>
-            <a href="/projects" className="hover:text-gray-300 transition-colors">Projects</a>
-            <a href="/articles" className="hover:text-gray-300 transition-colors">Articles</a>
-            <a href="/testimonials" className="hover:text-gray-300 transition-colors">Testimonials</a>
-            <a href="/about" className="hover:text-gray-300 transition-colors">About</a>
-            <a href="/contact" className="hover:text-gray-300 transition-colors">Contact</a>
+            <Link href="/" className="hover:text-gray-300 transition-colors">Home</Link>
+            <Link href="/projects" className="hover:text-gray-300 transition-colors">Projects</Link>
+            <Link href="/articles" className="hover:text-gray-300 transition-colors">Articles</Link>
+            <Link href="/testimonials" className="hover:text-gray-300 transition-colors">Testimonials</Link>
+            <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
+            <Link href="/contact" className="hover:text-gray-300 transition-colors">Contact</Link>
           </nav>
 
           {/* Right: Social Icons */}

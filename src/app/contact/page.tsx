@@ -113,7 +113,7 @@ export default function ContactPage() {
                   </h3>
                   <p className="text-lg font-normal font-inter" style={{ color: '#999999' }}>
                     Whether you have a project in mind, need technical consultation, or just want to say hello, 
-                    I'd love to hear from you. I typically respond within 24 hours.
+                    I&apos;d love to hear from you. I typically respond within 24 hours.
                   </p>
                 </div>
 

@@ -17,7 +17,7 @@ export default function Testimonials() {
   };
 
   // Generate avatar colors based on name - using hero gradient
-  const getAvatarColor = (name: string) => {
+  const getAvatarColor = () => {
     // Use the same gradient as hero section for consistency
     return 'bg-gradient-to-r from-black to-gray-600';
   };
@@ -31,7 +31,7 @@ export default function Testimonials() {
             What My Colleagues Say
           </h2>
           <p className="max-w-3xl mx-auto text-xl font-normal leading-relaxed font-inter" style={{ color: '#999999' }}>
-            Testimonies from those who've worked alongside me
+            Testimonies from those who&apos;ve worked alongside me
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export default function Testimonials() {
             >
               {/* Quote */}
               <blockquote className="mb-6 text-base font-normal leading-relaxed font-inter" style={{ color: '#999999' }}>
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
 
               {/* Project Badge */}
@@ -57,7 +57,7 @@ export default function Testimonials() {
               {/* Client Info */}
               <div className="flex items-center">
                 {/* Avatar */}
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm font-inter mr-4 ${getAvatarColor(testimonial.name)}`}>
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-sm font-inter mr-4 ${getAvatarColor()}`}>
                   {getInitials(testimonial.name)}
                 </div>
 
@@ -104,7 +104,7 @@ export default function Testimonials() {
             href="/contact"
             className="inline-block px-8 py-4 text-base font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
           >
-            Let's Collaborate
+            Let&apos;s Collaborate
           </Link>
         </div>
       </div>

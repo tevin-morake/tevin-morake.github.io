@@ -14,7 +14,7 @@ export default function TestimonialsPage() {
   };
 
   // Generate avatar colors based on name - using hero gradient
-  const getAvatarColor = (name: string) => {
+  const getAvatarColor = () => {
     // Use the same gradient as hero section for consistency
     return 'bg-gradient-to-r from-black to-gray-600';
   };
@@ -29,7 +29,7 @@ export default function TestimonialsPage() {
               All Testimonials
             </h1>
             <p className="max-w-3xl mx-auto text-xl font-normal leading-relaxed font-inter" style={{ color: '#999999' }}>
-              Hear from colleagues, clients, and collaborators who've experienced firsthand 
+              Hear from colleagues, clients, and collaborators who&apos;ve experienced firsthand 
               the impact of working together on challenging projects and innovative solutions.
             </p>
             
@@ -52,7 +52,7 @@ export default function TestimonialsPage() {
 
                 {/* Quote */}
                 <blockquote className="mb-6 text-lg font-normal leading-relaxed font-inter" style={{ color: '#999999' }}>
-                  "{testimonial.quote}"
+                  &ldquo;{testimonial.quote}&rdquo;
                 </blockquote>
 
                 {/* Rating Stars */}
@@ -74,7 +74,7 @@ export default function TestimonialsPage() {
                 {/* Client Info */}
                 <div className="flex items-center">
                   {/* Avatar */}
-                  <div className={`w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-base font-inter mr-4 ${getAvatarColor(testimonial.name)}`}>
+                  <div className={`w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-base font-inter mr-4 ${getAvatarColor()}`}>
                     {getInitials(testimonial.name)}
                   </div>
 
@@ -108,7 +108,7 @@ export default function TestimonialsPage() {
               href="/#contact"
               className="inline-block px-8 py-4 text-base font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
             >
-              Let's Collaborate
+              Let&apos;s Collaborate
             </Link>
           </div>
         </div>

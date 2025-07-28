@@ -89,7 +89,7 @@ export default function ProjectsPage() {
               href="/#contact"
               className="inline-block px-8 py-4 text-base font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
             >
-              Let's Work Together
+              Let&apos;s Work Together
             </Link>
           </div>
         </div>
