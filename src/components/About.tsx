@@ -2,6 +2,7 @@
 
 import { about } from "@/data/mockHomeData";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -21,11 +22,16 @@ export default function About() {
           {/* Left Column - Profile Image */}
           <div className="flex justify-center lg:justify-start">
             <div className="relative">
-              {/* Profile image placeholder with hero gradient */}
-              <div className="flex items-center justify-center overflow-hidden w-96 h-96 rounded-2xl bg-gradient-to-r from-black to-gray-600">
-                <div className="text-6xl font-bold text-white font-inter">
-                  TM
-                </div>
+              {/* Profile image */}
+              <div className="overflow-hidden shadow-2xl w-96 h-96 rounded-2xl">
+                <Image
+                  src="/about/abuti.jpg"
+                  alt="Tevin Morake - About Me"
+                  width={384}
+                  height={384}
+                  className="object-cover w-full h-full"
+                  priority
+                />
               </div>
               
               {/* Decorative elements */}
