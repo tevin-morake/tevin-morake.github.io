@@ -77,3 +77,18 @@ body {
 .border-muted {
   border-color: var(--text-muted);
 }
+
+/* Articles Section Specific Classes */
+.articles-header {
+  font-family: 'Inter';
+  font-size: 39px;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.articles-subheader {
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  font-size: 25px;
+}

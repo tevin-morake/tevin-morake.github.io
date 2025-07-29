@@ -175,3 +175,78 @@ export const testimonials = [
     project: "Technical Strategy",
   },
 ];
+
+export const articles = [
+  {
+    id: 1,
+    title: "Building Scalable Microservices with Node.js and Docker",
+    excerpt:
+      "A comprehensive guide to architecting microservices that can handle enterprise-level traffic while maintaining code quality and developer experience.",
+    publishedDate: "2024-12-15",
+    readTime: "8 min read",
+    category: "Architecture",
+    slug: "scalable-microservices-nodejs-docker",
+    featured: true,
+    image: "/blogs/microservices-architecture.png",
+  },
+  {
+    id: 2,
+    title: "The Future of Full-Stack Development in 2025",
+    excerpt:
+      "Exploring emerging technologies, frameworks, and methodologies that will shape how we build web applications in the coming year.",
+    publishedDate: "2024-12-08",
+    readTime: "6 min read",
+    category: "Technology Trends",
+    slug: "future-fullstack-development-2025",
+    featured: false,
+    image: "/blogs/fullstack-future.png",
+  },
+  {
+    id: 3,
+    title: "Implementing Zero-Downtime Deployments with CI/CD",
+    excerpt:
+      "Learn how to implement robust deployment strategies that ensure your applications remain available during updates and releases.",
+    publishedDate: "2024-11-28",
+    readTime: "10 min read",
+    category: "DevOps",
+    slug: "zero-downtime-deployments-cicd",
+    featured: false,
+    image: "/blogs/cicd-deployment.png",
+  },
+  {
+    id: 4,
+    title: "Database Optimization Strategies for High-Traffic Applications",
+    excerpt:
+      "Performance tuning techniques and architectural patterns to handle millions of requests while maintaining data consistency.",
+    publishedDate: "2024-11-20",
+    readTime: "12 min read",
+    category: "Database",
+    slug: "database-optimization-high-traffic",
+    featured: true,
+    image: "/blogs/database-optimization.png",
+  },
+  {
+    id: 5,
+    title: "Security Best Practices for Modern Web Applications",
+    excerpt:
+      "Essential security measures every developer should implement to protect applications from common vulnerabilities and attacks.",
+    publishedDate: "2024-11-10",
+    readTime: "9 min read",
+    category: "Security",
+    slug: "security-best-practices-web-apps",
+    featured: false,
+    image: "/blogs/web-security.jpg",
+  },
+  {
+    id: 6,
+    title: "From Monolith to Microservices: A Migration Strategy",
+    excerpt:
+      "A step-by-step approach to breaking down monolithic applications into scalable, maintainable microservices without disrupting business operations.",
+    publishedDate: "2024-10-25",
+    readTime: "15 min read",
+    category: "Architecture",
+    slug: "monolith-to-microservices-migration",
+    featured: false,
+    image: "/blogs/monolith-migration.jpg",
+  },
+];
