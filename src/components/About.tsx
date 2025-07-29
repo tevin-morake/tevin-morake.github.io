@@ -44,10 +44,10 @@ export default function About() {
           <div className="flex flex-col justify-center">
             {/* Main Description */}
             <div className="mb-8">
-              <p className="mb-6 text-lg font-normal leading-relaxed font-inter" style={{ color: '#999999' }}>
+              <p className="mb-6 text-lg font-normal leading-relaxed font-inter" style={{ color: '#999999', letterSpacing: '-0.06em' }}>
                 {about.description}
               </p>
-              <p className="text-lg font-normal leading-relaxed font-inter" style={{ color: '#999999' }}>
+              <p className="text-lg font-normal leading-relaxed font-inter" style={{ color: '#999999', letterSpacing: '-0.06em' }}>
                 {about.personalNote}
               </p>
             </div>
