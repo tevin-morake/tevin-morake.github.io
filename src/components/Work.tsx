@@ -2,6 +2,7 @@
 
 import { projects } from "@/data/mockHomeData";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Work() {
   // Show only the first 3 projects on the homepage
@@ -12,10 +13,10 @@ export default function Work() {
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="mb-16 text-center">
-          <h2 className="mb-6 font-bold text-black font-inter" style={{ fontFamily: 'Inter', fontSize: '35px', letterSpacing: '-0.03em' }}>
+          <h2 className="mb-6 text-black font-inter section-header">
             Selected Work
           </h2>
-          <p className="max-w-3xl mx-auto font-inter" style={{ color: '#999999', fontWeight: 700, letterSpacing: '-0.03em', fontSize: '25px' }}>
+          <p className="max-w-3xl mx-auto font-inter section-subheader">
             A curated collection of projects that showcase strategic thinking, 
             technical excellence, and results-driven solutions.
           </p>
@@ -28,21 +29,16 @@ export default function Work() {
               key={project.id}
               className="relative overflow-hidden transition-all duration-300 group bg-gray-50 rounded-2xl hover:shadow-xl"
             >
-              {/* Project Image Placeholder */}
-              <div className="aspect-[4/3] bg-gradient-to-r from-black to-gray-600 relative overflow-hidden">
+              {/* Project Image */}
+              <div className="aspect-[4/3] relative overflow-hidden">
+                <Image
+                  src={project.image}
+                  alt={project.name}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  priority={index < 3} // Prioritize first 3 images
+                />
                 <div className="absolute inset-0 transition-colors duration-300 bg-black/0 group-hover:bg-black/10" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-white rounded-full">
-                      <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                      </svg>
-                    </div>
-                    <span className="text-sm font-medium text-gray-300 font-inter">
-                      Project {index + 1}
-                    </span>
-                  </div>
-                </div>
               </div>
 
               {/* Project Content */}
@@ -50,7 +46,7 @@ export default function Work() {
                 <h3 className="mb-3 text-xl font-bold text-black transition-colors font-inter group-hover:text-gray-700">
                   {project.name}
                 </h3>
-                <p className="mb-4 text-base font-normal leading-relaxed font-inter" style={{ color: '#999999' }}>
+                <p className="mb-4 text-base font-normal leading-relaxed font-inter text-muted">
                   {project.description}
                 </p>
                 

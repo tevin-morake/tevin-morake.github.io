@@ -9,17 +9,17 @@ export default function Hero() {
       <div className="max-w-4xl mx-auto">
         {/* Hero Text Content */}
         <div className="text-center">
-          <h1 className="font-bold text-black font-inter" style={{ fontSize: '39px', letterSpacing: '-0.04em' }}>
+          <h1 className="text-black font-inter hero-title">
             {hero.title}
           </h1>
-          <p className="max-w-3xl mx-auto mb-16 font-inter" style={{ color: '#999999', fontWeight: 700, fontSize: '35px', letterSpacing: '-0.04em' }}>
+          <p className="max-w-3xl mx-auto mb-16 font-inter hero-subtitle">
             {hero.subtitle}
           </p>
         </div>
 
         {/* Hero Image Section */}
         <div className="relative max-w-4xl mx-auto">
-          <div className="overflow-hidden shadow-2xl aspect-video rounded-2xl bg-gradient-to-r from-black to-gray-900" style={{ borderRight: '2px solid #999999' }}>
+          <div className="overflow-hidden shadow-2xl aspect-video rounded-2xl bg-gradient-to-r from-black to-gray-900 border-r-2 border-muted">
             <div className="flex items-center justify-center h-full">
               <div className="flex items-center justify-center w-full h-full">
                 <Image

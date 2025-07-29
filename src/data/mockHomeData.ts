@@ -18,7 +18,7 @@ export const projects = [
     description:
       "Full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include payment processing, inventory management, and analytics dashboard.",
     link: "https://github.com/tevin-morake/ecommerce-platform",
-    image: "/projects/ecommerce.jpg",
+    image: "/projects/ecommerce.png",
     tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
   },
   {
@@ -27,7 +27,7 @@ export const projects = [
     description:
       "Modern project management application built with Next.js and TypeScript. Real-time collaboration, team workspaces, and advanced reporting.",
     link: "https://github.com/tevin-morake/task-management",
-    image: "/projects/task-manager.jpg",
+    image: "/projects/task-manager.png",
     tech: ["Next.js", "TypeScript", "Prisma", "WebSocket"],
   },
   {
@@ -36,7 +36,7 @@ export const projects = [
     description:
       "Real-time financial analytics platform with data visualization. Built with React, D3.js, and Python backend for complex financial calculations.",
     link: "https://github.com/tevin-morake/finance-dashboard",
-    image: "/projects/finance.jpg",
+    image: "/projects/finance.png",
     tech: ["React", "D3.js", "Python", "FastAPI"],
   },
   {
@@ -79,7 +79,7 @@ export const about = {
   stats: [
     {
       label: "Years Experience",
-      value: "8+",
+      value: "10+",
     },
     {
       label: "Projects Completed",

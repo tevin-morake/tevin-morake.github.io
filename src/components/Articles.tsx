@@ -91,21 +91,21 @@ export default function Articles() {
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="mb-16 text-center">
-          <h2 className="mb-6 text-4xl font-bold text-black sm:text-5xl lg:text-6xl font-inter">
+          <h2 className="mb-6 text-4xl font-bold text-black sm:text-5xl lg:text-6xl font-inter" style={{ fontSize: '39px', letterSpacing: '-0.04em' }}>
             Latest Articles
           </h2>
-          <p className="max-w-3xl mx-auto text-xl font-normal leading-relaxed font-inter" style={{ color: '#999999' }}>
+          <p className="max-w-3xl mx-auto text-xl font-normal leading-relaxed font-inter" style={{ color: '#999999', fontWeight: 700, letterSpacing: '-0.03em', fontSize: '25px' }}>
             Insights on modern development practices, architecture patterns, 
             and the evolving landscape of technology.
           </p>
         </div>
 
         {/* Featured Article */}
-        <article className="mb-12 overflow-hidden bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:border-gray-200 transition-all duration-300">
+        <article className="mb-12 overflow-hidden transition-all duration-300 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:border-gray-200">
           <div className="md:flex">
             {/* Featured Article Image */}
             <div className="md:w-1/2 aspect-[3/2] bg-gradient-to-r from-black to-gray-600 relative overflow-hidden">
-              <div className="absolute top-4 left-4 z-10">
+              <div className="absolute z-10 top-4 left-4">
                 <span className="px-3 py-1 text-xs font-bold text-white bg-black rounded-full font-inter">
                   Latest
                 </span>
@@ -125,7 +125,7 @@ export default function Articles() {
             </div>
 
             {/* Featured Article Content */}
-            <div className="md:w-1/2 p-8">
+            <div className="p-8 md:w-1/2">
               {/* Article Meta */}
               <div className="flex items-center justify-between mb-4 text-sm font-medium font-inter" style={{ color: '#999999' }}>
                 <span>{formatDate(featuredArticle.publishedDate)}</span>
@@ -161,7 +161,7 @@ export default function Articles() {
           {recentArticles.map((article) => (
             <article
               key={article.id}
-              className="overflow-hidden bg-white border border-gray-100 rounded-2xl transition-all duration-300 hover:shadow-xl hover:border-gray-200"
+              className="overflow-hidden transition-all duration-300 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:border-gray-200"
             >
               {/* Article Image Placeholder */}
               <div className="aspect-[4/3] bg-gradient-to-r from-black to-gray-600 relative overflow-hidden">
