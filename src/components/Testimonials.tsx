@@ -23,10 +23,10 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="min-h-screen px-4 py-16 bg-gray-50 sm:px-6 lg:px-8" id="testimonials">
+    <section className="px-4 py-20 bg-gray-50 sm:px-6 lg:px-8 lg:py-24" id="testimonials">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16 text-center">
+        <div className="mb-16 text-center lg:mb-20">
           <h2 className="mb-6 text-4xl font-bold text-black sm:text-5xl lg:text-6xl font-inter" style={{ fontSize: '39px', letterSpacing: '-0.04em' }}>
             What My Colleagues Say
           </h2>
@@ -36,7 +36,7 @@ export default function Testimonials() {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid gap-8 mb-12 md:grid-cols-3">
+        <div className="grid gap-8 mb-16 md:grid-cols-3">
           {featuredTestimonials.map((testimonial) => (
             <div
               key={testimonial.id}
@@ -81,7 +81,7 @@ export default function Testimonials() {
         </div>
 
         {/* View All Testimonials Button */}
-        <div className="mb-16 text-center">
+        <div className="text-center">
           <Link
             href="/testimonials"
             className="inline-flex items-center px-6 py-3 text-base font-bold text-black transition-colors border-2 border-black rounded-full hover:bg-black hover:text-white font-inter"
@@ -90,21 +90,6 @@ export default function Testimonials() {
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-          </Link>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center">
-          <div className="mb-4">
-            <p className="text-lg font-medium text-black font-inter">
-              Ready to work together and create something exceptional?
-            </p>
-          </div>
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-4 text-base font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
-          >
-            Let&apos;s Collaborate
           </Link>
         </div>
       </div>

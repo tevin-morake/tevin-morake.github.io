@@ -83,10 +83,10 @@ export default function Articles() {
   };
 
   return (
-    <section className="min-h-screen px-4 py-16 bg-white sm:px-6 lg:px-8" id="blog">
+    <section className="px-4 py-20 bg-white sm:px-6 lg:px-8 lg:py-24" id="blog">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16 text-center">
+        <div className="mb-16 text-center lg:mb-20">
           <h2 className="mb-6 text-black font-inter articles-header">
             Latest Articles
           </h2>

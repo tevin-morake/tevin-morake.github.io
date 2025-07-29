@@ -20,11 +20,18 @@
   }
 }
 
+html {
+  height: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), "Inter", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, sans-serif;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 /* Ensure Inter is applied to all text elements */
@@ -80,7 +87,7 @@ body {
 
 /* Articles Section Specific Classes */
 .articles-header {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-size: 39px;
   letter-spacing: -0.04em;
   font-weight: 700;

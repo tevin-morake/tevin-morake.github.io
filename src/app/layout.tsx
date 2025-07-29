@@ -35,12 +35,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="h-full">
       <body
-        className={`${inter.variable} antialiased font-inter`}
+        className={`${inter.variable} antialiased font-inter min-h-full flex flex-col`}
       >
         <Header />
-        <div className="pt-20">{children}</div>
+        <div className="pt-20 flex-1">{children}</div>
       </body>
     </html>
   );

@@ -6,10 +6,10 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section className="min-h-screen px-4 py-16 bg-white sm:px-6 lg:px-8" id="about">
+    <section className="px-4 py-32 bg-white sm:px-6 lg:px-8 lg:py-40" id="about">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16 text-center">
+        <div className="mb-20 text-center lg:mb-24">
           <h2 className="mb-6 text-4xl font-bold text-black sm:text-5xl lg:text-6xl font-inter" style={{ fontSize: '39px', letterSpacing: '-0.04em' }}>
             {about.title}
           </h2>
@@ -18,7 +18,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid gap-16 mb-16 lg:grid-cols-2 lg:gap-24">
+        <div className="grid gap-16 mb-20 lg:grid-cols-2 lg:gap-24 lg:mb-24">
           {/* Left Column - Profile Image */}
           <div className="flex justify-center lg:justify-start">
             <div className="relative">
@@ -69,7 +69,7 @@ export default function About() {
         </div>
 
         {/* Get to Know Me Better Button */}
-        <div className="mb-16 text-center">
+        <div className="text-center">
           <Link
             href="/about"
             className="inline-flex items-center px-6 py-3 text-base font-bold text-black transition-colors border-2 border-black rounded-full hover:bg-black hover:text-white font-inter"
@@ -79,26 +79,6 @@ export default function About() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center">
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Link
-              href="/contact"
-              className="inline-block px-8 py-4 text-base font-bold text-center text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
-            >
-              Let&apos;s Work Together
-            </Link>
-            <a
-              href="/cv/tevin-morake-cv.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-8 py-4 text-base font-bold text-center text-black transition-colors bg-gray-100 rounded-full hover:bg-gray-200 font-inter"
-            >
-              Download CV
-            </a>
-          </div>
         </div>
       </div>
     </section>

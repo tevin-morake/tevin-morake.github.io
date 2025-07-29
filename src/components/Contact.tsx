@@ -5,10 +5,10 @@ import Link from "next/link";
 
 export default function Contact() {
   return (
-    <section className="min-h-screen px-4 py-16 bg-gray-50 sm:px-6 lg:px-8" id="contact">
+    <section className="px-4 py-32 bg-gray-50 sm:px-6 lg:px-8 lg:py-40" id="contact">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="mb-16 text-center">
+        <div className="mb-20 text-center lg:mb-24">
           <h2 className="mb-4 text-4xl font-bold text-black sm:text-5xl lg:text-6xl font-inter" style={{ fontSize: '39px', letterSpacing: '-0.04em' }}>
             {contact.title}
           </h2>

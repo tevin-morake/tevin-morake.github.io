@@ -5,10 +5,10 @@ import { contact } from "@/data/mockHomeData";
 
 export default function Footer() {
   return (
-    <footer className="px-4 py-16 bg-black text-white font-inter">
+    <footer className="px-4 py-8 bg-black text-white font-inter">
       <div className="max-w-6xl mx-auto">
         {/* Main Footer Content */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-8">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-6">
           {/* Left: Brand */}
           <div className="text-center md:text-left">
             <h3 className="text-2xl font-bold mb-2">Tevin Morake</h3>
@@ -55,7 +55,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom: Copyright */}
-        <div className="pt-8 border-t border-gray-800 text-center">
+        <div className="pt-6 border-t border-gray-800 text-center">
           <p className="text-gray-400 text-base">
             &copy; {new Date().getFullYear()} Tevin Morake. All rights reserved.
           </p>
