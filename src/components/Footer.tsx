@@ -5,24 +5,24 @@ import { contact } from "@/data/mockHomeData";
 
 export default function Footer() {
   return (
-    <footer className="px-4 py-8 bg-black text-white font-inter">
+    <footer className="px-4 py-8 text-white bg-black font-inter">
       <div className="max-w-6xl mx-auto">
         {/* Main Footer Content */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-6">
+        <div className="flex flex-col gap-6 mb-6 md:flex-row md:items-center md:justify-between">
           {/* Left: Brand */}
           <div className="text-center md:text-left">
-            <h3 className="text-2xl font-bold mb-2">Tevin Morake</h3>
-            <p className="text-gray-400 text-base">Senior Full-Stack Developer</p>
+            <h3 className="mb-2 text-2xl font-bold">Tevin Morake</h3>
+            <p className="text-base text-gray-400">Senior Full-Stack Developer</p>
           </div>
 
           {/* Center: Quick Nav */}
           <nav className="flex flex-wrap justify-center gap-6 text-base font-medium">
-            <Link href="/" className="hover:text-gray-300 transition-colors">Home</Link>
-            <Link href="/projects" className="hover:text-gray-300 transition-colors">Projects</Link>
-            <Link href="/articles" className="hover:text-gray-300 transition-colors">Articles</Link>
-            <Link href="/testimonials" className="hover:text-gray-300 transition-colors">Testimonials</Link>
-            <Link href="/about" className="hover:text-gray-300 transition-colors">About</Link>
-            <Link href="/contact" className="hover:text-gray-300 transition-colors">Contact</Link>
+            <Link href="/" className="transition-colors hover:text-gray-300">Home</Link>
+            <Link href="/projects" className="transition-colors hover:text-gray-300">Projects</Link>
+            <Link href="/articles" className="transition-colors hover:text-gray-300">Articles</Link>
+            <Link href="/testimonials" className="transition-colors hover:text-gray-300">Testimonials</Link>
+            <Link href="/about" className="transition-colors hover:text-gray-300">About</Link>
+            <Link href="/contact" className="transition-colors hover:text-gray-300">Contact</Link>
           </nav>
 
           {/* Right: Social Icons */}
@@ -34,7 +34,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.name}
-                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-gray-700 transition-colors"
+                className="flex items-center justify-center w-10 h-10 transition-colors bg-gray-800 rounded-full hover:bg-gray-700"
               >
                 {/* Simple SVG icons inline for accessibility */}
                 {social.icon === "linkedin" && (
@@ -56,10 +56,13 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom: Copyright */}
-        <div className="pt-6 border-t border-gray-800 text-center">
-          <p className="text-gray-400 text-base">
+        {/* Bottom: Copyright & Disclaimer */}
+        <div className="pt-6 space-y-2 text-center border-t border-gray-800">
+          <p className="text-base text-gray-400">
             &copy; {new Date().getFullYear()} Tevin Morake. All rights reserved.
+          </p>
+          <p className="text-sm text-gray-500">
+            Designed and developed by Tevin Morake
           </p>
         </div>
       </div>
