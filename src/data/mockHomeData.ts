@@ -361,7 +361,7 @@ export const articles = [
     category: "Security",
     slug: "security-best-practices-web-apps",
     featured: false,
-    image: "/blogs/web-security.jpg",
+    image: "/blogs/default.png",
   },
   {
     id: 6,
@@ -373,6 +373,6 @@ export const articles = [
     category: "Architecture",
     slug: "monolith-to-microservices-migration",
     featured: false,
-    image: "/blogs/monolith-migration.jpg",
+    image: "/blogs/default.png",
   },
 ];

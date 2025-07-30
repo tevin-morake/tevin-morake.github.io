@@ -26,11 +26,37 @@ export default function Articles() {
     });
   };
 
-  // Component for article images with fallback
-  const ArticleImage = ({ article, className = "", isFeatured = false }: { 
+  // Get category color
+  const getCategoryColor = (category: string) => {
+    const colors = {
+      'Architecture': 'bg-blue-100 text-blue-800',
+      'DevOps': 'bg-green-100 text-green-800',
+      'Database': 'bg-purple-100 text-purple-800',
+      'Technology Trends': 'bg-orange-100 text-orange-800',
+      'Security': 'bg-red-100 text-red-800',
+      'default': 'bg-gray-100 text-gray-800'
+    };
+    return colors[category as keyof typeof colors] || colors.default;
+  };
+
+  // Get related articles
+  const getRelatedArticles = (currentArticle: typeof articles[0]) => {
+    return articles
+      .filter(article => 
+        article.id !== currentArticle.id && 
+        article.category === currentArticle.category
+      )
+      .slice(0, 2);
+  };
+
+  const ArticleImage = ({ 
+    article, 
+    className = "", 
+    isFeatured = false
+  }: { 
     article: typeof articles[0], 
     className?: string,
-    isFeatured?: boolean 
+    isFeatured?: boolean
   }) => {
     const [imageError, setImageError] = useState(false);
 
@@ -45,6 +71,14 @@ export default function Articles() {
               </span>
             </div>
           )}
+          
+          {/* Category Badge */}
+          <div className="absolute z-10 top-4 right-4">
+            <span className={`px-2 py-1 text-xs font-medium rounded-full ${getCategoryColor(article.category)}`}>
+              {article.category}
+            </span>
+          </div>
+
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
               <div className={`flex items-center justify-center mx-auto mb-4 bg-white rounded-full shadow-sm ${isFeatured ? 'w-20 h-20' : 'w-16 h-16'}`}>
@@ -62,7 +96,7 @@ export default function Articles() {
     }
 
     return (
-      <div className={`relative overflow-hidden ${className}`}>
+      <div className={`relative overflow-hidden ${className} group`}>
         {isFeatured && (
           <div className="absolute z-10 top-4 left-4">
             <span className="px-3 py-1 text-xs font-bold text-white bg-black rounded-full font-inter">
@@ -70,13 +104,24 @@ export default function Articles() {
             </span>
           </div>
         )}
+        
+        {/* Category Badge */}
+        <div className="absolute z-10 top-4 right-4">
+          <span className={`px-2 py-1 text-xs font-medium rounded-full ${getCategoryColor(article.category)}`}>
+            {article.category}
+          </span>
+        </div>
+
         <Image
           src={article.image}
           alt={article.title}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
+            article.image.includes('/blogs/default.png') ? 'grayscale group-hover:grayscale-0' : ''
+          }`}
           onError={() => setImageError(true)}
           priority={isFeatured}
+          loading={isFeatured ? "eager" : "lazy"}
         />
       </div>
     );
@@ -97,7 +142,7 @@ export default function Articles() {
         </div>
 
         {/* Featured Article */}
-        <article className="mb-12 overflow-hidden transition-all duration-300 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:border-gray-200">
+        <article className="mb-12 overflow-hidden transition-all duration-300 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:border-gray-200 group">
           <div className="md:flex">
             {/* Featured Article Image */}
             <div className="md:w-1/2">
@@ -108,99 +153,148 @@ export default function Articles() {
               />
             </div>
 
-            {/* Featured Article Content */}
-            <div className="p-8 md:w-1/2">
-              {/* Article Meta */}
-              <div className="flex items-center justify-between mb-4 text-sm font-medium font-inter text-muted">
-                <span>{formatDate(latestFeatured.publishedDate)}</span>
-                <span>{latestFeatured.readTime}</span>
-              </div>
+                {/* Featured Article Content */}
+                <div className="p-8 md:w-1/2">
+                  {/* Article Meta */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-sm font-medium text-muted font-inter">
+                      {formatDate(latestFeatured.publishedDate)}
+                    </span>
+                    <span className="text-sm font-medium text-muted font-inter">
+                      {latestFeatured.readTime}
+                    </span>
+                  </div>
 
-              {/* Article Title */}
-              <h3 className="mb-4 text-3xl font-bold text-black font-inter">
-                {latestFeatured.title}
-              </h3>
+                  {/* Article Title */}
+                  <h3 className="mb-4 text-3xl font-bold text-black transition-colors font-inter group-hover:text-gray-700">
+                    {latestFeatured.title}
+                  </h3>
 
-              {/* Article Excerpt */}
-              <p className="mb-6 text-lg font-normal leading-relaxed font-inter text-muted">
-                {latestFeatured.excerpt}
-              </p>
-              
-              {/* Read More Link */}
-              <a
-                href={`/articles/${latestFeatured.slug}`}
-                className="inline-flex items-center text-base font-bold text-black transition-colors hover:text-gray-700 font-inter"
-              >
-                Read Article
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-            </div>
-          </div>
-        </article>
+                  {/* Article Excerpt */}
+                  <p className="mb-6 text-lg font-normal leading-relaxed font-inter text-muted">
+                    {latestFeatured.excerpt}
+                  </p>
 
-        {/* Recent Articles Grid */}
-        <div className="grid gap-8 mb-12 md:grid-cols-3">
-          {recentArticles.map((article) => (
-            <article
-              key={article.id}
-              className="overflow-hidden transition-all duration-300 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:border-gray-200 group"
-            >
-              {/* Article Image */}
-              <ArticleImage 
-                article={article} 
-                className="aspect-[4/3]"
-                isFeatured={false}
-              />
-
-              {/* Article Content */}
-              <div className="p-6">
-                {/* Article Meta */}
-                <div className="flex items-center justify-between mb-3 text-sm font-medium font-inter text-muted">
-                  <span>{formatDate(article.publishedDate)}</span>
-                  <span>{article.readTime}</span>
+                  {/* Author Info */}
+                  <div className="flex items-center mb-6 space-x-3">
+                    <div className="flex items-center justify-center w-10 h-10 bg-gray-200 rounded-full">
+                      <span className="text-sm font-bold text-gray-600">TM</span>
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-black">Tevin Morake</p>
+                      <p className="text-xs text-gray-500">Senior Full-Stack Developer</p>
+                    </div>
+                  </div>
+                  
+                  {/* Read More Link */}
+                  <a
+                    href={`/articles/${latestFeatured.slug}`}
+                    className="inline-flex items-center text-base font-bold text-black transition-colors hover:text-gray-700 font-inter"
+                  >
+                    Read Article
+                    <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </a>
                 </div>
-
-                {/* Article Title */}
-                <h3 className="mb-3 text-xl font-bold text-black font-inter">
-                  {article.title}
-                </h3>
-
-                {/* Article Excerpt */}
-                <p className="mb-4 text-base font-normal leading-relaxed font-inter text-muted">
-                  {article.excerpt}
-                </p>
-                
-                {/* Read More Link */}
-                <a
-                  href={`/articles/${article.slug}`}
-                  className="inline-flex items-center text-sm font-bold text-black transition-colors hover:text-gray-700 font-inter"
-                >
-                  Read Article
-                  <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
               </div>
             </article>
-          ))}
-        </div>
+
+            {/* Recent Articles Grid */}
+            <div className="grid gap-8 mb-12 md:grid-cols-3">
+              {recentArticles.map((article, index) => (
+                <article
+                  key={article.id}
+                  className="overflow-hidden transition-all duration-300 bg-white border border-gray-100 rounded-2xl hover:shadow-xl hover:border-gray-200 group"
+                  style={{
+                    animationDelay: `${index * 100}ms`,
+                    animation: 'fadeInUp 0.6s ease-out forwards'
+                  }}
+                >
+                  {/* Article Image */}
+                  <ArticleImage 
+                    article={article} 
+                    className="aspect-[4/3]"
+                    isFeatured={false}
+                  />
+
+                  {/* Article Content */}
+                  <div className="p-6">
+                    {/* Article Meta */}
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-sm font-medium font-inter text-muted">
+                        {formatDate(article.publishedDate)}
+                      </span>
+                      <span className="text-sm font-medium font-inter text-muted">
+                        {article.readTime}
+                      </span>
+                    </div>
+
+                    {/* Article Title */}
+                    <h3 className="mb-3 text-xl font-bold text-black transition-colors font-inter group-hover:text-gray-700">
+                      {article.title}
+                    </h3>
+
+                    {/* Article Excerpt */}
+                    <p className="mb-4 text-base font-normal leading-relaxed font-inter text-muted">
+                      {article.excerpt}
+                    </p>
+
+                    {/* Author Info */}
+                    <div className="flex items-center mb-4 space-x-3">
+                      <div className="flex items-center justify-center w-8 h-8 bg-gray-200 rounded-full">
+                        <span className="text-xs font-bold text-gray-600">TM</span>
+                      </div>
+                      <div>
+                        <p className="text-xs font-medium text-black">Tevin Morake</p>
+                      </div>
+                    </div>
+                    
+                    {/* Read More Link */}
+                    <a
+                      href={`/articles/${article.slug}`}
+                      className="inline-flex items-center text-sm font-bold text-black transition-colors hover:text-gray-700 font-inter"
+                    >
+                      Read Article
+                      <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+
+                    {/* Related Articles */}
+                    {getRelatedArticles(article).length > 0 && (
+                      <div className="pt-4 mt-4 border-t border-gray-100">
+                        <p className="mb-2 text-xs font-medium text-gray-500">Related:</p>
+                        <div className="space-y-1">
+                          {getRelatedArticles(article).map((relatedArticle) => (
+                            <a
+                              key={relatedArticle.id}
+                              href={`/articles/${relatedArticle.slug}`}
+                              className="block text-xs text-gray-600 truncate transition-colors hover:text-black"
+                            >
+                              {relatedArticle.title}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
 
         {/* View All Articles Button */}
         <div className="mb-12 text-center">
           <Link
             href="/articles"
-            className="inline-flex items-center px-6 py-3 text-base font-bold text-black transition-colors border-2 border-black rounded-full hover:bg-black hover:text-white font-inter"
+            className="inline-flex items-center px-6 py-3 text-base font-bold text-black transition-all duration-300 border-2 border-black rounded-full hover:bg-black hover:text-white hover:scale-105 font-inter focus:ring-4 focus:ring-black/20"
           >
             View all articles
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
         </div>
-
-
       </div>
     </section>
   );
