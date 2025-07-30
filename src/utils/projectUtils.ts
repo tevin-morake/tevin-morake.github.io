@@ -7,37 +7,41 @@
  * @param sortOrder - Sort direction
  * @returns Sorted projects array
  */
-export const sortProjects = <T extends { 
-  name: string; 
-  completedDate?: string; 
-  category?: string; 
-  status?: string 
-}>(
+export const sortProjects = <
+  T extends {
+    name: string;
+    completedDate?: string;
+    category?: string;
+    status?: string;
+  }
+>(
   projects: T[],
-  sortBy: 'name' | 'category' | 'status' | 'completedDate',
-  sortOrder: 'asc' | 'desc' = 'desc'
+  sortBy: "name" | "category" | "status" | "completedDate",
+  sortOrder: "asc" | "desc" = "desc"
 ): T[] => {
   return [...projects].sort((a, b) => {
     let comparison = 0;
-    
+
     switch (sortBy) {
-      case 'name':
+      case "name":
         comparison = a.name.localeCompare(b.name);
         break;
-      case 'category':
-        comparison = (a.category || '').localeCompare(b.category || '');
+      case "category":
+        comparison = (a.category || "").localeCompare(b.category || "");
         break;
-      case 'status':
-        comparison = (a.status || '').localeCompare(b.status || '');
+      case "status":
+        comparison = (a.status || "").localeCompare(b.status || "");
         break;
-      case 'completedDate':
-        comparison = new Date(a.completedDate || '').getTime() - new Date(b.completedDate || '').getTime();
+      case "completedDate":
+        comparison =
+          new Date(a.completedDate || "").getTime() -
+          new Date(b.completedDate || "").getTime();
         break;
       default:
         return 0;
     }
-    
-    return sortOrder === 'asc' ? comparison : -comparison;
+
+    return sortOrder === "asc" ? comparison : -comparison;
   });
 };
 
@@ -47,13 +51,15 @@ export const sortProjects = <T extends {
  * @param filters - Filter criteria
  * @returns Filtered projects array
  */
-export const filterProjects = <T extends { 
-  name: string; 
-  description: string;
-  category?: string; 
-  status?: string;
-  technologies?: string[];
-}>(
+export const filterProjects = <
+  T extends {
+    name: string;
+    description: string;
+    category?: string;
+    status?: string;
+    technologies?: string[];
+  }
+>(
   projects: T[],
   filters: {
     category?: string;
@@ -61,32 +67,38 @@ export const filterProjects = <T extends {
     searchTerm?: string;
   }
 ): T[] => {
-  return projects.filter(project => {
+  return projects.filter((project) => {
     // Category filter
     if (filters.category && project.category !== filters.category) {
       return false;
     }
-    
+
     // Status filter
-    if (filters.status && filters.status !== 'all' && project.status !== filters.status) {
+    if (
+      filters.status &&
+      filters.status !== "all" &&
+      project.status !== filters.status
+    ) {
       return false;
     }
-    
+
     // Search term filter
     if (filters.searchTerm && filters.searchTerm.trim()) {
       const searchTerm = filters.searchTerm.toLowerCase().trim();
       const searchableText = [
         project.name,
         project.description,
-        project.category || '',
-        ...(project.technologies || [])
-      ].join(' ').toLowerCase();
-      
+        project.category || "",
+        ...(project.technologies || []),
+      ]
+        .join(" ")
+        .toLowerCase();
+
       if (!searchableText.includes(searchTerm)) {
         return false;
       }
     }
-    
+
     return true;
   });
 };
@@ -102,11 +114,12 @@ export const getUniqueProjectValues = <T extends Record<string, unknown>>(
   field: keyof T
 ): string[] => {
   const values = projects
-    .map(item => item[field])
-    .filter((value): value is T[keyof T] & string => 
-      Boolean(value) && typeof value === 'string'
+    .map((item) => item[field])
+    .filter(
+      (value): value is T[keyof T] & string =>
+        Boolean(value) && typeof value === "string"
     ) as string[];
-    
+
   return [...new Set(values)].sort();
 };
 
@@ -118,30 +131,30 @@ export const getUniqueProjectValues = <T extends Record<string, unknown>>(
  */
 export const formatProjectDate = (
   dateString: string,
-  format: 'year' | 'short' | 'long' = 'year'
+  format: "year" | "short" | "long" = "year"
 ): string => {
   try {
     const date = new Date(dateString);
-    
+
     if (isNaN(date.getTime())) {
       return "TBD";
     }
-    
-    if (format === 'year') {
+
+    if (format === "year") {
       return date.getFullYear().toString();
     }
-    
-    if (format === 'long') {
-      return date.toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
+
+    if (format === "long") {
+      return date.toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
       });
     }
-    
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short'
+
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
     });
   } catch {
     return "TBD";
@@ -155,20 +168,20 @@ export const formatProjectDate = (
  */
 export const getProjectStatusDisplay = (status?: string) => {
   switch (status) {
-    case 'completed':
+    case "completed":
       return {
-        label: 'Completed',
-        className: 'bg-green-100 text-green-800'
+        label: "Completed",
+        className: "bg-green-100 text-green-800",
       };
-    case 'in-progress':
+    case "in-progress":
       return {
-        label: 'In Progress',
-        className: 'bg-blue-100 text-blue-800'
+        label: "In Progress",
+        className: "bg-blue-100 text-blue-800",
       };
     default:
       return {
-        label: 'Unknown',
-        className: 'bg-gray-100 text-gray-800'
+        label: "Unknown",
+        className: "bg-gray-100 text-gray-800",
       };
   }
 };
@@ -186,13 +199,13 @@ export const truncateProjectDescription = (
   if (description.length <= maxLength) {
     return description;
   }
-  
+
   const truncated = description.slice(0, maxLength);
-  const lastSpaceIndex = truncated.lastIndexOf(' ');
-  
+  const lastSpaceIndex = truncated.lastIndexOf(" ");
+
   if (lastSpaceIndex > maxLength * 0.8) {
-    return truncated.slice(0, lastSpaceIndex) + '...';
+    return truncated.slice(0, lastSpaceIndex) + "...";
   }
-  
-  return truncated + '...';
+
+  return truncated + "...";
 };

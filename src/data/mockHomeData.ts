@@ -13,6 +13,27 @@ export const hero = {
 
 export const projects = [
   {
+    id: 7,
+    name: "Portfolio Website",
+    description:
+      "Modern portfolio website built with Next.js 14, featuring responsive design, advanced filtering, testimonials management, and optimized performance. Showcases full-stack development capabilities with TypeScript and Tailwind CSS.",
+    link: "https://tevin-morake.github.io",
+    github: "https://github.com/tevin-morake/tevin-morake.github.io",
+    image: "/projects/portfolio.png",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "React"],
+    technologies: [
+      "Next.js 14",
+      "TypeScript",
+      "Tailwind CSS",
+      "React",
+      "ESLint",
+      "Vercel",
+    ],
+    category: "Full-Stack",
+    status: "completed",
+    completedDate: "2025-07-30",
+  },
+  {
     id: 1,
     name: "E-Commerce Platform",
     description:

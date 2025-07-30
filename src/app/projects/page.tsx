@@ -228,7 +228,9 @@ export default function ProjectsPage() {
                     src={project.image}
                     alt={project.name}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className={`object-cover transition-all duration-500 group-hover:scale-110 ${
+                      project.name === 'Portfolio Website' ? 'blur-[4px] group-hover:blur-none' : ''
+                    }`}
                     priority={index < 6}
                   />
                   {/* Enhanced Gradient Overlay */}

@@ -27,7 +27,7 @@ export default function Work() {
           {featuredProjects.map((project, index) => (
             <div
               key={project.id}
-              className="relative overflow-hidden transition-all duration-500 group bg-white border border-gray-100 rounded-2xl hover:shadow-2xl hover:border-gray-200 hover:-translate-y-2"
+              className="relative overflow-hidden transition-all duration-500 bg-white border border-gray-100 group rounded-2xl hover:shadow-2xl hover:border-gray-200 hover:-translate-y-2"
             >
               {/* Project Image with Enhanced Overlay */}
               <div className="aspect-[4/3] relative overflow-hidden">
@@ -35,19 +35,21 @@ export default function Work() {
                   src={project.image}
                   alt={project.name}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className={`object-cover transition-all duration-500 group-hover:scale-110 ${
+                    project.name === 'Portfolio Website' ? 'blur-[4px] group-hover:blur-none' : ''
+                  }`}
                   priority={index < 3}
                 />
                 {/* Enhanced Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent group-hover:opacity-100" />
                 
                 {/* Floating Action Buttons */}
-                <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                <div className="absolute flex gap-2 transition-all duration-300 transform translate-y-2 opacity-0 top-4 right-4 group-hover:opacity-100 group-hover:translate-y-0">
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                    className="p-2 transition-colors rounded-full bg-white/90 backdrop-blur-sm hover:bg-white"
                     title="View Live Project"
                   >
                     <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,7 +61,7 @@ export default function Work() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-colors"
+                      className="p-2 transition-colors rounded-full bg-white/90 backdrop-blur-sm hover:bg-white"
                       title="View Source Code"
                     >
                       <svg className="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 24 24">
@@ -71,15 +73,15 @@ export default function Work() {
 
                 {/* Project Category Badge */}
                 {project.category && (
-                  <div className="absolute top-4 left-4 px-3 py-1 bg-black/80 backdrop-blur-sm text-white text-xs font-medium rounded-full">
+                  <div className="absolute px-3 py-1 text-xs font-medium text-white rounded-full top-4 left-4 bg-black/80 backdrop-blur-sm">
                     {project.category}
                   </div>
                 )}
 
                 {/* Quick View Overlay */}
-                <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
+                <div className="absolute transition-all duration-300 transform translate-y-4 opacity-0 bottom-4 left-4 right-4 group-hover:opacity-100 group-hover:translate-y-0">
                   <div className="text-white">
-                    <h4 className="font-bold text-lg mb-1">{project.name}</h4>
+                    <h4 className="mb-1 text-lg font-bold">{project.name}</h4>
                     <p className="text-sm text-white/90 line-clamp-2">{project.description}</p>
                   </div>
                 </div>
@@ -113,7 +115,7 @@ export default function Work() {
                       {project.technologies.slice(0, 3).map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-md"
+                          className="px-2 py-1 text-xs font-medium text-gray-700 bg-gray-100 rounded-md"
                         >
                           {tech}
                         </span>
@@ -155,10 +157,10 @@ export default function Work() {
         {/* Enhanced View All Projects Button */}
         <div className="mt-16 text-center">
           <div className="inline-flex flex-col items-center gap-4">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+            <div className="w-24 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
             <Link
               href="/projects"
-              className="group inline-flex items-center px-8 py-4 text-base font-bold text-black transition-all duration-300 border-2 border-black rounded-full hover:bg-black hover:text-white hover:shadow-lg hover:scale-105 font-inter"
+              className="inline-flex items-center px-8 py-4 text-base font-bold text-black transition-all duration-300 border-2 border-black rounded-full group hover:bg-black hover:text-white hover:shadow-lg hover:scale-105 font-inter"
             >
               View all my projects
               <svg className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
