@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { contact } from "@/data/mockHomeData";
+import Footer from "@/components/Footer";
 
 export default function ContactPage() {
   const [activeTab, setActiveTab] = useState<"contact" | "booking">("contact");
@@ -420,6 +421,9 @@ export default function ContactPage() {
           )}
         </div>
       </section>
+      
+      {/* Footer */}
+      <Footer />
     </main>
   );
 }
