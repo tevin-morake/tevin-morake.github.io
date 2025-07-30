@@ -224,12 +224,13 @@ body {
 .quote-highlight {
   background: linear-gradient(
     120deg,
-    rgba(255, 193, 7, 0.2) 0%,
-    rgba(255, 193, 7, 0.2) 100%
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.1) 100%
   );
   padding: 2px 4px;
   border-radius: 3px;
   font-weight: 600;
+  color: #000;
 }
 
 .quote-marks {
@@ -245,7 +246,7 @@ body {
 }
 
 .star {
-  color: #fbbf24;
+  color: #000;
   font-size: 16px;
 }
 
@@ -257,7 +258,7 @@ body {
 
 .modal-overlay {
   backdrop-filter: blur(8px);
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .linkedin-preview {
