@@ -75,7 +75,7 @@ export const projects = [
       "HIPAA-compliant patient management system with appointment scheduling, medical records, and telemedicine capabilities.",
     link: "https://github.com/tevin-morake/healthcare-portal",
     github: "https://github.com/tevin-morake/healthcare-portal",
-    image: "/projects/healthcare.jpg",
+    image: "/projects/default.png",
     tech: ["Vue.js", "Laravel", "MySQL", "WebRTC"],
     technologies: ["Vue.js", "Laravel", "MySQL", "WebRTC", "Socket.io", "AWS"],
     category: "Healthcare",
@@ -88,8 +88,20 @@ export const projects = [
     description:
       "Cross-platform mobile banking application with biometric authentication, transaction history, and budget tracking features.",
     link: "https://github.com/tevin-morake/mobile-banking",
-    image: "/projects/banking.jpg",
+    github: "https://github.com/tevin-morake/mobile-banking",
+    image: "/projects/default.png",
     tech: ["React Native", "Node.js", "MongoDB", "JWT"],
+    technologies: [
+      "React Native",
+      "Node.js",
+      "MongoDB",
+      "JWT",
+      "Firebase",
+      "Stripe",
+    ],
+    category: "Mobile",
+    status: "completed",
+    completedDate: "2024-04-25",
   },
   {
     id: 6,
@@ -97,8 +109,20 @@ export const projects = [
     description:
       "Machine learning-powered content creation tool with natural language processing and automated SEO optimization.",
     link: "https://github.com/tevin-morake/ai-content-generator",
-    image: "/projects/ai-content.jpg",
+    github: "https://github.com/tevin-morake/ai-content-generator",
+    image: "/projects/default.png",
     tech: ["Python", "TensorFlow", "FastAPI", "React"],
+    technologies: [
+      "Python",
+      "TensorFlow",
+      "FastAPI",
+      "React",
+      "OpenAI",
+      "Redis",
+    ],
+    category: "AI/ML",
+    status: "in-progress",
+    completedDate: "2024-07-15",
   },
 ];
 
