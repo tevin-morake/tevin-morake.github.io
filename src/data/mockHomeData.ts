@@ -1,5 +1,7 @@
 // Example mock data for the homepage. Replace with API data in the future.
 
+import { link } from "fs";
+
 export const hero = {
   title: "Pragmatic Solutions. For complex digital problems.",
   subtitle: "Senior full-stack architect connecting vision to technology.",
@@ -132,47 +134,87 @@ export const contact = {
 export const testimonials = [
   {
     id: 1,
-    name: "A. Du Plessis",
-    title: "Senior Product Owner",
-    company: "",
-    avatar: "/avatars/sarah.jpg",
+    name: "Kgaogelo Thorn Manganye",
+    title: "Frontend Developer",
+    company: "Swipe iX",
+    avatar: "/testimonials/thorn.png",
+    linkedin: "https://www.linkedin.com/in/kgaogelo-thorn-manganye-2b2695a0/",
     quote:
-      "Tevin's technical intuition is matched only by his ability to bring people together around a vision.",
+      "I’ve worked with Tev and honestly, he’s one of those rare full stack devs who just gets it. Super sharp, always learning, and genuinely excited about building great things. Whether it’s frontend finesse or backend logic, he handles it with ease. On top of that, he’s a great teammate and an even better human. Any team would be lucky to have him.",
     rating: 5,
     project: "Team Leadership",
   },
   {
     id: 2,
-    name: "M. Mahlangu",
-    title: "Tech Lead",
-    company: "",
-    avatar: "/avatars/marcus.jpg",
+    name: "Gerrit Vermeulen",
+    title: "Snr. Backend Developer",
+    company: "Swipe iX",
+    avatar: "/testimonials/gerrit.jpg",
+    linkedin: "https://www.linkedin.com/in/gerrit-vermeulen-6171141b/",
     quote:
-      "A digital architect who turns complexity into clarity. Partnering with Tevin is always transformative.",
+      "I had the pleasure of working with Tevin Morake and it was honestly lekker from start to finish. Tevin has a great mind for problem-solving and our collaboration, especially around Laravel, was not only productive but also a solid opportunity for mutual skill-sharing. We had plenty of thought-provoking chats about AI and how it's changing the world. Tevin also shared valuable insights into AWS services, and it's clear he has a strong understanding of cloud infrastructure and scalable systems. If you're looking for someone who's sharp, collaborative, and always curious about the latest in tech, Tevin is a great choice.",
     rating: 5,
     project: "System Architecture",
   },
   {
     id: 3,
-    name: "L. Ndlovu",
-    title: "Engineering Manager",
-    company: "",
-    avatar: "/avatars/emily.jpg",
+    name: "Beston Mawarire",
+    title: "Snr. Software Developer",
+    company: "Rapidtrade",
+    avatar: "/testimonials/beston.webp",
+    linkedin: "https://www.linkedin.com/in/beston-mawarire-b52507137",
     quote:
-      "His code is clean, his thinking precise, and his results consistently exceed expectations.",
+      "Tevin is a diligent, hardworking, and skilled team lead and developer. He was both a close friend and mentor to me during the time we worked together. We worked on medium to large-scale projects together which were mostly led by him. Tevin’s ability to manage difficult customers and high-pressure situations was a major part of our success in delivering well-developed software. He also knows how to manage expectations. I highly recommend Tevin. He learns fast, produces quality work and is great with people.",
     rating: 5,
-    project: "Code Quality",
+    project: "Leadership & Mentorship",
   },
   {
     id: 4,
-    name: "N. Dlamini",
-    title: "CTO",
-    company: "",
-    avatar: "/avatars/david.jpg",
+    name: "Gareth Hinde",
+    title: "Solutions Architect",
+    company: "Swipe iX",
+    avatar: "/testimonials/gareth.jpeg",
+    linkedin: "https://www.linkedin.com/in/gareth-hinde",
     quote:
-      "Strategic, thoughtful, and honest — exactly what you want in a senior engineer.",
+      "Tevin has been a joy to work with. There are very few developers that have passion for their craft and Tevin is one of them. Eager to learn and grow, and always surprises with his insight and problem solving skills. Team player and always engaged with any task or project that he tackles. If he were a Springbok, he'd always be in my starting line-up.",
     rating: 5,
-    project: "Technical Strategy",
+    project: "Insightful & Collaborative",
+  },
+  {
+    id: 5,
+    name: "Lucien Oppel",
+    title: "Senior UX & UI Designer",
+    company: "Media24",
+    avatar: "/testimonials/lucien.jpg",
+    linkedin: "https://www.linkedin.com/in/lucien-oppel",
+    quote:
+      "I had the pleasure of working with Tevin at a digital agency where we collaborated on multiple software solutions. As a backend developer, Tevin is highly detail-oriented and methodical, not only in his coding but also in his approach to product development. He has a strong understanding of backend dependencies and consistently bridges the gap between design and development with ease. His insight into how designs translate into scalable backend solutions made collaboration smooth and effective. Tevin is always willing to support across teams and brings a thoughtful, collaborative energy to every project. He communicates clearly and adapts his message depending on who is in the room, whether it’s designers, developers, or stakeholders. He has also successfully integrated AI tools into his workflows, contributing to the delivery of innovative, forward-thinking products. Tevin is a strong technical contributor with great leadership and mentoring qualities.",
+    rating: 5,
+    project: "Bridge-Builder",
+  },
+  {
+    id: 6,
+    name: "Mariska Pottas",
+    title: "Digital Project Manager",
+    company: "Swipe iX",
+    avatar: "/testimonials/mariska.jpg",
+    linkedin: "https://www.linkedin.com/in/mariska-pottas-8912a9a9/",
+    quote:
+      "Tevin is an incredibly dedicated and talented developer who brings both share technical skills and a strong understanding of the clients needs.  What stands out most is his ability to see the bigger picture - he doesn't just build what is asked for, he thinks ahead and asks the right questions.  He offers thoughtful solutions that truly make a difference.  He's a reliable teammate and absolute pleasure to work with - his contributions have had a real positive impact on all projects he has touched.",
+    rating: 5,
+    project: "Client-Centric & Dedicated",
+  },
+  {
+    id: 7,
+    name: "Zacharia Manyoni",
+    title: "DevSecOps Engineer",
+    company: "Accenture",
+    avatar: "/testimonials/zakes.jpg",
+    linkedin: "https://www.linkedin.com/in/zmanyoni",
+    quote:
+      "I've worked alongside Bob at Old Mutual Iwyze. During my tenure, he mostly worked on application support and adding enhancements to our already existing codebase. He took ownership of work the he drove over the line and rose to the occasion when he had to perform hotfixes and ad-hoc deployments in the event that there were anomalies in our application. What stood out for me the most is how Tevin was always accountable for his work and being the go-to person when there were some grey areas. I'm confident that Bob would be a great asset to any team that he joins!",
+    rating: 5,
+    project: "Accountable & Proactive",
   },
 ];
 
