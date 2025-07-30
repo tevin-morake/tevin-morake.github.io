@@ -147,7 +147,7 @@ export default function TestimonialsPage() {
             </div>
 
             {/* Project Filter Pills */}
-            <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+            {/* <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
               <button
                 onClick={() => setFilters(prev => ({ ...prev, project: '' }))}
                 className={`px-4 py-2 text-sm font-medium rounded-full transition-all font-inter ${
@@ -171,14 +171,14 @@ export default function TestimonialsPage() {
                   {project}
                 </button>
               ))}
-            </div>
+            </div> */}
 
             {/* Sort Controls & Results */}
             <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-gray-200">
               <div className="flex items-center gap-3">
                 <span className="text-sm font-medium text-gray-600 font-inter">Sort by:</span>
                 <div className="flex items-center gap-2">
-                  {(['created_at', 'name', 'company', 'project'] as SortField[]).map(field => (
+                  {(['created_at', 'name', 'company', /* 'project' */] as SortField[]).map(field => (
                     <button
                       key={field}
                       onClick={() => setSortField(field)}
@@ -193,7 +193,7 @@ export default function TestimonialsPage() {
                   ))}
                   <button
                     onClick={() => setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc')}
-                    className="p-2 text-gray-600 rounded-lg hover:bg-gray-100 transition-all font-inter"
+                    className="p-2 text-gray-600 transition-all rounded-lg hover:bg-gray-100 font-inter"
                     title={`Sort ${sortOrder === 'asc' ? 'Descending' : 'Ascending'}`}
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -214,7 +214,7 @@ export default function TestimonialsPage() {
                 {(filters.company || filters.project || sortField !== 'created_at' || sortOrder !== 'desc') && (
                   <button
                     onClick={clearFilters}
-                    className="text-sm font-medium text-gray-600 hover:text-black transition-colors font-inter"
+                    className="text-sm font-medium text-gray-600 transition-colors hover:text-black font-inter"
                   >
                     Reset filters
                   </button>
@@ -232,7 +232,7 @@ export default function TestimonialsPage() {
               >
                 <div className="relative flex flex-col justify-between h-full p-8 bg-white border border-gray-100 testimonial-card testimonial-entrance rounded-2xl hover:border-gray-200">
                   {/* Quote */}
-                  <div className="relative mb-6 flex-1">
+                  <div className="relative flex-1 mb-6">
                     {(() => {
                       const { truncated, needsTruncation } = truncateText(testimonial.quote);
                       const normalizedText = normalizeTextLength(needsTruncation ? truncated : testimonial.quote, 150);
