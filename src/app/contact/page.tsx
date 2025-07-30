@@ -12,6 +12,11 @@ export default function ContactPage() {
     subject: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+
+  const maxMessageLength = 500;
+  const messageLength = formData.message.length;
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -21,11 +26,36 @@ export default function ContactPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    // Reset form or show success message
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    
+    try {
+      // Simulate API call
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Handle form submission here
+      console.log("Form submitted:", formData);
+      setSubmitStatus("success");
+      
+      // Reset form after successful submission
+      setTimeout(() => {
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          subject: "",
+          message: "",
+        });
+        setSubmitStatus("idle");
+      }, 3000);
+    } catch (error) {
+      console.error("Submission error:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const getSocialIcon = (iconName: string) => {
@@ -112,16 +142,22 @@ export default function ContactPage() {
                   <h3 className="mb-4 text-2xl font-bold text-black font-inter">
                     Send Me a Message
                   </h3>
-                  <p className="text-lg font-normal font-inter" style={{ color: '#999999', fontWeight: 500, letterSpacing: '-0.04em' }}>
+                  <p className="text-lg font-normal font-inter form-description">
                     Whether you have a project in mind, need technical consultation, or just want to say hello, 
-                    I&apos;d love to hear from you. I typically respond within 24 hours.
+                    I&apos;d love to hear from you.
                   </p>
+                  <div className="response-time-badge">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
+                    </svg>
+                    Typically respond within 24 hours
+                  </div>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid gap-6 md:grid-cols-2">
                     <div>
-                      <label htmlFor="name" className="block mb-2 text-sm font-bold text-black font-inter">
+                      <label htmlFor="name" className="block form-label font-inter">
                         Full Name *
                       </label>
                       <input
@@ -131,13 +167,14 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter placeholder-muted focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                        className="w-full px-4 py-3 text-base rounded-xl font-inter form-input placeholder-muted focus:outline-none"
                         placeholder="Your full name"
+                        disabled={isSubmitting}
                       />
                     </div>
                     
                     <div>
-                      <label htmlFor="email" className="block mb-2 text-sm font-bold text-black font-inter">
+                      <label htmlFor="email" className="block form-label font-inter">
                         Email Address *
                       </label>
                       <input
@@ -147,15 +184,16 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter placeholder-muted focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                        className="w-full px-4 py-3 text-base rounded-xl font-inter form-input placeholder-muted focus:outline-none"
                         placeholder="your.email@example.com"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
 
                   <div className="grid gap-6 md:grid-cols-2">
                     <div>
-                      <label htmlFor="company" className="block mb-2 text-sm font-bold text-black font-inter">
+                      <label htmlFor="company" className="block form-label font-inter">
                         Company/Organization
                       </label>
                       <input
@@ -164,13 +202,14 @@ export default function ContactPage() {
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter placeholder-muted focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                        className="w-full px-4 py-3 text-base rounded-xl font-inter form-input placeholder-muted focus:outline-none"
                         placeholder="Your company or organization"
+                        disabled={isSubmitting}
                       />
                     </div>
                     
                     <div>
-                      <label htmlFor="subject" className="block mb-2 text-sm font-bold text-black font-inter">
+                      <label htmlFor="subject" className="block form-label font-inter">
                         Subject *
                       </label>
                       <input
@@ -180,14 +219,15 @@ export default function ContactPage() {
                         required
                         value={formData.subject}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter placeholder-muted focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                        className="w-full px-4 py-3 text-base rounded-xl font-inter form-input placeholder-muted focus:outline-none"
                         placeholder="What's this about?"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block mb-2 text-sm font-bold text-black font-inter">
+                    <label htmlFor="message" className="block form-label font-inter">
                       Message *
                     </label>
                     <textarea
@@ -197,18 +237,57 @@ export default function ContactPage() {
                       rows={6}
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 text-base border border-gray-200 resize-none rounded-xl font-inter placeholder-muted focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                      className="w-full px-4 py-3 text-base resize-none rounded-xl font-inter form-input placeholder-muted focus:outline-none"
                       placeholder="Tell me about your project, ideas, or how we can work together..."
+                      maxLength={maxMessageLength}
+                      disabled={isSubmitting}
                     />
+                    <div className={`character-count ${messageLength > maxMessageLength * 0.9 ? messageLength >= maxMessageLength ? 'error' : 'warning' : ''}`}>
+                      {messageLength}/{maxMessageLength} characters
+                    </div>
                   </div>
 
                   <div className="text-center">
                     <button
                       type="submit"
-                      className="inline-block px-12 py-4 text-base font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
+                      disabled={isSubmitting || messageLength > maxMessageLength}
+                      className={`inline-flex items-center gap-2 px-12 py-4 text-base font-bold rounded-full font-inter transition-all duration-200 ${
+                        isSubmitting || messageLength > maxMessageLength
+                          ? 'bg-gray-400 text-gray-600 cursor-not-allowed'
+                          : submitStatus === 'success'
+                          ? 'bg-green-600 text-white hover:bg-green-700'
+                          : 'bg-black text-white hover:bg-gray-800 hover:scale-105'
+                      }`}
                     >
-                      Send Message
+                      {isSubmitting ? (
+                        <>
+                          <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"/>
+                          </svg>
+                          Sending...
+                        </>
+                      ) : submitStatus === 'success' ? (
+                        <>
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
+                          </svg>
+                          Message Sent!
+                        </>
+                      ) : (
+                        'Send Message'
+                      )}
                     </button>
+                    
+                    {submitStatus === 'error' && (
+                      <p className="mt-4 text-sm text-red-600 font-inter">
+                        There was an error sending your message. Please try again.
+                      </p>
+                    )}
+                    
+                    <p className="privacy-note font-inter">
+                      Your information is secure and will never be shared with third parties.
+                    </p>
                   </div>
                 </form>
 
@@ -246,14 +325,34 @@ export default function ContactPage() {
                   <h3 className="mb-4 text-2xl font-bold text-black font-inter">
                     Schedule a Consultation
                   </h3>
-                  <p className="text-lg font-normal font-inter" style={{ color: '#999999' }}>
+                  <p className="text-lg font-normal font-inter form-description">
                     Book a 30-minute consultation to discuss your project needs, get technical advice, 
                     or explore collaboration opportunities. Choose a time that works best for you.
                   </p>
+                  <div className="flex flex-wrap justify-center gap-4 mt-6">
+                    <div className="flex items-center gap-2 px-3 py-2 text-sm bg-blue-50 text-blue-700 rounded-lg">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/>
+                      </svg>
+                      30 minutes
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 text-sm bg-green-50 text-green-700 rounded-lg">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                      </svg>
+                      Free consultation
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 text-sm bg-purple-50 text-purple-700 rounded-lg">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd"/>
+                      </svg>
+                      Video call
+                    </div>
+                  </div>
                 </div>
 
                 {/* Calendly Embed Placeholder */}
-                <div className="aspect-[4/3] bg-gray-100 rounded-2xl flex items-center justify-center">
+                <div className="booking-placeholder aspect-[4/3] rounded-2xl flex items-center justify-center">
                   <div className="text-center">
                     <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-black to-gray-600">
                       <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -263,15 +362,32 @@ export default function ContactPage() {
                     <p className="mb-4 text-lg font-bold text-black font-inter">
                       Calendly Integration
                     </p>
-                    <p className="mb-6 text-base font-normal font-inter" style={{ color: '#999999' }}>
-                      Calendar scheduling widget will be embedded here
+                    <p className="mb-6 text-base font-normal font-inter form-description">
+                      Interactive calendar will be embedded here
                     </p>
+                    <div className="space-y-3 mb-6">
+                      <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        Available slots updated in real-time
+                      </div>
+                      <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        Automatic timezone detection
+                      </div>
+                      <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                        Calendar invites sent automatically
+                      </div>
+                    </div>
                     <a
                       href={contact.calendlyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-block px-8 py-4 text-base font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
+                      className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-black rounded-full hover:bg-gray-800 hover:scale-105 font-inter"
                     >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
                       Open Calendly
                     </a>
                   </div>
