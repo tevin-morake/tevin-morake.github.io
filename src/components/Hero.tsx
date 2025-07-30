@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen px-4 pt-24 pb-16 bg-white sm:px-6 lg:px-8">
+    <section className="min-h-screen px-4 pt-24 pb-16 bg-white sm:px-6 lg:px-8" id="home">
       <div className="max-w-4xl mx-auto">
         {/* Hero Text Content */}
         <div className="text-center">
@@ -19,7 +19,7 @@ export default function Hero() {
 
         {/* Hero Image Section */}
         <div className="relative max-w-4xl mx-auto">
-          <div className="overflow-hidden shadow-2xl aspect-video rounded-2xl bg-gradient-to-r from-black to-gray-900 border-r-2 border-muted">
+          <div className="overflow-hidden border-r-2 shadow-2xl aspect-video rounded-2xl bg-gradient-to-r from-black to-gray-900 border-muted">
             <div className="flex items-center justify-center h-full">
               <div className="flex items-center justify-center w-full h-full">
                 <Image

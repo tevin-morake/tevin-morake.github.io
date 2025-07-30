@@ -58,7 +58,7 @@ export default function Header() {
       <div className="hidden md:block">
         <a
           href={ctaHref}
-          className="px-4 py-2 text-sm font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter no-underline"
+          className="px-4 py-2 text-sm font-bold text-white no-underline transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
           style={{ textDecoration: 'none' }}
         >
           View My Resumè
@@ -111,7 +111,7 @@ export default function Header() {
           <div className="px-6 pt-4">
             <a
               href={ctaHref}
-              className="block w-full px-4 py-2 text-sm font-medium text-center text-white transition-colors bg-black rounded-full hover:bg-gray-800 no-underline"
+              className="block w-full px-4 py-2 text-sm font-medium text-center text-white no-underline transition-colors bg-black rounded-full hover:bg-gray-800"
               style={{ textDecoration: 'none' }}
               onClick={() => setMenuOpen(false)}
             >
