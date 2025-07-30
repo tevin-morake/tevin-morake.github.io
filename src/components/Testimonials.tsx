@@ -130,16 +130,46 @@ export default function Testimonials() {
           </div>
 
           {/* Testimonials Grid */}
-          <div 
-            ref={containerRef}
-            className="relative mb-16 overflow-hidden"
-          >
-            <div 
-              className="flex transition-transform duration-300 ease-in-out"
-              style={{
-                transform: `translateX(-${currentPage * 100}%)`,
-              }}
+          <div className="relative mb-16">
+            {/* Left Arrow */}
+            <button
+              onClick={() => currentPage > 0 && setCurrentPage(prev => prev - 1)}
+              className={`absolute -left-16 top-1/2 -translate-y-1/2 z-10 w-14 h-14 flex items-center justify-center rounded-full bg-black border-2 border-black transition-all duration-200 hover:bg-gray-800 hover:border-gray-800 hover:scale-105 ${
+                currentPage === 0 ? 'opacity-20 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
+              }`}
+              disabled={currentPage === 0}
+              aria-label="Previous testimonials"
             >
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Right Arrow */}
+            <button
+              onClick={() => currentPage < totalPages - 1 && setCurrentPage(prev => prev + 1)}
+              className={`absolute -right-16 top-1/2 -translate-y-1/2 z-10 w-14 h-14 flex items-center justify-center rounded-full bg-black border-2 border-black transition-all duration-200 hover:bg-gray-800 hover:border-gray-800 hover:scale-105 ${
+                currentPage === totalPages - 1 ? 'opacity-20 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
+              }`}
+              disabled={currentPage === totalPages - 1}
+              aria-label="Next testimonials"
+            >
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+
+            {/* Testimonials Container */}
+            <div 
+              ref={containerRef}
+              className="overflow-hidden"
+            >
+              <div 
+                className="flex transition-transform duration-300 ease-in-out"
+                style={{
+                  transform: `translateX(-${currentPage * 100}%)`,
+                }}
+              >
               {Array.from({ length: totalPages }, (_, pageIndex) => (
                 <div 
                   key={pageIndex}
@@ -155,7 +185,7 @@ export default function Testimonials() {
                     {/* Quote */}
                     <div className="relative flex-1 mb-6">
                       {(() => {
-                        const { truncated, needsTruncation } = truncateText(testimonial.quote, 200);
+                        const { truncated, needsTruncation } = truncateText(testimonial.quote);
                         return (
                           <>
                             <blockquote 
@@ -274,12 +304,12 @@ export default function Testimonials() {
                         )}
                       </div>
                     </div>
-                    </div>
                   </div>
-                    // </div>
+                    </div>
                   ))}
                 </div>
               ))}
+            </div>
             </div>
           </div>
 
