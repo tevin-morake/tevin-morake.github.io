@@ -331,19 +331,19 @@ export default function ContactPage() {
                     or explore collaboration opportunities. Choose a time that works best for you.
                   </p>
                   <div className="flex flex-wrap justify-center gap-4 mt-6">
-                    <div className="flex items-center gap-2 px-3 py-2 text-sm bg-blue-50 text-blue-700 rounded-lg">
+                    <div className="flex items-center gap-2 px-3 py-2 text-sm text-blue-700 rounded-lg bg-blue-50">
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd"/>
                       </svg>
                       30 minutes
                     </div>
-                    <div className="flex items-center gap-2 px-3 py-2 text-sm bg-green-50 text-green-700 rounded-lg">
+                    <div className="flex items-center gap-2 px-3 py-2 text-sm text-green-700 rounded-lg bg-green-50">
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                       </svg>
                       Free consultation
                     </div>
-                    <div className="flex items-center gap-2 px-3 py-2 text-sm bg-purple-50 text-purple-700 rounded-lg">
+                    <div className="flex items-center gap-2 px-3 py-2 text-sm text-purple-700 rounded-lg bg-purple-50">
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd"/>
                       </svg>
@@ -366,7 +366,7 @@ export default function ContactPage() {
                     <p className="mb-6 text-base font-normal font-inter form-description">
                       Interactive calendar will be embedded here
                     </p>
-                    <div className="space-y-3 mb-6">
+                    <div className="mb-6 space-y-3">
                       <div className="flex items-center justify-center gap-2 text-sm text-gray-600">
                         <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                         Available slots updated in real-time

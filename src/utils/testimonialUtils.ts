@@ -11,8 +11,8 @@ export const truncateText = (text: string, charLimit: number = 100) => {
     return { truncated: text, needsTruncation: false };
   }
   return {
-    truncated: text.slice(0, charLimit) + '...',
-    needsTruncation: true
+    truncated: text.slice(0, charLimit) + "...",
+    needsTruncation: true,
   };
 };
 
@@ -23,16 +23,17 @@ export const truncateText = (text: string, charLimit: number = 100) => {
  */
 export const getInitials = (name: string): string => {
   return name
-    .split(' ')
-    .map(word => word.charAt(0))
-    .join('')
+    .split(" ")
+    .map((word) => word.charAt(0))
+    .join("")
     .toUpperCase();
 };
 
 /**
- * Get consistent avatar gradient color
- * @returns Tailwind gradient classes
+ * Get consistent avatar color based on name
+ * @param name - Person's name for color consistency
+ * @returns Color string
  */
 export const getAvatarColor = (): string => {
-  return 'bg-gradient-to-r from-black to-gray-600';
+  return "bg-gradient-to-r from-black to-gray-600";
 };

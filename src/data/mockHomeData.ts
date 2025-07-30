@@ -1,7 +1,5 @@
 // Example mock data for the homepage. Replace with API data in the future.
 
-import { link } from "fs";
-
 export const hero = {
   title: "Pragmatic Solutions. For complex digital problems.",
   subtitle: "Senior full-stack architect connecting vision to technology.",
