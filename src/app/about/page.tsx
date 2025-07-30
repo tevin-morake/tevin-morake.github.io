@@ -70,13 +70,13 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white">
       {/* Header Section */}
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
+      <section className="px-4 pt-24 pb-16 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 text-center">
-            <h1 className="mb-6 text-4xl font-bold text-black sm:text-5xl lg:text-6xl font-inter">
+            <h1 className="text-black font-inter hero-title">
               Get to Know Me Better
             </h1>
-            <p className="max-w-3xl mx-auto text-xl font-normal leading-relaxed font-inter" style={{ color: '#999999' }}>
+            <p className="max-w-3xl mx-auto mb-16 font-inter page-subtitle">
               Beyond the code and technical expertise lies a passion for continuous learning, 
               meaningful collaboration, and creating solutions that truly make a difference.
             </p>

@@ -62,16 +62,16 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
+      <section className="px-4 pt-24 pb-16 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16 text-center">
-            <h1 className="mb-6 text-4xl font-bold text-black sm:text-5xl lg:text-6xl font-inter">
+            <h1 className="text-black font-inter hero-title">
               {contact.title}
             </h1>
-            <p className="max-w-3xl mx-auto text-xl font-normal leading-relaxed font-inter" style={{ color: '#999999' }}>
+            <p className="max-w-3xl mx-auto mb-4 font-inter hero-subtitle">
               {contact.subtitle}
             </p>
-            <p className="max-w-2xl mx-auto mt-4 text-lg font-normal leading-relaxed font-inter" style={{ color: '#999999' }}>
+            <p className="max-w-2xl mx-auto mb-16 text-lg font-normal leading-relaxed font-inter" style={{ color: '#999999', fontWeight: 500 }}>
               {contact.description}
             </p>
           </div>
@@ -106,7 +106,7 @@ export default function ContactPage() {
           {activeTab === "contact" && (
             <div className="max-w-4xl mx-auto">
               {/* Contact Form */}
-              <div className="p-8 bg-white rounded-3xl shadow-sm">
+              <div className="p-8 bg-white shadow-sm rounded-3xl">
                 <div className="mb-8 text-center">
                   <h3 className="mb-4 text-2xl font-bold text-black font-inter">
                     Send Me a Message
@@ -196,7 +196,7 @@ export default function ContactPage() {
                       rows={6}
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent resize-none"
+                      className="w-full px-4 py-3 text-base border border-gray-200 resize-none rounded-xl font-inter focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                       placeholder="Tell me about your project, ideas, or how we can work together..."
                     />
                   </div>
@@ -212,7 +212,7 @@ export default function ContactPage() {
                 </form>
 
                 {/* Social Media Section - Bottom of Contact Form */}
-                <div className="mt-12 pt-8 border-t border-gray-100 text-center">
+                <div className="pt-8 mt-12 text-center border-t border-gray-100">
                   <h4 className="mb-6 text-lg font-bold text-black font-inter">
                     Connect With Me
                   </h4>
@@ -223,7 +223,7 @@ export default function ContactPage() {
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center w-12 h-12 transition-all duration-200 bg-gray-50 rounded-full hover:bg-gray-100 hover:scale-110"
+                        className="flex items-center justify-center w-12 h-12 transition-all duration-200 rounded-full bg-gray-50 hover:bg-gray-100 hover:scale-110"
                         aria-label={social.name}
                       >
                         <div className="text-black hover:text-gray-600">
@@ -240,7 +240,7 @@ export default function ContactPage() {
           {/* Booking Tab Content */}
           {activeTab === "booking" && (
             <div className="max-w-4xl mx-auto">
-              <div className="p-8 bg-white rounded-3xl shadow-sm">
+              <div className="p-8 bg-white shadow-sm rounded-3xl">
                 <div className="mb-8 text-center">
                   <h3 className="mb-4 text-2xl font-bold text-black font-inter">
                     Schedule a Consultation
@@ -277,7 +277,7 @@ export default function ContactPage() {
                 </div>
 
                 {/* Social Media Section - Bottom of Booking Form */}
-                <div className="mt-12 pt-8 border-t border-gray-100 text-center">
+                <div className="pt-8 mt-12 text-center border-t border-gray-100">
                   <h4 className="mb-6 text-lg font-bold text-black font-inter">
                     Connect With Me
                   </h4>
@@ -288,7 +288,7 @@ export default function ContactPage() {
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-center w-12 h-12 transition-all duration-200 bg-gray-50 rounded-full hover:bg-gray-100 hover:scale-110"
+                        className="flex items-center justify-center w-12 h-12 transition-all duration-200 rounded-full bg-gray-50 hover:bg-gray-100 hover:scale-110"
                         aria-label={social.name}
                       >
                         <div className="text-black hover:text-gray-600">
