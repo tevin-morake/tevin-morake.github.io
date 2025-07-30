@@ -148,7 +148,9 @@ export const formatTestimonialDate = (
       day: "numeric",
     });
   } catch (error) {
-    return "Unknown date";
+    return (
+      "Unknown date" + (error instanceof Error ? `: ${error.message}` : "")
+    );
   }
 };
 
@@ -251,15 +253,16 @@ export const filterTestimonials = <
  * @param field - Field to extract unique values from
  * @returns Array of unique values
  */
-export const getUniqueValues = <T extends Record<string, any>>(
+export const getUniqueValues = <T extends Record<string, unknown>>(
   testimonials: T[],
   field: keyof T
 ): string[] => {
   const values = testimonials
     .map((item) => item[field])
     .filter(
-      (value): value is string => Boolean(value) && typeof value === "string"
-    );
+      (value): value is T[keyof T] & string =>
+        Boolean(value) && typeof value === "string"
+    ) as string[];
 
   return [...new Set(values)].sort();
 };

@@ -18,8 +18,20 @@ export const projects = [
     description:
       "Full-stack e-commerce solution with React, Node.js, and PostgreSQL. Features include payment processing, inventory management, and analytics dashboard.",
     link: "https://github.com/tevin-morake/ecommerce-platform",
+    github: "https://github.com/tevin-morake/ecommerce-platform",
     image: "/projects/ecommerce.png",
     tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
+    technologies: [
+      "React",
+      "Node.js",
+      "PostgreSQL",
+      "Stripe",
+      "Express",
+      "JWT",
+    ],
+    category: "Full-Stack",
+    status: "completed",
+    completedDate: "2024-03-15",
   },
   {
     id: 2,
@@ -27,8 +39,20 @@ export const projects = [
     description:
       "Modern project management application built with Next.js and TypeScript. Real-time collaboration, team workspaces, and advanced reporting.",
     link: "https://github.com/tevin-morake/task-management",
+    github: "https://github.com/tevin-morake/task-management",
     image: "/projects/task-manager.png",
     tech: ["Next.js", "TypeScript", "Prisma", "WebSocket"],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Prisma",
+      "WebSocket",
+      "Tailwind CSS",
+      "PostgreSQL",
+    ],
+    category: "SaaS",
+    status: "completed",
+    completedDate: "2024-06-20",
   },
   {
     id: 3,
@@ -36,8 +60,13 @@ export const projects = [
     description:
       "Real-time financial analytics platform with data visualization. Built with React, D3.js, and Python backend for complex financial calculations.",
     link: "https://github.com/tevin-morake/finance-dashboard",
+    github: "https://github.com/tevin-morake/finance-dashboard",
     image: "/projects/finance.png",
     tech: ["React", "D3.js", "Python", "FastAPI"],
+    technologies: ["React", "D3.js", "Python", "FastAPI", "Redis", "Docker"],
+    category: "Analytics",
+    status: "completed",
+    completedDate: "2024-05-10",
   },
   {
     id: 4,
@@ -45,8 +74,13 @@ export const projects = [
     description:
       "HIPAA-compliant patient management system with appointment scheduling, medical records, and telemedicine capabilities.",
     link: "https://github.com/tevin-morake/healthcare-portal",
+    github: "https://github.com/tevin-morake/healthcare-portal",
     image: "/projects/healthcare.jpg",
     tech: ["Vue.js", "Laravel", "MySQL", "WebRTC"],
+    technologies: ["Vue.js", "Laravel", "MySQL", "WebRTC", "Socket.io", "AWS"],
+    category: "Healthcare",
+    status: "in-progress",
+    completedDate: "2024-08-01",
   },
   {
     id: 5,

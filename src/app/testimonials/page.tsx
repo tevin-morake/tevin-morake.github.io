@@ -50,10 +50,6 @@ export default function TestimonialsPage() {
     return Array.from(new Set(testimonials.map(t => t.company).filter(Boolean))).sort();
   }, []);
 
-  const projects = useMemo(() => {
-    return Array.from(new Set(testimonials.map(t => t.project))).sort();
-  }, []);
-
   // Filter and sort testimonials
   const filteredAndSortedTestimonials = useMemo(() => {
     const filtered = testimonials.filter(testimonial => {
