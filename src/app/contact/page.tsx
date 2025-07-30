@@ -43,9 +43,10 @@ export default function ContactPage() {
           </svg>
         );
       case "twitter":
+      case "x":
         return (
           <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
           </svg>
         );
       case "email":
@@ -71,7 +72,7 @@ export default function ContactPage() {
             <p className="max-w-3xl mx-auto mb-4 font-inter hero-subtitle">
               {contact.subtitle}
             </p>
-            <p className="max-w-2xl mx-auto mb-16 text-lg font-normal leading-relaxed font-inter" style={{ color: '#999999', fontWeight: 500 }}>
+            <p className="max-w-2xl mx-auto mb-16 font-inter text-muted">
               {contact.description}
             </p>
           </div>
@@ -111,7 +112,7 @@ export default function ContactPage() {
                   <h3 className="mb-4 text-2xl font-bold text-black font-inter">
                     Send Me a Message
                   </h3>
-                  <p className="text-lg font-normal font-inter" style={{ color: '#999999' }}>
+                  <p className="text-lg font-normal font-inter" style={{ color: '#999999', fontWeight: 500, letterSpacing: '-0.04em' }}>
                     Whether you have a project in mind, need technical consultation, or just want to say hello, 
                     I&apos;d love to hear from you. I typically respond within 24 hours.
                   </p>
@@ -130,7 +131,7 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                        className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter placeholder-muted focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                         placeholder="Your full name"
                       />
                     </div>
@@ -146,7 +147,7 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                        className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter placeholder-muted focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                         placeholder="your.email@example.com"
                       />
                     </div>
@@ -163,7 +164,7 @@ export default function ContactPage() {
                         name="company"
                         value={formData.company}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                        className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter placeholder-muted focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                         placeholder="Your company or organization"
                       />
                     </div>
@@ -179,7 +180,7 @@ export default function ContactPage() {
                         required
                         value={formData.subject}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                        className="w-full px-4 py-3 text-base border border-gray-200 rounded-xl font-inter placeholder-muted focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                         placeholder="What's this about?"
                       />
                     </div>
@@ -196,7 +197,7 @@ export default function ContactPage() {
                       rows={6}
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 text-base border border-gray-200 resize-none rounded-xl font-inter focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
+                      className="w-full px-4 py-3 text-base border border-gray-200 resize-none rounded-xl font-inter placeholder-muted focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent"
                       placeholder="Tell me about your project, ideas, or how we can work together..."
                     />
                   </div>
