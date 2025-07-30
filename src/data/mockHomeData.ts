@@ -118,9 +118,9 @@ export const contact = {
       icon: "github",
     },
     {
-      name: "Twitter",
-      url: "https://twitter.com/tevin_morake",
-      icon: "twitter",
+      name: "X",
+      url: "https://x.com/tevin_morake",
+      icon: "x",
     },
     {
       name: "Email",
