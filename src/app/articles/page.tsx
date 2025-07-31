@@ -369,7 +369,7 @@ export default function ArticlesPage() {
 
                   {/* Enhanced Article Actions */}
                   <div className="flex items-center justify-between">
-                    <a
+                    <Link
                       href={`/articles/${article.slug}`}
                       className="inline-flex items-center text-sm font-bold text-black transition-colors hover:text-gray-700 font-inter"
                     >
@@ -377,7 +377,7 @@ export default function ArticlesPage() {
                       <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
-                    </a>
+                    </Link>
                     
                     {article.featured && (
                       <span className="px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">

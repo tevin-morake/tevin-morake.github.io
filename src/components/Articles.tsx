@@ -187,7 +187,7 @@ export default function Articles() {
                   </div>
                   
                   {/* Read More Link */}
-                  <a
+                  <Link
                     href={`/articles/${latestFeatured.slug}`}
                     className="inline-flex items-center text-base font-bold text-black transition-colors hover:text-gray-700 font-inter"
                   >
@@ -195,7 +195,7 @@ export default function Articles() {
                     <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </article>
@@ -251,7 +251,7 @@ export default function Articles() {
                     </div>
                     
                     {/* Read More Link */}
-                    <a
+                    <Link
                       href={`/articles/${article.slug}`}
                       className="inline-flex items-center text-sm font-bold text-black transition-colors hover:text-gray-700 font-inter"
                     >
@@ -259,7 +259,7 @@ export default function Articles() {
                       <svg className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
-                    </a>
+                    </Link>
 
                     {/* Related Articles */}
                     {getRelatedArticles(article).length > 0 && (
@@ -267,13 +267,13 @@ export default function Articles() {
                         <p className="mb-2 text-xs font-medium text-gray-500">Related:</p>
                         <div className="space-y-1">
                           {getRelatedArticles(article).map((relatedArticle) => (
-                            <a
+                            <Link
                               key={relatedArticle.id}
                               href={`/articles/${relatedArticle.slug}`}
                               className="block text-xs text-gray-600 truncate transition-colors hover:text-black"
                             >
                               {relatedArticle.title}
-                            </a>
+                            </Link>
                           ))}
                         </div>
                       </div>
