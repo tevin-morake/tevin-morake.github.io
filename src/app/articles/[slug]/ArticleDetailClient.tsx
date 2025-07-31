@@ -270,7 +270,7 @@ export default function ArticleDetailClient({ slug }: ArticleDetailClientProps) 
           </p>
 
           {/* Author & Meta */}
-          <div className="flex flex-wrap items-center gap-6 pb-8 border-b border-gray-200">
+          <div className="flex flex-wrap items-center justify-between pb-8 border-b border-gray-200">
             <div className="flex items-center gap-3">
               <div className="flex items-center justify-center w-12 h-12 bg-black rounded-full">
                 <span className="font-bold text-white">TM</span>
@@ -281,12 +281,9 @@ export default function ArticleDetailClient({ slug }: ArticleDetailClientProps) 
               </div>
             </div>
             
-            <div className="flex items-center gap-4 text-sm text-gray-500">
+            <div className="flex flex-col items-end text-sm text-gray-500">
               <span>{formatDate(article.publishedDate)}</span>
-              <span>•</span>
               <span>{article.readTime}</span>
-              <span>•</span>
-              <span>{Math.round(readingProgress)}% read</span>
             </div>
           </div>
         </div>
