@@ -164,7 +164,7 @@ export default function ArticleDetailClient({ slug }: ArticleDetailClientProps) 
     return (
       <main className="min-h-screen bg-gray-50">
         {/* Black Header Background */}
-        <div className="fixed top-0 left-0 w-full h-20 bg-black z-40"></div>
+        <div className="fixed top-0 left-0 z-40 w-full h-20 bg-black"></div>
         
         <div className="max-w-4xl px-4 pt-24 pb-16 mx-auto sm:px-6 lg:px-8">
           <div className="animate-pulse">
@@ -190,7 +190,7 @@ export default function ArticleDetailClient({ slug }: ArticleDetailClientProps) 
   return (
     <main className="min-h-screen bg-white">
       {/* Black Header Background */}
-      <div className="fixed top-0 left-0 w-full h-20 bg-black z-40"></div>
+      <div className="fixed top-0 left-0 z-40 w-full h-20 bg-black"></div>
 
       {/* Minimal Reading Progress */}
       <div className="fixed top-0 left-0 w-full h-0.5 bg-gray-100 z-50">
@@ -210,11 +210,7 @@ export default function ArticleDetailClient({ slug }: ArticleDetailClientProps) 
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           <span className="text-sm font-medium text-black">
-            {(() => {
-              const fromHome = typeof window !== 'undefined' ? sessionStorage.getItem('fromHome') : null;
-              if (fromHome === 'true') return 'Home';
-              return referrer === 'listing' ? 'Articles' : 'Blog';
-            })()}
+            Back
           </span>
         </button>
       </nav>
@@ -504,11 +500,7 @@ const scalableArchitecture = {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            {(() => {
-              const fromHome = typeof window !== 'undefined' ? sessionStorage.getItem('fromHome') : null;
-              if (fromHome === 'true') return 'Back to Home';
-              return referrer === 'listing' ? 'Back to All Articles' : 'Back to Blog Section';
-            })()}
+            Back
           </button>
         </div>
       </section>

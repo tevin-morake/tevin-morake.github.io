@@ -210,6 +210,19 @@ export const contact = {
 
 export const testimonials = [
   {
+    id: 8,
+    name: "Rehan van der Merwe",
+    title: "DevOps Engineer | AWS Hero",
+    company: "Resend",
+    avatar: "/testimonials/rehan.png",
+    linkedin: "https://www.linkedin.com/in/rehan-van-der-merwe-600b40172/",
+    quote:
+      "I had the pleasure of working with Tevin at SwipeIx, and he was consistently reliable and hardworking. He adapted quickly to changing priorities and always delivered on time. You could count on him to get the job done without fuss.",
+    rating: 5,
+    project: "Accountable & Proactive",
+    created_at: "2025-07-31",
+  },
+  {
     id: 1,
     name: "Kgaogelo Thorn Manganye",
     title: "Frontend Developer",
