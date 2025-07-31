@@ -2,7 +2,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "../components/Header";
+import ConditionalHeader from "@/components/ConditionalHeader";
+import ConditionalWrapper from "@/components/ConditionalWrapper";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -39,8 +40,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased font-inter min-h-full flex flex-col`}
       >
-        <Header />
-        <div className="pt-20 flex-1">{children}</div>
+        <ConditionalHeader />
+        <ConditionalWrapper>{children}</ConditionalWrapper>
       </body>
     </html>
   );

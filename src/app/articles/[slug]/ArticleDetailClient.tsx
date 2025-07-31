@@ -163,6 +163,9 @@ export default function ArticleDetailClient({ slug }: ArticleDetailClientProps) 
   if (isLoading) {
     return (
       <main className="min-h-screen bg-gray-50">
+        {/* Black Header Background */}
+        <div className="fixed top-0 left-0 w-full h-20 bg-black z-40"></div>
+        
         <div className="max-w-4xl px-4 pt-24 pb-16 mx-auto sm:px-6 lg:px-8">
           <div className="animate-pulse">
             {/* Header skeleton */}
@@ -186,6 +189,9 @@ export default function ArticleDetailClient({ slug }: ArticleDetailClientProps) 
 
   return (
     <main className="min-h-screen bg-white">
+      {/* Black Header Background */}
+      <div className="fixed top-0 left-0 w-full h-20 bg-black z-40"></div>
+
       {/* Minimal Reading Progress */}
       <div className="fixed top-0 left-0 w-full h-0.5 bg-gray-100 z-50">
         <div 
@@ -194,16 +200,16 @@ export default function ArticleDetailClient({ slug }: ArticleDetailClientProps) 
         />
       </div>
 
-      {/* Back Navigation - Enhanced - Positioned below header */}
-      <nav className="fixed z-[60] top-35 left-6">
+      {/* Back Navigation - Positioned in header */}
+      <nav className="fixed z-[60] top-6 left-6">
         <button
           onClick={handleBackNavigation}
-          className="flex items-center gap-2 px-4 py-2 text-white transition-all bg-black rounded-full shadow-lg hover:bg-gray-800 hover:scale-105"
+          className="flex items-center gap-2 px-4 py-2 text-black transition-all bg-white rounded-full shadow-lg hover:bg-gray-100 hover:scale-105"
         >
-          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
-          <span className="text-sm font-medium text-white">
+          <span className="text-sm font-medium text-black">
             {(() => {
               const fromHome = typeof window !== 'undefined' ? sessionStorage.getItem('fromHome') : null;
               if (fromHome === 'true') return 'Home';
@@ -213,8 +219,8 @@ export default function ArticleDetailClient({ slug }: ArticleDetailClientProps) 
         </button>
       </nav>
 
-      {/* Share Button - Simplified */}
-      <div className="fixed z-40 top-6 right-6">
+      {/* Share Button - Positioned in header */}
+      <div className="fixed z-[60] top-6 right-6">
         <button
           onClick={handleShare}
           className="p-2 transition-all bg-white border border-gray-200 rounded-full shadow-sm hover:shadow-md"
