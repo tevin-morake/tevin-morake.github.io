@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import { about } from "@/data/mockHomeData";
@@ -53,6 +54,14 @@ export default function About() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+
+  // Call useCounter for each stat at the top level
+  const stat1Counter = useCounter(10); // Years Experience
+  const stat2Counter = useCounter(50); // Projects Completed
+  const stat3Counter = useCounter(20); // Technologies Mastered
+  const stat4Counter = useCounter(3);  // Team Lead Experience
+
+  const counters = [stat1Counter, stat2Counter, stat3Counter, stat4Counter];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -166,20 +175,19 @@ export default function About() {
             {/* Enhanced Stats Grid with animations */}
             <div className="grid grid-cols-2 gap-6 mb-6">
               {about.stats.map((stat, index) => {
-                const numericValue = getStatNumericValue(stat.value);
-                const { count, ref } = useCounter(numericValue);
+                const counter = counters[index];
                 
                 return (
                   <div 
                     key={index} 
-                    ref={ref}
+                    ref={counter.ref}
                     className={`group p-6 text-center bg-gradient-to-br from-gray-50 to-white border border-gray-100 rounded-xl transition-all duration-300 hover:shadow-lg hover:border-gray-300 hover:scale-105 hover:bg-gradient-to-br hover:from-gray-100 hover:to-gray-50 transform ${
                       isVisible ? 'translate-y-0' : 'translate-y-4'
                     }`}
                     style={{ transitionDelay: `${800 + index * 100}ms` }}
                   >
                     <div className="mb-2 text-3xl font-bold text-black transition-colors duration-300 font-inter group-hover:text-gray-700">
-                      {stat.value.includes('+') ? `${count}+` : count.toString()}
+                      {stat.value.includes('+') ? `${counter.count}+` : counter.count.toString()}
                     </div>
                     <div className="text-sm font-medium font-inter" style={{ color: '#999999' }}>
                       {stat.label}
