@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ConditionalHeader from "@/components/ConditionalHeader";
 import ConditionalWrapper from "@/components/ConditionalWrapper";
+import DisclaimerModal from "@/components/DisclaimerModal";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -42,6 +43,7 @@ export default function RootLayout({
       >
         <ConditionalHeader />
         <ConditionalWrapper>{children}</ConditionalWrapper>
+        <DisclaimerModal />
       </body>
     </html>
   );

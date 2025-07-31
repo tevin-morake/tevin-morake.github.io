@@ -48,6 +48,13 @@ body {
   font-weight: 700;
 }
 
+.hero-subtitle {
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 35px;
+  letter-spacing: -0.04em;
+}
+
 /* Line Clamp Utilities */
 .line-clamp-2 {
   display: -webkit-box;
@@ -63,11 +70,138 @@ body {
   overflow: hidden;
 }
 
-.hero-subtitle {
-  color: var(--text-muted);
-  font-weight: 700;
-  font-size: 35px;
-  letter-spacing: -0.04em;
+/* Enhanced Hero Animations */
+@keyframes heroFloat {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes heroGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes statRotate {
+  0% {
+    opacity: 0.5;
+    transform: translateY(5px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateY(-5px);
+  }
+}
+
+.hero-float {
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+.hero-glow {
+  animation: heroGlow 4s ease-in-out infinite;
+}
+
+.stat-highlight {
+  animation: statRotate 3s ease-in-out infinite;
+}
+
+/* Enhanced Button Hover Effects */
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Mouse Follower Effect */
+.hero-parallax {
+  transition: transform 0.1s ease-out;
+}
+
+/* Enhanced Shadow Utilities */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+.shadow-4xl {
+  box-shadow: 0 40px 80px -12px rgba(0, 0, 0, 0.3);
+}
+
+/* Professional Badge Styles */
+.professional-badge {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Scroll Indicator Animation */
+@keyframes scrollBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-8px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-4px) translateX(-50%);
+  }
+}
+
+/* Modal Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-in-95 {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-in {
+  animation-fill-mode: both;
+}
+
+.fade-in-0 {
+  animation: fade-in 0.3s ease-out;
+}
+
+.zoom-in-95 {
+  animation: zoom-in-95 0.3s ease-out;
+}
+
+.duration-300 {
+  animation-duration: 300ms;
 }
 
 .section-header {
