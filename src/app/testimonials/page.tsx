@@ -13,6 +13,7 @@ const companyLogos: Record<string, string> = {
   "Rapidtrade": "/company-logos/rapidtrade.png",
   "Media24": "/company-logos/media24.jpeg",
   "Accenture": "/company-logos/accenture.png",
+  "Resend": "/company-logos/resend.png",
 };
 
 // Helper function to highlight key phrases
