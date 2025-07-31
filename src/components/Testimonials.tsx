@@ -13,6 +13,7 @@ const companyLogos: Record<string, string> = {
   "Media24": "/company-logos/media24.jpeg",
   "Accenture": "/company-logos/accenture.png",
   "Resend": "/company-logos/resend.png",
+  "Rain": "/company-logos/rain.png",
 };
 
 // Helper function to highlight key phrases
@@ -21,7 +22,7 @@ const highlightKeyPhrases = (text: string) => {
     'full stack', 'great teammate', 'problem-solving', 'sharp', 'collaborative',
     'skilled', 'hardworking', 'quality work', 'passion', 'insight',
     'detail-oriented', 'methodical', 'reliable', 'dedicated', 'talented',
-    'accountable', 'proactive', 'leadership', 'mentoring'
+    'accountable', 'proactive', 'leadership', 'mentoring', 'meticulous', 'thoughtful', 'thorough'
   ];
   
   let highlightedText = text;

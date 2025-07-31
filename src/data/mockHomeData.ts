@@ -210,6 +210,19 @@ export const contact = {
 
 export const testimonials = [
   {
+    id: 10,
+    name: "Nina Sawyer",
+    title: "Senior Product & Project Manager",
+    company: "Rain",
+    avatar: "/testimonials/nina.png",
+    linkedin: "https://www.linkedin.com/in/nina-sawyer-a04869166",
+    quote:
+      "I have had the pleasure of working with Tevin on 3 client projects while at Swipe. His meticulous attention to detail and thoughtful planning made my role as his project manager productive and seamless. I could trust that the feedback that he gives me is thorough and well-researched. He takes great care in his work and I look forward to the day that we work together again. Tevin is an asset to any team!",
+    rating: 5,
+    project: "Meticulous & Detail-Oriented",
+    created_at: "2025-07-31",
+  },
+  {
     id: 9,
     name: "Rasool Booley",
     title: "QA Engineer",
@@ -222,6 +235,7 @@ export const testimonials = [
     project: "Approachable & Collaborative",
     created_at: "2025-07-31",
   },
+
   {
     id: 8,
     name: "Rehan van der Merwe",
