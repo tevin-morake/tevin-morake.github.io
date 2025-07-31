@@ -15,6 +15,7 @@ const navigationLinks = [
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [clickedItem, setClickedItem] = useState<string | null>(null);
   const pathname = usePathname();
   
   const logoHref = "/";
@@ -28,6 +29,15 @@ export default function Header() {
     return pathname === link.href;
   };
 
+  // Handle click animation
+  const handleLinkClick = (linkName: string) => {
+    setClickedItem(linkName);
+    // Clear the animation state after the animation completes
+    setTimeout(() => {
+      setClickedItem(null);
+    }, 150);
+  };
+
   return (
     <header className="fixed top-0 left-0 z-50 flex items-center justify-between w-full px-6 py-4 bg-white border-b border-gray-100 lg:px-12">
       <a href={logoHref} className="flex items-center no-underline" style={{ textDecoration: 'none' }}>
@@ -38,16 +48,20 @@ export default function Header() {
       <nav className="hidden gap-8 md:flex">
         {navigationLinks.map((link) => {
           const isActive = isLinkActive(link);
+          const isClicked = clickedItem === link.name;
           return (
             <a
               key={link.name}
               href={link.href}
-              className={`text-sm font-bold transition-colors font-inter no-underline ${
+              className={`text-sm font-bold transition-all duration-150 font-inter no-underline transform ${
                 isActive 
                   ? "text-black" 
                   : "text-gray-400 hover:text-gray-700"
+              } ${
+                isClicked ? "scale-95" : "scale-100 hover:scale-105"
               }`}
               style={{ textDecoration: 'none' }}
+              onClick={() => handleLinkClick(link.name)}
             >
               {link.name}
             </a>
@@ -59,8 +73,11 @@ export default function Header() {
       <div className="hidden md:block">
         <a
           href={ctaHref}
-          className="px-4 py-2 text-sm font-bold text-white no-underline transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
+          className={`px-4 py-2 text-sm font-bold text-white no-underline transition-all duration-150 bg-black rounded-full hover:bg-gray-800 font-inter transform ${
+            clickedItem === 'CTA' ? 'scale-95' : 'scale-100 hover:scale-105'
+          }`}
           style={{ textDecoration: 'none' }}
+          onClick={() => handleLinkClick('CTA')}
         >
           View My Resumè
         </a>
@@ -93,17 +110,23 @@ export default function Header() {
         <div className="absolute left-0 z-40 flex flex-col w-full py-6 bg-white shadow-lg top-full md:hidden">
           {navigationLinks.map((link) => {
             const isActive = isLinkActive(link);
+            const isClicked = clickedItem === link.name;
             return (
               <a
                 key={link.name}
                 href={link.href}
-                className={`px-6 py-3 text-base font-medium transition-colors hover:bg-gray-50 no-underline ${
+                className={`px-6 py-3 text-base font-medium transition-all duration-150 hover:bg-gray-50 no-underline transform ${
                   isActive 
                     ? "text-black font-bold bg-gray-50 border-r-4 border-black" 
                     : "text-gray-400 hover:text-gray-700"
+                } ${
+                  isClicked ? "scale-95" : "scale-100"
                 }`}
                 style={{ textDecoration: 'none' }}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => {
+                  handleLinkClick(link.name);
+                  setMenuOpen(false);
+                }}
               >
                 {link.name}
               </a>
@@ -112,9 +135,14 @@ export default function Header() {
           <div className="px-6 pt-4">
             <a
               href={ctaHref}
-              className="block w-full px-4 py-2 text-sm font-medium text-center text-white no-underline transition-colors bg-black rounded-full hover:bg-gray-800"
+              className={`block w-full px-4 py-2 text-sm font-medium text-center text-white no-underline transition-all duration-150 bg-black rounded-full hover:bg-gray-800 transform ${
+                clickedItem === 'CTA-mobile' ? 'scale-95' : 'scale-100'
+              }`}
               style={{ textDecoration: 'none' }}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                handleLinkClick('CTA-mobile');
+                setMenuOpen(false);
+              }}
             >
               View My Resumè
             </a>
