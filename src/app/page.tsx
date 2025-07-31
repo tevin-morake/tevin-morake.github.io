@@ -8,8 +8,11 @@ import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import AbutiChatbot from "@/components/AbutiChatbot";
 
 export default function Home() {
+  const isChatbotEnabled = process.env.NEXT_PUBLIC_ENABLE_CHATBOT === 'true';
+
   useEffect(() => {
     // Clear the session variable when homepage loads
     if (typeof window !== 'undefined') {
@@ -26,6 +29,7 @@ export default function Home() {
       <About />
       <Contact />
       <Footer />
+      {isChatbotEnabled && <AbutiChatbot />}
     </main>
   );
 }

@@ -6,8 +6,9 @@ import { usePathname } from "next/navigation";
 // Unified navigation structure that works across all pages
 const navigationLinks = [
   { name: "Home", href: "/" },
-  { name: "Work", href: "/projects" },
+  { name: "Projects", href: "/projects" },
   { name: "Blogs", href: "/articles" },
+  { name: "Testimonials", href: "/testimonials" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
