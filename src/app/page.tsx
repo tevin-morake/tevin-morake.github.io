@@ -8,10 +8,12 @@ import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { useAnalytics } from "@/hooks/useAnalytics";
 import AbutiChatbot from "@/components/AbutiChatbot";
 
 export default function Home() {
   const isChatbotEnabled = process.env.NEXT_PUBLIC_ENABLE_CHATBOT === 'true';
+  const { trackEvent } = useAnalytics();
 
   useEffect(() => {
     // Clear the session variable when homepage loads

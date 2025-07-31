@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { trackEvent } from "@/utils/analytics";
 
 // Unified navigation structure that works across all pages
 const navigationLinks = [
@@ -32,6 +33,8 @@ export default function Header() {
   // Handle click animation
   const handleLinkClick = (linkName: string) => {
     setClickedItem(linkName);
+    // Track navigation click
+    trackEvent.menuClick(linkName);
     // Clear the animation state after the animation completes
     setTimeout(() => {
       setClickedItem(null);
@@ -77,7 +80,10 @@ export default function Header() {
             clickedItem === 'CTA' ? 'scale-95' : 'scale-100 hover:scale-105'
           }`}
           style={{ textDecoration: 'none' }}
-          onClick={() => handleLinkClick('CTA')}
+          onClick={() => {
+            handleLinkClick('CTA');
+            trackEvent.ctaClick('View My Resume', 'Header Desktop');
+          }}
         >
           View My Resumè
         </a>
@@ -141,6 +147,7 @@ export default function Header() {
               style={{ textDecoration: 'none' }}
               onClick={() => {
                 handleLinkClick('CTA-mobile');
+                trackEvent.ctaClick('View My Resume', 'Header Mobile');
                 setMenuOpen(false);
               }}
             >

@@ -5,6 +5,7 @@ import "./globals.css";
 import ConditionalHeader from "@/components/ConditionalHeader";
 import ConditionalWrapper from "@/components/ConditionalWrapper";
 import DisclaimerModal from "@/components/DisclaimerModal";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -41,6 +42,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased font-inter min-h-full flex flex-col`}
       >
+        <GoogleAnalytics />
         <ConditionalHeader />
         <ConditionalWrapper>{children}</ConditionalWrapper>
         <DisclaimerModal />

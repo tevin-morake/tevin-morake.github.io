@@ -61,7 +61,11 @@ body {
 }
 
 /* Allow text selection for content areas */
-p, span, div[contenteditable], input, textarea {
+p,
+span,
+div[contenteditable],
+input,
+textarea {
   -webkit-user-select: text;
   -moz-user-select: text;
   -ms-user-select: text;
@@ -69,7 +73,9 @@ p, span, div[contenteditable], input, textarea {
 }
 
 /* Smooth transitions for all interactive elements */
-a, button, .flip-card {
+a,
+button,
+.flip-card {
   transition: transform 0.15s ease-out, scale 0.15s ease-out;
 }
 
@@ -85,7 +91,11 @@ a, button, .flip-card {
 }
 
 /* Allow text selection where needed */
-p, span, div[role="text"], input, textarea {
+p,
+span,
+div[role="text"],
+input,
+textarea {
   -webkit-user-select: text;
   -khtml-user-select: text;
   -moz-user-select: text;
