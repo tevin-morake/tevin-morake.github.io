@@ -189,6 +189,12 @@ export default function Articles() {
                   {/* Read More Link */}
                   <Link
                     href={`/articles/${latestFeatured.slug}`}
+                    onClick={() => {
+                      // Set session variable to indicate we came from homepage
+                      if (typeof window !== 'undefined') {
+                        sessionStorage.setItem('fromHome', 'true');
+                      }
+                    }}
                     className="inline-flex items-center text-base font-bold text-black transition-colors hover:text-gray-700 font-inter"
                   >
                     Read Article
@@ -253,6 +259,12 @@ export default function Articles() {
                     {/* Read More Link */}
                     <Link
                       href={`/articles/${article.slug}`}
+                      onClick={() => {
+                        // Set session variable to indicate we came from homepage
+                        if (typeof window !== 'undefined') {
+                          sessionStorage.setItem('fromHome', 'true');
+                        }
+                      }}
                       className="inline-flex items-center text-sm font-bold text-black transition-colors hover:text-gray-700 font-inter"
                     >
                       Read Article
@@ -270,6 +282,12 @@ export default function Articles() {
                             <Link
                               key={relatedArticle.id}
                               href={`/articles/${relatedArticle.slug}`}
+                              onClick={() => {
+                                // Set session variable to indicate we came from homepage
+                                if (typeof window !== 'undefined') {
+                                  sessionStorage.setItem('fromHome', 'true');
+                                }
+                              }}
                               className="block text-xs text-gray-600 truncate transition-colors hover:text-black"
                             >
                               {relatedArticle.title}

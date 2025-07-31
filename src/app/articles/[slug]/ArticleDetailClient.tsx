@@ -97,9 +97,24 @@ export default function ArticleDetailClient({ slug }: ArticleDetailClientProps) 
   };
 
   const handleBackNavigation = () => {
-    if (referrer === 'listing') {
+    // Check session variable first
+    const fromHome = typeof window !== 'undefined' ? sessionStorage.getItem('fromHome') : null;
+    
+    if (fromHome === 'true') {
+      // Clear the session variable and go to homepage
+      sessionStorage.removeItem('fromHome');
+      router.push('/');
+    } else if (referrer === 'listing') {
+      // Clear session variable and go to articles listing
+      if (typeof window !== 'undefined') {
+        sessionStorage.removeItem('fromHome');
+      }
       router.push('/articles');
     } else {
+      // Default: clear session variable and go to homepage blog section
+      if (typeof window !== 'undefined') {
+        sessionStorage.removeItem('fromHome');
+      }
       router.push('/#blog');
     }
   };
@@ -189,7 +204,11 @@ export default function ArticleDetailClient({ slug }: ArticleDetailClientProps) 
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           <span className="text-sm font-medium text-white">
-            {referrer === 'listing' ? 'Articles' : 'Blog'}
+            {(() => {
+              const fromHome = typeof window !== 'undefined' ? sessionStorage.getItem('fromHome') : null;
+              if (fromHome === 'true') return 'Home';
+              return referrer === 'listing' ? 'Articles' : 'Blog';
+            })()}
           </span>
         </button>
       </nav>
@@ -482,7 +501,11 @@ const scalableArchitecture = {
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            {referrer === 'listing' ? 'Back to All Articles' : 'Back to Blog Section'}
+            {(() => {
+              const fromHome = typeof window !== 'undefined' ? sessionStorage.getItem('fromHome') : null;
+              if (fromHome === 'true') return 'Back to Home';
+              return referrer === 'listing' ? 'Back to All Articles' : 'Back to Blog Section';
+            })()}
           </button>
         </div>
       </section>
