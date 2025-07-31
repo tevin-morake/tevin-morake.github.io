@@ -1,14 +1,15 @@
 // Google Analytics utility functions
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || '';
+export const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
 // Check if GA is enabled and measurement ID exists
-export const GA_ENABLED = GA_MEASUREMENT_ID && typeof window !== 'undefined';
+export const GA_ENABLED = GA_MEASUREMENT_ID && typeof window !== "undefined";
 
 // Page view tracking
 export const pageview = (url: string) => {
   if (!GA_ENABLED) return;
-  
-  window.gtag('config', GA_MEASUREMENT_ID, {
+
+  window.gtag("config", GA_MEASUREMENT_ID, {
     page_path: url,
   });
 };
@@ -24,8 +25,8 @@ interface GtagEvent {
 // Generic event tracking
 export const event = ({ action, category, label, value }: GtagEvent) => {
   if (!GA_ENABLED) return;
-  
-  window.gtag('event', action, {
+
+  window.gtag("event", action, {
     event_category: category,
     event_label: label,
     value: value,
@@ -37,8 +38,8 @@ export const trackEvent = {
   // Navigation events
   menuClick: (menuItem: string) => {
     event({
-      action: 'click',
-      category: 'Navigation',
+      action: "click",
+      category: "Navigation",
       label: menuItem,
     });
   },
@@ -46,8 +47,8 @@ export const trackEvent = {
   // CTA button clicks
   ctaClick: (buttonText: string, location: string) => {
     event({
-      action: 'click',
-      category: 'CTA',
+      action: "click",
+      category: "CTA",
       label: `${buttonText} - ${location}`,
     });
   },
@@ -55,8 +56,8 @@ export const trackEvent = {
   // Project interactions
   projectView: (projectName: string) => {
     event({
-      action: 'view',
-      category: 'Project',
+      action: "view",
+      category: "Project",
       label: projectName,
     });
   },
@@ -64,7 +65,7 @@ export const trackEvent = {
   projectClick: (projectName: string, action: string) => {
     event({
       action: action,
-      category: 'Project',
+      category: "Project",
       label: projectName,
     });
   },
@@ -72,24 +73,24 @@ export const trackEvent = {
   // Contact form interactions
   contactFormStart: () => {
     event({
-      action: 'start',
-      category: 'Contact Form',
-      label: 'Form Started',
+      action: "start",
+      category: "Contact Form",
+      label: "Form Started",
     });
   },
 
   contactFormSubmit: (formType: string) => {
     event({
-      action: 'submit',
-      category: 'Contact Form',
+      action: "submit",
+      category: "Contact Form",
       label: formType,
     });
   },
 
   contactFormError: (errorType: string) => {
     event({
-      action: 'error',
-      category: 'Contact Form',
+      action: "error",
+      category: "Contact Form",
       label: errorType,
     });
   },
@@ -97,8 +98,8 @@ export const trackEvent = {
   // Resume/CV downloads
   resumeDownload: (source: string) => {
     event({
-      action: 'download',
-      category: 'Resume',
+      action: "download",
+      category: "Resume",
       label: source,
     });
   },
@@ -106,16 +107,16 @@ export const trackEvent = {
   // Article/Blog interactions
   articleView: (articleSlug: string) => {
     event({
-      action: 'view',
-      category: 'Article',
+      action: "view",
+      category: "Article",
       label: articleSlug,
     });
   },
 
   articleShare: (articleSlug: string, platform: string) => {
     event({
-      action: 'share',
-      category: 'Article',
+      action: "share",
+      category: "Article",
       label: `${articleSlug} - ${platform}`,
     });
   },
@@ -123,8 +124,8 @@ export const trackEvent = {
   // Testimonial interactions
   testimonialView: (testimonialName: string) => {
     event({
-      action: 'view',
-      category: 'Testimonial',
+      action: "view",
+      category: "Testimonial",
       label: testimonialName,
     });
   },
@@ -132,16 +133,16 @@ export const trackEvent = {
   // Chatbot interactions
   chatbotOpen: () => {
     event({
-      action: 'open',
-      category: 'Chatbot',
-      label: 'Abuti Opened',
+      action: "open",
+      category: "Chatbot",
+      label: "Abuti Opened",
     });
   },
 
-  chatbotMessage: (messageType: 'user' | 'bot') => {
+  chatbotMessage: (messageType: "user" | "bot") => {
     event({
-      action: 'message',
-      category: 'Chatbot',
+      action: "message",
+      category: "Chatbot",
       label: messageType,
     });
   },
@@ -149,8 +150,8 @@ export const trackEvent = {
   // External link clicks
   externalLink: (url: string, context: string) => {
     event({
-      action: 'click',
-      category: 'External Link',
+      action: "click",
+      category: "External Link",
       label: `${url} - ${context}`,
     });
   },
@@ -158,8 +159,8 @@ export const trackEvent = {
   // Scroll depth tracking
   scrollDepth: (percentage: number, page: string) => {
     event({
-      action: 'scroll',
-      category: 'Engagement',
+      action: "scroll",
+      category: "Engagement",
       label: `${page} - ${percentage}%`,
       value: percentage,
     });
@@ -168,8 +169,8 @@ export const trackEvent = {
   // Time on page milestones
   timeOnPage: (seconds: number, page: string) => {
     event({
-      action: 'time_milestone',
-      category: 'Engagement',
+      action: "time_milestone",
+      category: "Engagement",
       label: `${page} - ${seconds}s`,
       value: seconds,
     });
@@ -178,8 +179,8 @@ export const trackEvent = {
   // Page section visibility
   sectionView: (sectionName: string, page: string) => {
     event({
-      action: 'section_view',
-      category: 'Page Sections',
+      action: "section_view",
+      category: "Page Sections",
       label: `${page} - ${sectionName}`,
     });
   },
@@ -190,8 +191,8 @@ export const trackConversion = {
   // Lead generation events
   leadGenerated: (source: string, value?: number) => {
     event({
-      action: 'generate_lead',
-      category: 'Conversion',
+      action: "generate_lead",
+      category: "Conversion",
       label: source,
       value: value,
     });
@@ -200,8 +201,8 @@ export const trackConversion = {
   // Consultation booking
   consultationBooked: (method: string) => {
     event({
-      action: 'book_consultation',
-      category: 'Conversion',
+      action: "book_consultation",
+      category: "Conversion",
       label: method,
     });
   },
@@ -209,8 +210,8 @@ export const trackConversion = {
   // Project inquiry
   projectInquiry: (projectType: string) => {
     event({
-      action: 'project_inquiry',
-      category: 'Conversion',
+      action: "project_inquiry",
+      category: "Conversion",
       label: projectType,
     });
   },
@@ -220,17 +221,17 @@ export const trackConversion = {
 export const trackSession = {
   sessionStart: () => {
     event({
-      action: 'session_start',
-      category: 'Session',
-      label: 'User Session Started',
+      action: "session_start",
+      category: "Session",
+      label: "User Session Started",
     });
   },
 
   sessionEnd: (duration: number) => {
     event({
-      action: 'session_end',
-      category: 'Session',
-      label: 'User Session Ended',
+      action: "session_end",
+      category: "Session",
+      label: "User Session Ended",
       value: duration,
     });
   },
@@ -240,8 +241,8 @@ export const trackSession = {
 export const trackPerformance = {
   pageLoadTime: (loadTime: number, page: string) => {
     event({
-      action: 'page_load_time',
-      category: 'Performance',
+      action: "page_load_time",
+      category: "Performance",
       label: page,
       value: Math.round(loadTime),
     });
@@ -249,8 +250,8 @@ export const trackPerformance = {
 
   deviceType: (type: string) => {
     event({
-      action: 'device_type',
-      category: 'User Info',
+      action: "device_type",
+      category: "User Info",
       label: type,
     });
   },
@@ -260,7 +261,7 @@ export const trackPerformance = {
 declare global {
   interface Window {
     gtag: (
-      command: 'config' | 'event',
+      command: "config" | "event",
       targetId: string,
       config?: Record<string, any>
     ) => void;
