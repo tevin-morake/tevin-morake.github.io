@@ -80,10 +80,6 @@ export default function About() {
     return () => observer.disconnect();
   }, []);
 
-  const getStatNumericValue = (value: string) => {
-    const match = value.match(/\d+/);
-    return match ? parseInt(match[0]) : 0;
-  };
 
   return (
     <section 

@@ -13,6 +13,7 @@ import AbutiChatbot from "@/components/AbutiChatbot";
 
 export default function Home() {
   const isChatbotEnabled = process.env.NEXT_PUBLIC_ENABLE_CHATBOT === 'true';
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { trackEvent } = useAnalytics();
 
   useEffect(() => {
