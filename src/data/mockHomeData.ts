@@ -210,6 +210,19 @@ export const contact = {
 
 export const testimonials = [
   {
+    id: 9,
+    name: "Rasool Booley",
+    title: "QA Engineer",
+    company: "Swipe iX",
+    avatar: "/testimonials/rasool.jpeg",
+    linkedin: "https://www.linkedin.com/in/rasool-booley-949599139",
+    quote:
+      "Working with Tevin has been a great experience. He brings not only deep technical knowledge but also a thoughtful, collaborative approach to how we operate and make decisions. As a QA, I appreciated how willing he was to explain technical issues, walk through workflows, and openly discuss potential solutions while considering all the variables. Tevin is a true team player. He is approachable, collaborative, and always ready to step in to resolve challenges or share his knowledge. His ability to lead while staying grounded in teamwork made a real impact on our team's success.",
+    rating: 5,
+    project: "Approachable & Collaborative",
+    created_at: "2025-07-31",
+  },
+  {
     id: 8,
     name: "Rehan van der Merwe",
     title: "DevOps Engineer | AWS Hero",
