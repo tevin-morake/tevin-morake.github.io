@@ -151,9 +151,9 @@ export const about = {
   title: "About Me",
   subtitle: "Building digital solutions that matter",
   description:
-    "I'm a senior full-stack developer with 8+ years of experience transforming complex business challenges into elegant, scalable solutions. My approach combines strategic thinking with hands-on development, ensuring every project delivers both technical excellence and real business value.",
+    "I'm a senior full-stack developer with 10+ years of experience transforming complex business challenges into elegant, scalable solutions. My approach combines strategic thinking with hands-on development, ensuring every project delivers both technical excellence and real business value.",
   personalNote:
-    "When I'm not coding, you'll find me exploring the latest tech trends, mentoring junior developers, or working on open-source projects that push the boundaries of what's possible.",
+    "When I'm not coding, you'll find me exploring the latest tech trends, mountain biking on a trail, playing soulful melodies on my guitar or enjoying a good anime episode.",
   image: "/about/tevin-profile.jpg",
   stats: [
     {
