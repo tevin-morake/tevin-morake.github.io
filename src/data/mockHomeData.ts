@@ -210,6 +210,19 @@ export const contact = {
 
 export const testimonials = [
   {
+    id: 11,
+    name: "Shaun Enslin",
+    title: "Co-Founder & Managing Director",
+    company: "Rapidtrade",
+    avatar: "/testimonials/shaun.png",
+    linkedin: "https://www.linkedin.com/in/shaun-enslin-4984bb14b/",
+    quote:
+      "I had the pleasure of working with Tevin, a principled and dedicated professional whose work ethic and integrity stood out from day one. Tevin is not only a talented programmer and designer but also someone who brings thoughtfulness and precision to every project—an essential quality, especially in the high-stakes environment of the medical industry where accuracy is critical.\nBeyond his technical contributions, Tevin has had a meaningful impact through his mentorship of younger developers. He consistently took the time to share his knowledge, foster growth, and guide others toward excellence. His ability to lead by example and uplift those around him speaks volumes about his character and commitment to the craft. He continued to mentor young programmers and designers even after he moved on to better opportunities and has remained a good friend of our organisation.\nAny team would be fortunate to have Tevin. He brings a rare blend of technical skill, reliability, and heart to his work.",
+    rating: 5,
+    project: "Principled & Reliable",
+    created_at: "2025-07-31",
+  },
+  {
     id: 10,
     name: "Nina Sawyer",
     title: "Senior Product & Project Manager",

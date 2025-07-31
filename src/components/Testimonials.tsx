@@ -20,9 +20,9 @@ const companyLogos: Record<string, string> = {
 const highlightKeyPhrases = (text: string) => {
   const keyPhrases = [
     'full stack', 'great teammate', 'problem-solving', 'sharp', 'collaborative',
-    'skilled', 'hardworking', 'quality work', 'passion', 'insight',
-    'detail-oriented', 'methodical', 'reliable', 'dedicated', 'talented',
-    'accountable', 'proactive', 'leadership', 'mentoring', 'meticulous', 'thoughtful', 'thorough'
+    'skilled', 'hardworking', 'quality work', 'passion', 'insight','mentorship', 'medical industry',
+    'detail-oriented', 'methodical', 'reliable', 'dedicated', 'talented','high-stakes', 'critical',
+    'accountable', 'proactive', 'leadership', 'mentoring', 'meticulous', 'thoughtful', 'thorough', 'principled','reliability', 'lead'
   ];
   
   let highlightedText = text;
