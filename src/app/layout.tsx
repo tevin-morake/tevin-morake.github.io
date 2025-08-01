@@ -6,6 +6,7 @@ import ConditionalHeader from "@/components/ConditionalHeader";
 import ConditionalWrapper from "@/components/ConditionalWrapper";
 import DisclaimerModal from "@/components/DisclaimerModal";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import StructuredData from "@/components/StructuredData";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -14,8 +15,88 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Tevin Morake",
-  description: "Your go-to source for innovative software solutions and insights.",
+  title: {
+    default: "Tevin Morake - Full-Stack Developer & Tech Innovator",
+    template: "%s | Tevin Morake"
+  },
+  description: "Full-stack developer specializing in modern web technologies, AI integration, and scalable solutions. 10+ years experience building innovative software for startups and enterprises.",
+  keywords: [
+    "Tevin Morake",
+    "Full Stack Developer", 
+    "Software Engineer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript",
+    "Node.js",
+    "Laravel",
+    "AI Integration",
+    "Web Development",
+    "Mobile Development",
+    "Cloud Architecture",
+    "DevOps",
+    "Portfolio",
+    "South Africa Developer"
+  ],
+  authors: [{ name: "Tevin Morake" }],
+  creator: "Tevin Morake",
+  publisher: "Tevin Morake",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://tevin-morake.github.io'),
+  alternates: {
+    canonical: 'https://tevin-morake.github.io',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_ZA',
+    url: 'https://tevin-morake.github.io',
+    title: 'Tevin Morake - Full-Stack Developer & Tech Innovator',
+    description: 'Full-stack developer specializing in modern web technologies, AI integration, and scalable solutions. 10+ years experience building innovative software.',
+    siteName: 'Tevin Morake Portfolio',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Tevin Morake - Full-Stack Developer Portfolio',
+        type: 'image/png',
+      },
+      {
+        url: '/og-image-square.png',
+        width: 1200,
+        height: 1200,
+        alt: 'Tevin Morake - Full-Stack Developer',
+        type: 'image/png',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tevin Morake - Full-Stack Developer & Tech Innovator',
+    description: 'Full-stack developer specializing in modern web technologies, AI integration, and scalable solutions. 10+ years experience.',
+    images: ['/twitter-image.png'],
+    creator: '@tevinmorake', // Replace with your actual Twitter handle
+    site: '@tevinmorake', // Replace with your actual Twitter handle
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: 'your-google-verification-code', // Add your Google Search Console verification
+    // yandex: 'your-yandex-verification-code',
+    // yahoo: 'your-yahoo-verification-code',
+  },
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -43,6 +124,8 @@ export default function RootLayout({
         className={`${inter.variable} antialiased font-inter min-h-full flex flex-col`}
       >
         <GoogleAnalytics />
+        <StructuredData type="Person" />
+        <StructuredData type="WebSite" />
         <ConditionalHeader />
         <ConditionalWrapper>{children}</ConditionalWrapper>
         <DisclaimerModal />
