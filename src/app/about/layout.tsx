@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         type: "image/jpeg",
       }
     ],
-    locale: "en_ZA",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",

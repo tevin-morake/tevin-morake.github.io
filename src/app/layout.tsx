@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     default: "Tevin Morake - Full-Stack Developer & Tech Innovator",
     template: "%s | Tevin Morake"
   },
-  description: "Full-stack developer specializing in modern web technologies, AI integration, and scalable solutions. 10+ years experience building innovative software for startups and enterprises.",
+  description: "Full-stack developer specializing in modern web technologies, AI integration, and scalable solutions. 10+ years experience building innovative software for global startups and enterprises.",
   keywords: [
     "Tevin Morake",
     "Full Stack Developer", 
@@ -35,7 +35,11 @@ export const metadata: Metadata = {
     "Cloud Architecture",
     "DevOps",
     "Portfolio",
-    "South Africa Developer"
+    "Remote Developer",
+    "Global Developer",
+    "International Freelancer",
+    "Enterprise Software",
+    "Startup Technology"
   ],
   authors: [{ name: "Tevin Morake" }],
   creator: "Tevin Morake",
@@ -51,10 +55,10 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'en_ZA',
+    locale: 'en_US',
     url: 'https://tevin-morake.github.io',
     title: 'Tevin Morake - Full-Stack Developer & Tech Innovator',
-    description: 'Full-stack developer specializing in modern web technologies, AI integration, and scalable solutions. 10+ years experience building innovative software.',
+    description: 'Full-stack developer specializing in modern web technologies, AI integration, and scalable solutions. 10+ years experience building innovative software for global enterprises.',
     siteName: 'Tevin Morake Portfolio',
     images: [
       {

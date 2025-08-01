@@ -210,6 +210,19 @@ export const contact = {
 
 export const testimonials = [
   {
+    id: 13,
+    name: "Lydron Mohohlo",
+    title: "Technical Support Specialist (Digital Messaging)",
+    company: "AWS",
+    avatar: "/testimonials/lydron.jpeg",
+    linkedin: "https://www.linkedin.com/in/lydron-mohohlo-b85548b6/",
+    quote:
+      "Tevin is a smart, creative, diligent and capable Full Stack Developer with over more than a decade of experience in the field. He has worked on multi-national and international projects and I fully recommend him for any of your Development needs",
+    rating: 5,
+    project: "Support & Mentorship",
+    created_at: "2025-08-01",
+  },
+  {
     id: 12,
     name: "Khapha Levis Leshabane",
     title: "Full-stack Developer",
