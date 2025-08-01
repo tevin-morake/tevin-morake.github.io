@@ -5,13 +5,32 @@ export const GA_MEASUREMENT_ID =
 // Check if GA is enabled and measurement ID exists
 export const GA_ENABLED = GA_MEASUREMENT_ID && typeof window !== "undefined";
 
+// Debug logging
+const debugLog = (message: string, data?: unknown) => {
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`[GA Debug] ${message}`, data || '');
+  }
+};
+
 // Page view tracking
 export const pageview = (url: string) => {
-  if (!GA_ENABLED) return;
+  debugLog('Page view called', { url, GA_ENABLED, GA_MEASUREMENT_ID });
+  
+  if (!GA_ENABLED) {
+    debugLog('GA not enabled - skipping pageview');
+    return;
+  }
+
+  if (typeof window.gtag === 'undefined') {
+    debugLog('gtag not available - skipping pageview');
+    return;
+  }
 
   window.gtag("config", GA_MEASUREMENT_ID, {
     page_path: url,
   });
+  
+  debugLog('Page view sent', url);
 };
 
 // Event tracking interface
@@ -24,13 +43,25 @@ interface GtagEvent {
 
 // Generic event tracking
 export const event = ({ action, category, label, value }: GtagEvent) => {
-  if (!GA_ENABLED) return;
+  debugLog('Event called', { action, category, label, value, GA_ENABLED });
+  
+  if (!GA_ENABLED) {
+    debugLog('GA not enabled - skipping event');
+    return;
+  }
+
+  if (typeof window.gtag === 'undefined') {
+    debugLog('gtag not available - skipping event');
+    return;
+  }
 
   window.gtag("event", action, {
     event_category: category,
     event_label: label,
     value: value,
   });
+  
+  debugLog('Event sent', { action, category, label, value });
 };
 
 // Predefined event helpers for common portfolio interactions

@@ -6,8 +6,11 @@ import { GA_MEASUREMENT_ID } from '@/utils/analytics';
 export default function GoogleAnalytics() {
   // Don't render if GA is not configured
   if (!GA_MEASUREMENT_ID) {
+    console.log('[GA Debug] No measurement ID found');
     return null;
   }
+
+  console.log('[GA Debug] GoogleAnalytics component rendering with ID:', GA_MEASUREMENT_ID);
 
   return (
     <>
@@ -16,12 +19,19 @@ export default function GoogleAnalytics() {
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         onLoad={() => {
-          console.log('Google Analytics loaded');
+          console.log('[GA Debug] Google Analytics script loaded');
+        }}
+        onError={(e) => {
+          console.error('[GA Debug] Error loading Google Analytics script:', e);
         }}
       />
       <Script
         id="google-analytics"
         strategy="afterInteractive"
+        onLoad={() => {
+          console.log('[GA Debug] Google Analytics config script loaded');
+          console.log('[GA Debug] gtag available:', typeof window.gtag !== 'undefined');
+        }}
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];

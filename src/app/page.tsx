@@ -9,11 +9,14 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { event as trackEventFn, trackEvent } from "@/utils/analytics";
 import AbutiChatbot from "@/components/AbutiChatbot";
 
 export default function Home() {
   const isChatbotEnabled = process.env.NEXT_PUBLIC_ENABLE_CHATBOT === 'true';
-  const { trackEvent } = useAnalytics();
+  useAnalytics();
+
+
 
   useEffect(() => {
     // Clear the session variable when homepage loads
@@ -28,7 +31,7 @@ export default function Home() {
     trackEvent.sectionView("Testimonials", "Homepage");
     trackEvent.sectionView("About", "Homepage");
     trackEvent.sectionView("Contact", "Homepage");
-  }, [trackEvent]);
+  }, []); // Remove trackEvent dependency as it's not needed
 
   return (
     <main className="flex-1">
