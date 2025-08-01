@@ -13,7 +13,6 @@ import AbutiChatbot from "@/components/AbutiChatbot";
 
 export default function Home() {
   const isChatbotEnabled = process.env.NEXT_PUBLIC_ENABLE_CHATBOT === 'true';
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { trackEvent } = useAnalytics();
 
   useEffect(() => {
@@ -21,7 +20,15 @@ export default function Home() {
     if (typeof window !== 'undefined') {
       sessionStorage.removeItem('fromHome');
     }
-  }, []);
+
+    // Track homepage sections being loaded
+    trackEvent.sectionView("Hero", "Homepage");
+    trackEvent.sectionView("Work", "Homepage");
+    trackEvent.sectionView("Articles", "Homepage");
+    trackEvent.sectionView("Testimonials", "Homepage");
+    trackEvent.sectionView("About", "Homepage");
+    trackEvent.sectionView("Contact", "Homepage");
+  }, [trackEvent]);
 
   return (
     <main className="flex-1">

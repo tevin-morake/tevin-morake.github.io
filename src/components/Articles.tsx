@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import { articles } from "@/data/mockHomeData";
+import { trackEvent } from "@/utils/analytics";
 
 export default function Articles() {
   // Get featured articles
@@ -194,6 +195,8 @@ export default function Articles() {
                       if (typeof window !== 'undefined') {
                         sessionStorage.setItem('fromHome', 'true');
                       }
+                      // Track article click
+                      trackEvent.articleView(latestFeatured.slug);
                     }}
                     className="inline-flex items-center text-base font-bold text-black transition-colors hover:text-gray-700 font-inter"
                   >
@@ -264,6 +267,8 @@ export default function Articles() {
                         if (typeof window !== 'undefined') {
                           sessionStorage.setItem('fromHome', 'true');
                         }
+                        // Track article click
+                        trackEvent.articleView(article.slug);
                       }}
                       className="inline-flex items-center text-sm font-bold text-black transition-colors hover:text-gray-700 font-inter"
                     >
@@ -287,6 +292,8 @@ export default function Articles() {
                                 if (typeof window !== 'undefined') {
                                   sessionStorage.setItem('fromHome', 'true');
                                 }
+                                // Track related article click
+                                trackEvent.articleView(relatedArticle.slug);
                               }}
                               className="block text-xs text-gray-600 truncate transition-colors hover:text-black"
                             >
@@ -306,6 +313,7 @@ export default function Articles() {
           <Link
             href="/articles"
             className="inline-flex items-center px-6 py-3 text-base font-bold text-black transition-all duration-300 border-2 border-black rounded-full hover:bg-black hover:text-white hover:scale-105 font-inter focus:ring-4 focus:ring-black/20"
+            onClick={() => trackEvent.ctaClick("View all articles", "Homepage Articles Section")}
           >
             View all articles
             <svg className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

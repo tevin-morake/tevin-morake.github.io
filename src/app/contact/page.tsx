@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { contact } from "@/data/mockHomeData";
 import Footer from "@/components/Footer";
+import { trackEvent } from "@/utils/analytics";
 
 export default function ContactPage() {
   const [activeTab, setActiveTab] = useState<"contact" | "booking">("contact");
@@ -32,6 +33,9 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
     
+    // Track form submission start
+    trackEvent.contactFormSubmit(activeTab === "contact" ? "Contact Form" : "Booking Form");
+    
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1500));
@@ -39,6 +43,13 @@ export default function ContactPage() {
       // Handle form submission here
       console.log("Form submitted:", formData);
       setSubmitStatus("success");
+      
+      // Track successful submission
+      trackEvent.event({
+        action: "submit_success",
+        category: "Contact Form",
+        label: activeTab === "contact" ? "Contact Form" : "Booking Form"
+      });
       
       // Reset form after successful submission
       setTimeout(() => {
@@ -54,6 +65,9 @@ export default function ContactPage() {
     } catch (error) {
       console.error("Submission error:", error);
       setSubmitStatus("error");
+      
+      // Track form error
+      trackEvent.contactFormError("Submission Failed");
     } finally {
       setIsSubmitting(false);
     }
@@ -112,7 +126,14 @@ export default function ContactPage() {
           <div className="flex justify-center mb-12">
             <div className="inline-flex p-1 bg-white rounded-full shadow-sm">
               <button
-                onClick={() => setActiveTab("contact")}
+                onClick={() => {
+                  setActiveTab("contact");
+                  trackEvent.event({
+                    action: "tab_switch",
+                    category: "Contact Form",
+                    label: "Contact Tab"
+                  });
+                }}
                 className={`px-8 py-3 text-base font-bold rounded-full font-inter transition-all duration-200 ${
                   activeTab === "contact"
                     ? "bg-black text-white"
@@ -122,7 +143,14 @@ export default function ContactPage() {
                 Contact Form
               </button>
               <button
-                onClick={() => setActiveTab("booking")}
+                onClick={() => {
+                  setActiveTab("booking");
+                  trackEvent.event({
+                    action: "tab_switch",
+                    category: "Contact Form",
+                    label: "Booking Tab"
+                  });
+                }}
                 className={`px-8 py-3 text-base font-bold rounded-full font-inter transition-all duration-200 ${
                   activeTab === "booking"
                     ? "bg-black text-white"
@@ -168,6 +196,7 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={handleInputChange}
+                        onFocus={() => trackEvent.contactFormStart()}
                         className="w-full px-4 py-3 text-base rounded-xl font-inter form-input placeholder-muted focus:outline-none"
                         placeholder="Your full name"
                         disabled={isSubmitting}
@@ -306,6 +335,7 @@ export default function ContactPage() {
                         rel="noopener noreferrer"
                         className="flex items-center justify-center w-12 h-12 transition-all duration-200 rounded-full bg-gray-50 hover:bg-gray-100 hover:scale-110"
                         aria-label={social.name}
+                        onClick={() => trackEvent.externalLink(social.url, `Contact Form ${social.name}`)}
                       >
                         <div className="text-black hover:text-gray-600">
                           {getSocialIcon(social.icon)}
@@ -385,6 +415,7 @@ export default function ContactPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 px-8 py-4 text-base font-bold text-white transition-all duration-200 bg-black rounded-full hover:bg-gray-800 hover:scale-105 font-inter"
+                      onClick={() => trackEvent.externalLink(contact.calendlyUrl, "Calendly Booking")}
                     >
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
@@ -408,6 +439,7 @@ export default function ContactPage() {
                         rel="noopener noreferrer"
                         className="flex items-center justify-center w-12 h-12 transition-all duration-200 rounded-full bg-gray-50 hover:bg-gray-100 hover:scale-110"
                         aria-label={social.name}
+                        onClick={() => trackEvent.externalLink(social.url, `Booking Form ${social.name}`)}
                       >
                         <div className="text-black hover:text-gray-600">
                           {getSocialIcon(social.icon)}

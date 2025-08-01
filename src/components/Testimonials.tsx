@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { truncateText, getInitials, getAvatarColor } from "@/utils/testimonialUtils";
+import { trackEvent } from "@/utils/analytics";
 
 // Company logos mapping
 const companyLogos: Record<string, string> = {
@@ -137,7 +138,17 @@ export default function Testimonials() {
           <div className="relative mb-16">
             {/* Left Arrow */}
             <button
-              onClick={() => currentPage > 0 && setCurrentPage(prev => prev - 1)}
+              onClick={() => {
+                if (currentPage > 0) {
+                  setCurrentPage(prev => prev - 1);
+                  trackEvent.event({
+                    action: "navigate",
+                    category: "Testimonials",
+                    label: "Previous Page",
+                    value: currentPage - 1
+                  });
+                }
+              }}
               className={`absolute -left-16 top-1/2 -translate-y-1/2 z-10 w-14 h-14 flex items-center justify-center rounded-full bg-black border-2 border-black transition-all duration-200 hover:bg-gray-800 hover:border-gray-800 hover:scale-105 ${
                 currentPage === 0 ? 'opacity-20 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
               }`}
@@ -151,7 +162,17 @@ export default function Testimonials() {
 
             {/* Right Arrow */}
             <button
-              onClick={() => currentPage < totalPages - 1 && setCurrentPage(prev => prev + 1)}
+              onClick={() => {
+                if (currentPage < totalPages - 1) {
+                  setCurrentPage(prev => prev + 1);
+                  trackEvent.event({
+                    action: "navigate",
+                    category: "Testimonials",
+                    label: "Next Page",
+                    value: currentPage + 1
+                  });
+                }
+              }}
               className={`absolute -right-16 top-1/2 -translate-y-1/2 z-10 w-14 h-14 flex items-center justify-center rounded-full bg-black border-2 border-black transition-all duration-200 hover:bg-gray-800 hover:border-gray-800 hover:scale-105 ${
                 currentPage === totalPages - 1 ? 'opacity-20 cursor-not-allowed' : 'opacity-70 hover:opacity-100'
               }`}
@@ -198,6 +219,7 @@ export default function Testimonials() {
                               onClick={() => {
                                 if (needsTruncation) {
                                   setSelectedTestimonial(testimonial);
+                                  trackEvent.testimonialView(testimonial.name);
                                 }
                               }}
                               dangerouslySetInnerHTML={{ 
@@ -207,7 +229,10 @@ export default function Testimonials() {
                             
                             {needsTruncation && (
                               <button
-                                onClick={() => setSelectedTestimonial(testimonial)}
+                                onClick={() => {
+                                  setSelectedTestimonial(testimonial);
+                                  trackEvent.testimonialView(testimonial.name);
+                                }}
                                 className="mt-2 text-sm font-medium text-black cursor-pointer hover:text-gray-700"
                               >
                                 Read full testimonial
@@ -333,6 +358,7 @@ export default function Testimonials() {
             <Link
               href="/testimonials"
               className="inline-flex items-center px-6 py-3 text-base font-bold text-black transition-colors border-2 border-black rounded-full hover:bg-black hover:text-white font-inter"
+              onClick={() => trackEvent.ctaClick("View all testimonials", "Homepage Testimonials Section")}
             >
               View all testimonials
               <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { trackEvent } from "@/utils/analytics";
 
 interface Message {
   id: string;
@@ -80,6 +81,9 @@ export default function AbutiChatbot({ onSendMessage }: ChatbotProps) {
     setInputValue("");
     setIsTyping(true);
 
+    // Track user message
+    trackEvent.chatbotMessage("user");
+
     try {
       // Use the API route for RAG integration
       const response = onSendMessage 
@@ -96,6 +100,8 @@ export default function AbutiChatbot({ onSendMessage }: ChatbotProps) {
       setTimeout(() => {
         setMessages(prev => [...prev, abutiMessage]);
         setIsTyping(false);
+        // Track bot message
+        trackEvent.chatbotMessage("bot");
       }, 1000);
     } catch (error) {
       console.error("Error sending message:", error);
@@ -298,7 +304,13 @@ export default function AbutiChatbot({ onSendMessage }: ChatbotProps) {
       {/* Chat Toggle Button */}
       <div className="relative">
         <button
-          onClick={() => setIsOpen(!isOpen)}
+          onClick={() => {
+            const newIsOpen = !isOpen;
+            setIsOpen(newIsOpen);
+            if (newIsOpen) {
+              trackEvent.chatbotOpen();
+            }
+          }}
           className={`group relative flex items-center justify-center w-16 h-16 bg-gradient-to-r from-black via-gray-900 to-black text-white rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-black/20 ${
             isOpen ? 'rotate-0' : ''
           }`}

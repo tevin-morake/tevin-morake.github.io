@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { contact } from "@/data/mockHomeData";
+import { trackEvent } from "@/utils/analytics";
 
 export default function Footer() {
   return (
@@ -35,6 +36,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label={social.name}
                 className="flex items-center justify-center w-10 h-10 transition-colors bg-gray-800 rounded-full hover:bg-gray-700"
+                onClick={() => trackEvent.externalLink(social.url, `Footer ${social.name}`)}
               >
                 {/* Simple SVG icons inline for accessibility */}
                 {social.icon === "linkedin" && (

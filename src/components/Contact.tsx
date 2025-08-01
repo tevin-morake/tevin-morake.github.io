@@ -2,6 +2,7 @@
 
 import { contact } from "@/data/mockHomeData";
 import Link from "next/link";
+import { trackEvent } from "@/utils/analytics";
 
 export default function Contact() {
   return (
@@ -25,6 +26,7 @@ export default function Contact() {
           <Link
             href="/contact"
             className="inline-flex items-center px-8 py-4 text-base font-bold text-white transition-colors bg-black rounded-full hover:bg-gray-800 font-inter"
+            onClick={() => trackEvent.ctaClick("Contact me", "Homepage Contact Section")}
           >
             Contact me
             <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
