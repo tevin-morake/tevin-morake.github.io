@@ -210,6 +210,19 @@ export const contact = {
 
 export const testimonials = [
   {
+    id: 12,
+    name: "Khapha Levis Leshabane",
+    title: "Full-stack Developer",
+    company: "Old Mutual iWyze",
+    avatar: "/testimonials/khapha.jpeg",
+    linkedin: "https://www.linkedin.com/in/khapha-levis-leshabane-578a626b",
+    quote:
+      "Tevin Morake is an outstanding colleague and a pleasure to work with. When I joined Runninghill Software Development in January 2021, Tevin was my assigned buddy and he provided invaluable guidance, helping me navigate the complexities of the contracting world.\nOur professional relationship grew as we were assigned to the same project at Old Mutual iWyze. We collaborated closely, and our team's hard work was recognized with multiple company awards and positive feedback from the client. Tevin's expertise and dedication were key to our success.\nBeyond his technical skills, Tevin is a supportive mentor and a great friend. I learned a lot from him and would highly recommend him to anyone looking for a skilled and reliable professional.",
+    rating: 5,
+    project: "Support & Mentorship",
+    created_at: "2025-08-01",
+  },
+  {
     id: 11,
     name: "Shaun Enslin",
     title: "Co-Founder & Managing Director",

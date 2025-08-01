@@ -14,6 +14,7 @@ const companyLogos: Record<string, string> = {
   "Accenture": "/company-logos/accenture.png",
   "Resend": "/company-logos/resend.png",
   "Rain": "/company-logos/rain.png",
+  "Old Mutual iWyze": "/company-logos/iwyze.jpg",
 };
 
 // Helper function to highlight key phrases
@@ -22,6 +23,7 @@ const highlightKeyPhrases = (text: string) => {
     'full stack', 'great teammate', 'problem-solving', 'sharp', 'collaborative',
     'skilled', 'hardworking', 'quality work', 'passion', 'insight','mentorship', 'medical industry',
     'detail-oriented', 'methodical', 'reliable', 'dedicated', 'talented','high-stakes', 'critical',
+    'outstanding', 'invaluable', 'recognized', 'expertise', 'dedication', 'supportive', 'mentor', 'friend', 'learned a lot', 'recommend',
     'accountable', 'proactive', 'leadership', 'mentoring', 'meticulous', 'thoughtful', 'thorough', 'principled','reliability', 'lead'
   ];
   
