@@ -20,7 +20,7 @@ export default function Header() {
   const pathname = usePathname();
   
   const logoHref = "/";
-  const ctaHref = "/contact";
+  const ctaHref = "/pdfs/Tevin_Morake_Resume.pdf";
 
   // Simple function to determine if a link is active based on pathname only
   const isLinkActive = (link: typeof navigationLinks[0]) => {
@@ -76,6 +76,8 @@ export default function Header() {
       <div className="hidden md:block">
         <a
           href={ctaHref}
+          target="_blank"
+          rel="noopener noreferrer"
           className={`px-4 py-2 text-sm font-bold text-white no-underline transition-all duration-150 bg-black rounded-full hover:bg-gray-800 font-inter transform ${
             clickedItem === 'CTA' ? 'scale-95' : 'scale-100 hover:scale-105'
           }`}
@@ -83,6 +85,7 @@ export default function Header() {
           onClick={() => {
             handleLinkClick('CTA');
             trackEvent.ctaClick('View My Resume', 'Header Desktop');
+            trackEvent.resumeDownload('Header Desktop');
           }}
         >
           View My Resumè
@@ -141,6 +144,8 @@ export default function Header() {
           <div className="px-6 pt-4">
             <a
               href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`block w-full px-4 py-2 text-sm font-medium text-center text-white no-underline transition-all duration-150 bg-black rounded-full hover:bg-gray-800 transform ${
                 clickedItem === 'CTA-mobile' ? 'scale-95' : 'scale-100'
               }`}
@@ -148,6 +153,7 @@ export default function Header() {
               onClick={() => {
                 handleLinkClick('CTA-mobile');
                 trackEvent.ctaClick('View My Resume', 'Header Mobile');
+                trackEvent.resumeDownload('Header Mobile');
                 setMenuOpen(false);
               }}
             >
