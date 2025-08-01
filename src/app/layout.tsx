@@ -62,18 +62,18 @@ export const metadata: Metadata = {
     siteName: 'Tevin Morake Portfolio',
     images: [
       {
-        url: '/og-image.png',
+        url: '/about/abuti.jpg',
         width: 1200,
         height: 630,
         alt: 'Tevin Morake - Full-Stack Developer Portfolio',
-        type: 'image/png',
+        type: 'image/jpeg',
       },
       {
-        url: '/og-image-square.png',
+        url: '/about/abuti.jpg',
         width: 1200,
         height: 1200,
         alt: 'Tevin Morake - Full-Stack Developer',
-        type: 'image/png',
+        type: 'image/jpeg',
       }
     ],
   },
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Tevin Morake - Full-Stack Developer & Tech Innovator',
     description: 'Full-stack developer specializing in modern web technologies, AI integration, and scalable solutions. 10+ years experience.',
-    images: ['/twitter-image.png'],
+    images: ['/about/abuti.jpg'],
     creator: '@tevinmorake', // Replace with your actual Twitter handle
     site: '@tevinmorake', // Replace with your actual Twitter handle
   },

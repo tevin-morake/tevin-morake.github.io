@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tevin Morake - Open Graph Image</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        
+        .og-container {
+            width: 1200px;
+            height: 630px;
+            background: white;
+            border-radius: 20px;
+            padding: 60px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .content {
+            flex: 1;
+            padding-right: 60px;
+        }
+        
+        .name {
+            font-size: 48px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        
+        .title {
+            font-size: 32px;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+        
+        .description {
+            font-size: 24px;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 32px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .tech-tag {
+            background: #f3f4f6;
+            color: #374151;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        
+        .image-container {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 8px;
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            background: white;
+        }
+        
+        .url {
+            position: absolute;
+            bottom: 30px;
+            left: 60px;
+            font-size: 18px;
+            color: #999;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="og-container">
+        <div class="content">
+            <div class="name">Tevin Morake</div>
+            <div class="title">Full-Stack Developer & Tech Innovator</div>
+            <div class="description">
+                Specializing in modern web technologies, AI integration, and scalable solutions. 10+ years building innovative software.
+            </div>
+            <div class="tech-stack">
+                <span class="tech-tag">React</span>
+                <span class="tech-tag">PHP(Laravel)</span>
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">Golang</span>
+                <span class="tech-tag">AI Integration</span>
+                <span class="tech-tag">Cloud</span>
+            </div>
+        </div>
+        <div class="image-container">
+            <!-- This would be replaced with your actual profile image -->
+            <div class="profile-image" style="background: url('/about/abuti.jpg') center/cover;"></div>
+        </div>
+        <div class="url">tevin-morake.github.io</div>
+    </div>
+</body>
+</html>
