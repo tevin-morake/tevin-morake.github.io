@@ -4,7 +4,7 @@ import Script from 'next/script';
 import { GA_MEASUREMENT_ID } from '@/utils/analytics';
 
 export default function GoogleAnalytics() {
-  // Don't render if GA is not configured
+  // Don't render if GA is not configured.
   if (!GA_MEASUREMENT_ID) {
     if (process.env.NODE_ENV === 'development') {
       console.log('[GA Debug] No measurement ID found');
