@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { truncateText, getInitials, getAvatarColor } from "@/utils/testimonialUtils";
-import { trackEvent } from "@/utils/analytics";
+import { trackEvent, event } from "@/utils/analytics";
 
 // Company logos mapping
 const companyLogos: Record<string, string> = {
@@ -141,7 +141,7 @@ export default function Testimonials() {
               onClick={() => {
                 if (currentPage > 0) {
                   setCurrentPage(prev => prev - 1);
-                  trackEvent.event({
+                  event({
                     action: "navigate",
                     category: "Testimonials",
                     label: "Previous Page",
@@ -165,7 +165,7 @@ export default function Testimonials() {
               onClick={() => {
                 if (currentPage < totalPages - 1) {
                   setCurrentPage(prev => prev + 1);
-                  trackEvent.event({
+                  event({
                     action: "navigate",
                     category: "Testimonials",
                     label: "Next Page",

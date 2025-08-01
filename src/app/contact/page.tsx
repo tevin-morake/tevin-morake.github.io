@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { contact } from "@/data/mockHomeData";
 import Footer from "@/components/Footer";
-import { trackEvent } from "@/utils/analytics";
+import { trackEvent, event } from "@/utils/analytics";
 
 export default function ContactPage() {
   const [activeTab, setActiveTab] = useState<"contact" | "booking">("contact");
@@ -45,7 +45,7 @@ export default function ContactPage() {
       setSubmitStatus("success");
       
       // Track successful submission
-      trackEvent.event({
+      event({
         action: "submit_success",
         category: "Contact Form",
         label: activeTab === "contact" ? "Contact Form" : "Booking Form"
@@ -128,7 +128,7 @@ export default function ContactPage() {
               <button
                 onClick={() => {
                   setActiveTab("contact");
-                  trackEvent.event({
+                  event({
                     action: "tab_switch",
                     category: "Contact Form",
                     label: "Contact Tab"
@@ -145,7 +145,7 @@ export default function ContactPage() {
               <button
                 onClick={() => {
                   setActiveTab("booking");
-                  trackEvent.event({
+                  event({
                     action: "tab_switch",
                     category: "Contact Form",
                     label: "Booking Tab"
