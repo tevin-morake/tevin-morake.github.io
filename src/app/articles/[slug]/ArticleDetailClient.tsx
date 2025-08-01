@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Footer from "@/components/Footer";
+import ContentPreparationBanner from "@/components/ContentPreparationBanner";
 
 interface ArticleDetailClientProps {
   slug: string;
@@ -243,9 +244,14 @@ export default function ArticleDetailClient({ slug }: ArticleDetailClientProps) 
         </div>
       )}
 
+      {/* Content Preparation Banner - Positioned below header */}
+      <div className="pt-20">
+        <ContentPreparationBanner />
+      </div>
+
       {/* Hero Section - Clean and Professional */}
       <section className="relative">
-        <div className="max-w-4xl px-4 pt-24 pb-12 mx-auto sm:px-6 lg:px-8">
+        <div className="max-w-4xl px-4 pt-8 pb-12 mx-auto sm:px-6 lg:px-8">
           {/* Article Meta */}
           <div className="flex items-center gap-4 mb-8">
             <span className={`px-3 py-1 text-sm font-medium rounded-full ${getCategoryColor(article.category)}`}>
