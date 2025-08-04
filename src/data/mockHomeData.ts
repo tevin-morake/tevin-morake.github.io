@@ -210,6 +210,45 @@ export const contact = {
 
 export const testimonials = [
   {
+    id: 16,
+    name: "Fanelesibonge Ngcobo",
+    title: "Software Engineer",
+    company: "Old Mutual iWyze",
+    avatar: "/testimonials/fanele.jpeg",
+    linkedin: "https://www.linkedin.com/in/fanelesibonge-ngcobo-a72681187/",
+    quote:
+      "It was a pleasure to work with Tevin. They is an exceptionally skilled software developer whose deep expertise was a tremendous asset to our team.\nHis technical prowess was instrumental in solving complex problems and was a driving force behind the design and development of our most innovative and futuristic applications.\nBeyond his significant technical contributions, Tevin is also a natural mentor. He consistently demonstrated a genuine willingness to help sharpen the skills of their colleagues, making a significant positive impact on the team's overall growth and development.\nHis combination of high-level skill and collaborative spirit makes them an invaluable member of any software development team.",
+    rating: 5,
+    project: "Mentorship & Team Impact",
+    created_at: "2025-08-04",
+  },
+  {
+    id: 15,
+    name: "Paul Reigh",
+    title: "Senior Digital Project Manager",
+    company: "Defijn",
+    avatar: "/testimonials/paul.jpg",
+    linkedin: "https://www.linkedin.com/in/paulreich2/",
+    quote:
+      "I had the pleasure of working with Tevin for over two years at SwipeiX, where he served as senior fullstack developer on several complex web builds. Tevin consistently delivered high-quality code, solved problems proactively, and brought a calm, thoughtful presence to the team. Whether tackling backend integrations or refining front-end interactions, Tevin always balanced technical skill with a great sense of collaboration. I’d gladly work with him again.",
+    rating: 5,
+    project: "Trust & High regard",
+    created_at: "2025-08-03",
+  },
+  {
+    id: 14,
+    name: "Katlego Komeke",
+    title: "Technical Lead",
+    company: "iKhokha",
+    avatar: "/testimonials/kat.jpeg",
+    linkedin: "https://www.linkedin.com/in/katlehokomeke/",
+    quote:
+      'Tevin is an absolute super hard worker and possibly the most knowledgable person with Angular I know. I greatly appreciate his wise words and wisdom that he has shared with me over the years.\nMy favorite quote from him is: "Don\'t be afraid to ask questions even if you feel stupid asking." \nI highly recommend him, he is Awesome.',
+    rating: 5,
+    project: "Gratitude & Admiration",
+    created_at: "2025-08-01",
+  },
+  {
     id: 13,
     name: "Lydron Mohohlo",
     title: "Technical Support Specialist (Digital Messaging)",
@@ -374,7 +413,7 @@ export const testimonials = [
     avatar: "/testimonials/zakes.jpg",
     linkedin: "https://www.linkedin.com/in/zmanyoni",
     quote:
-      "I've worked alongside Bob at Old Mutual Iwyze. During my tenure, he mostly worked on application support and adding enhancements to our already existing codebase. He took ownership of work the he drove over the line and rose to the occasion when he had to perform hotfixes and ad-hoc deployments in the event that there were anomalies in our application. What stood out for me the most is how Tevin was always accountable for his work and being the go-to person when there were some grey areas. I'm confident that Bob would be a great asset to any team that he joins!",
+      "I've worked alongside Tevin at Old Mutual Iwyze. During my tenure, he mostly worked on application support and adding enhancements to our already existing codebase. He took ownership of work the he drove over the line and rose to the occasion when he had to perform hotfixes and ad-hoc deployments in the event that there were anomalies in our application. What stood out for me the most is how Tevin was always accountable for his work and being the go-to person when there were some grey areas. I'm confident that Tevin would be a great asset to any team that he joins!",
     rating: 5,
     project: "Accountable & Proactive",
     created_at: "2022-06-28",

@@ -17,6 +17,8 @@ const companyLogos: Record<string, string> = {
   "Rain": "/company-logos/rain.png",
   "Old Mutual iWyze": "/company-logos/iwyze.jpg",
   "AWS": "/company-logos/aws.png",
+  "iKhokha": "/company-logos/ikhokha.png",
+  "Defijn": "/company-logos/defijn.jpeg",
 };
 
 // Helper function to highlight key phrases
