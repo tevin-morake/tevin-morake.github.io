@@ -227,7 +227,7 @@ export const testimonials = [
     name: "Paul Reigh",
     title: "Senior Digital Project Manager",
     company: "Defijn",
-    avatar: "/testimonials/paul.jpg",
+    avatar: "/testimonials/paul.JPG",
     linkedin: "https://www.linkedin.com/in/paulreich2/",
     quote:
       "I had the pleasure of working with Tevin for over two years at SwipeiX, where he served as senior fullstack developer on several complex web builds. Tevin consistently delivered high-quality code, solved problems proactively, and brought a calm, thoughtful presence to the team. Whether tackling backend integrations or refining front-end interactions, Tevin always balanced technical skill with a great sense of collaboration. I’d gladly work with him again.",
