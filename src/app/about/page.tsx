@@ -288,10 +288,11 @@ export default function AboutPage() {
                   imageLoaded ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
                 } group-hover:shadow-3xl group-hover:scale-105 group-hover:shadow-gray-400/30`}>
                   <Image
-                    src="/about/abuti.jpg"
+                    src="/about/abuti_headshot.jpg"
                     alt="Tevin Morake - About Me"
                     width={384}
                     height={384}
+                    style={{ objectPosition: '100% 100%' }}
                     className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110"
                     priority
                     onLoad={() => setImageLoaded(true)}

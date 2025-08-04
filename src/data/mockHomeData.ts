@@ -210,6 +210,19 @@ export const contact = {
 
 export const testimonials = [
   {
+    id: 17,
+    name: "Rory Enslin",
+    title: "Co-Founder",
+    company: "Rapidtrade",
+    avatar: "/testimonials/rory.jpeg",
+    linkedin: "https://www.linkedin.com/in/rory-enslin-67758411/",
+    quote:
+      "I worked with Tevin for many years as he came into the work place and started working. He took initiative in his work and rose through the ranks to be a senior member of the team. He added value to the team and when he had the experience - I was able to hand over complex tasks for our customers that involved designing and implementing custom solutions for our clients. I always found him to be well mannered and a good communicator with team members and customers.",
+    rating: 5,
+    project: "Hardworking & Well-Mannered",
+    created_at: "2025-08-04",
+  },
+  {
     id: 16,
     name: "Fanelesibonge Ngcobo",
     title: "Software Engineer",

@@ -4,37 +4,44 @@ export const GA_MEASUREMENT_ID =
 
 // Check if GA is enabled and measurement ID exists
 // Disable in development environment
-export const GA_ENABLED = 
-  GA_MEASUREMENT_ID && 
+export const GA_ENABLED =
+  GA_MEASUREMENT_ID &&
   typeof window !== "undefined" &&
-  process.env.NODE_ENV === 'production';
+  process.env.NODE_ENV === "production";
 
 // Debug logging
 const debugLog = (message: string, data?: unknown) => {
-  if (process.env.NODE_ENV === 'development') {
-    console.log(`[GA Debug - DISABLED] ${message}`, data || '');
+  if (process.env.NODE_ENV === "development") {
+    console.log(`[GA Debug - DISABLED] ${message}`, data || "");
   }
 };
 
 // Page view tracking
 export const pageview = (url: string) => {
-  debugLog('Page view called', { url, GA_ENABLED, GA_MEASUREMENT_ID, NODE_ENV: process.env.NODE_ENV });
-  
+  debugLog("Page view called", {
+    url,
+    GA_ENABLED,
+    GA_MEASUREMENT_ID,
+    NODE_ENV: process.env.NODE_ENV,
+  });
+
   if (!GA_ENABLED) {
-    debugLog('GA disabled in development or not configured - skipping pageview');
+    debugLog(
+      "GA disabled in development or not configured - skipping pageview"
+    );
     return;
   }
 
-  if (typeof window.gtag === 'undefined') {
-    debugLog('gtag not available - skipping pageview');
+  if (typeof window.gtag === "undefined") {
+    debugLog("gtag not available - skipping pageview");
     return;
   }
 
   window.gtag("config", GA_MEASUREMENT_ID, {
     page_path: url,
   });
-  
-  debugLog('Page view sent', url);
+
+  debugLog("Page view sent", url);
 };
 
 // Event tracking interface
@@ -47,15 +54,22 @@ interface GtagEvent {
 
 // Generic event tracking
 export const event = ({ action, category, label, value }: GtagEvent) => {
-  debugLog('Event called', { action, category, label, value, GA_ENABLED, NODE_ENV: process.env.NODE_ENV });
-  
+  debugLog("Event called", {
+    action,
+    category,
+    label,
+    value,
+    GA_ENABLED,
+    NODE_ENV: process.env.NODE_ENV,
+  });
+
   if (!GA_ENABLED) {
-    debugLog('GA disabled in development or not configured - skipping event');
+    debugLog("GA disabled in development or not configured - skipping event");
     return;
   }
 
-  if (typeof window.gtag === 'undefined') {
-    debugLog('gtag not available - skipping event');
+  if (typeof window.gtag === "undefined") {
+    debugLog("gtag not available - skipping event");
     return;
   }
 
@@ -64,8 +78,8 @@ export const event = ({ action, category, label, value }: GtagEvent) => {
     event_label: label,
     value: value,
   });
-  
-  debugLog('Event sent', { action, category, label, value });
+
+  debugLog("Event sent", { action, category, label, value });
 };
 
 // Predefined event helpers for common portfolio interactions
