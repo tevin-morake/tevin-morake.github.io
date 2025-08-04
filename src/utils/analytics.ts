@@ -3,21 +3,25 @@ export const GA_MEASUREMENT_ID =
   process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "";
 
 // Check if GA is enabled and measurement ID exists
-export const GA_ENABLED = GA_MEASUREMENT_ID && typeof window !== "undefined";
+// Disable in development environment
+export const GA_ENABLED = 
+  GA_MEASUREMENT_ID && 
+  typeof window !== "undefined" &&
+  process.env.NODE_ENV === 'production';
 
 // Debug logging
 const debugLog = (message: string, data?: unknown) => {
   if (process.env.NODE_ENV === 'development') {
-    console.log(`[GA Debug] ${message}`, data || '');
+    console.log(`[GA Debug - DISABLED] ${message}`, data || '');
   }
 };
 
 // Page view tracking
 export const pageview = (url: string) => {
-  debugLog('Page view called', { url, GA_ENABLED, GA_MEASUREMENT_ID });
+  debugLog('Page view called', { url, GA_ENABLED, GA_MEASUREMENT_ID, NODE_ENV: process.env.NODE_ENV });
   
   if (!GA_ENABLED) {
-    debugLog('GA not enabled - skipping pageview');
+    debugLog('GA disabled in development or not configured - skipping pageview');
     return;
   }
 
@@ -43,10 +47,10 @@ interface GtagEvent {
 
 // Generic event tracking
 export const event = ({ action, category, label, value }: GtagEvent) => {
-  debugLog('Event called', { action, category, label, value, GA_ENABLED });
+  debugLog('Event called', { action, category, label, value, GA_ENABLED, NODE_ENV: process.env.NODE_ENV });
   
   if (!GA_ENABLED) {
-    debugLog('GA not enabled - skipping event');
+    debugLog('GA disabled in development or not configured - skipping event');
     return;
   }
 

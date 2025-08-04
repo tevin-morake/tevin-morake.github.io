@@ -4,17 +4,19 @@ import Script from 'next/script';
 import { GA_MEASUREMENT_ID } from '@/utils/analytics';
 
 export default function GoogleAnalytics() {
-  // Don't render if GA is not configured...
-  if (!GA_MEASUREMENT_ID) {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('[GA Debug] No measurement ID found');
-    }
+  // Don't render in development environment
+  if (process.env.NODE_ENV === 'development') {
+    console.log('[GA Debug] Google Analytics disabled in development environment');
     return null;
   }
 
-  if (process.env.NODE_ENV === 'development') {
-    console.log('[GA Debug] GoogleAnalytics component rendering with ID:', GA_MEASUREMENT_ID);
+  // Don't render if GA is not configured
+  if (!GA_MEASUREMENT_ID) {
+    console.log('[GA Debug] No measurement ID found');
+    return null;
   }
+
+  console.log('[GA Debug] GoogleAnalytics component rendering with ID:', GA_MEASUREMENT_ID);
 
   return (
     <>
@@ -65,7 +67,7 @@ export default function GoogleAnalytics() {
               // Optimize loading
               optimize_id: undefined,
               // Debug mode for development
-              debug_mode: ${process.env.NODE_ENV === 'development'}
+              debug_mode: false
             });
 
             // Track initial page load performance
