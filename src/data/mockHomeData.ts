@@ -212,7 +212,7 @@ export const testimonials = [
   {
     id: 17,
     name: "Rory Enslin",
-    title: "Co-Founder",
+    title: "Co-Founder | 8 X AWS Certified ",
     company: "Rapidtrade",
     avatar: "/testimonials/rory.jpeg",
     linkedin: "https://www.linkedin.com/in/rory-enslin-67758411/",
