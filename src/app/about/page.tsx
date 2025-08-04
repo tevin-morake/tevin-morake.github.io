@@ -288,7 +288,7 @@ export default function AboutPage() {
                   imageLoaded ? 'scale-100 opacity-100' : 'scale-95 opacity-0'
                 } group-hover:shadow-3xl group-hover:scale-105 group-hover:shadow-gray-400/30`}>
                   <Image
-                    src="/about/abuti_headshot.jpg"
+                    src="/about/abutitev.png"
                     alt="Tevin Morake - About Me"
                     width={384}
                     height={384}
