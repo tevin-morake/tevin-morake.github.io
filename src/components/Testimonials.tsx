@@ -18,7 +18,13 @@ const companyLogos: Record<string, string> = {
   "Old Mutual iWyze": "/company-logos/iwyze.jpg",
   "AWS": "/company-logos/aws.png",
   "iKhokha": "/company-logos/ikhokha.png",
-  "Defijn": "/company-logos/defijn.jpeg"
+  "Defijn": "/company-logos/defijn.jpeg",
+  "Runninghill Software Development": "/company-logos/runninghill.jpeg",
+  "Sand Technologies": "/company-logos/sandtech.jpeg",
+  "nCino Inc": "/company-logos/ncino.png",
+  "Hela Network": "/company-logos/hela.jpeg",
+  "Hailer": "/company-logos/hailer.jpeg",
+  "Open Access Energy": "/company-logos/open_access_energy.jpeg"
 };
 
 // Helper function to highlight key phrases

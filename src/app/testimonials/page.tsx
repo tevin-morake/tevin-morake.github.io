@@ -19,6 +19,12 @@ const companyLogos: Record<string, string> = {
   "AWS": "/company-logos/aws.png",
   "iKhokha": "/company-logos/ikhokha.png",
   "Defijn": "/company-logos/defijn.jpeg",
+  "Runninghill Software Development": "/company-logos/runninghill.jpeg",
+  "Sand Technologies": "/company-logos/sandtech.jpeg",
+  "nCino Inc": "/company-logos/ncino.png",
+  "Hela Network": "/company-logos/hela.jpeg",
+  "Hailer": "/company-logos/hailer.jpeg",
+  "Open Access Energy": "/company-logos/open_access_energy.jpeg"
 };
 
 // Helper function to highlight key phrases
@@ -120,12 +126,12 @@ export default function TestimonialsPage() {
           {/* Elegant Filter & Sort Controls */}
           <div className="mb-12">
             {/* Filter Tags */}
-            <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+            <div className="mb-6">
               {/* Company Filter Pills */}
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
                 <button
                   onClick={() => setFilters(prev => ({ ...prev, company: '' }))}
-                  className={`px-4 py-2 text-sm font-medium rounded-full transition-all font-inter ${
+                  className={`px-3 sm:px-4 py-2 text-sm font-medium rounded-full transition-all font-inter ${
                     !filters.company 
                       ? 'bg-black text-white' 
                       : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
@@ -137,7 +143,7 @@ export default function TestimonialsPage() {
                   <button
                     key={company}
                     onClick={() => setFilters(prev => ({ ...prev, company }))}
-                    className={`px-4 py-2 text-sm font-medium rounded-full transition-all font-inter ${
+                    className={`px-3 sm:px-4 py-2 text-sm font-medium rounded-full transition-all font-inter whitespace-nowrap ${
                       filters.company === company
                         ? 'bg-black text-white'
                         : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
