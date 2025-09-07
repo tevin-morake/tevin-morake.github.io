@@ -452,16 +452,6 @@ textarea {
   font-family: Georgia, serif;
 }
 
-.star-rating {
-  display: flex;
-  gap: 2px;
-}
-
-.star {
-  color: #000;
-  font-size: 16px;
-}
-
 .read-time {
   font-size: 12px;
   color: var(--text-muted);
