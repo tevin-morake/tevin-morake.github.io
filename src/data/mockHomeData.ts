@@ -211,6 +211,19 @@ export const contact = {
 export const testimonials = [
   {
     id: 24,
+    name: "Bhekimpilo Ndlela",
+    title: "Software Engineer",
+    company: "Entelect",
+    avatar: "/testimonials/bheki.jpeg",
+    linkedin: "https://www.linkedin.com/in/bhekimpilo-ndlela-9883727b/",
+    quote:
+      "I had the privilege of working with Tevin when I first started my career, and he was my Senior Software Engineer at the time(I reported to him). From day one, Tevin was incredibly supportive and approachable. He always took the time to guide me whenever I was stuck, whether it was project-related challenges or general issues at work.\nWhat stands out about Tevin is not just his technical expertise, but also his patience, kindness, and genuine willingness to help others. He is the kind of teammate who values collaboration and goes the extra mile to ensure his colleagues and juniors succeed. Beyond being a great mentor, Tevin is a wonderful person to work with, professional, reliable, and friendly.\nOver time, Tevin went from being a senior colleague to a true friend, and I feel fortunate to have had the opportunity to learn from him. Any team would be lucky to have Tevin as part of it.",
+
+    project: "Supportive & approachable",
+    created_at: "2025-09-19",
+  },
+  {
+    id: 25,
     name: "Deon Heunis",
     title: "Product, Technology & Business Leader",
     company: "Open Access Energy",
