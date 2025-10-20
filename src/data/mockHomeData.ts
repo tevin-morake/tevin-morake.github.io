@@ -210,6 +210,18 @@ export const contact = {
 
 export const testimonials = [
   {
+    id: 26,
+    name: "Katlego Mohoje",
+    title: "Software Engineer",
+    company: "Runninghill Software Development",
+    avatar: "/testimonials/joey.jpeg",
+    linkedin: "https://www.linkedin.com/in/katlego-mohoje/",
+    quote:
+      "Working with Tevin was one of the most defining parts of my early career. He wasn’t just a senior developer — he was like an older brother at work. Tevin always made sure the people around him were taken care of, that the team stayed grounded, and that no one was left struggling in silence.\nHe led by example: committed, reliable, and deeply respectful of both people and deadlines. I still remember him saying to clients, “I don’t go home until the work is done.” That wasn’t a slogan — he meant it. He consistently stayed late, not for recognition, but because he genuinely cared about delivering quality.\nTevin brought calm under pressure, mentorship without ego, and a sense of loyalty that’s rare in fast-paced tech environments. Anyone who gets to work with him will quickly see what I mean.",
+    project: "Purpose led & Leadership",
+    created_at: "2025-10-07",
+  },
+  {
     id: 24,
     name: "Bhekimpilo Ndlela",
     title: "Software Engineer",
