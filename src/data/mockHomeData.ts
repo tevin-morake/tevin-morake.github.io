@@ -210,6 +210,42 @@ export const contact = {
 
 export const testimonials = [
   {
+    id: 30,
+    name: "Shaeen Singh",
+    title: "Former Engineering Manager| Technical Mentor",
+    company: "Scrums.com",
+    avatar: "/testimonials/shaeen.jpeg",
+    linkedin: "https://www.linkedin.com/in/shaeen-singh-bb3a74138/",
+    quote:
+      "I had the privilege of working with Tevin during my time at RapidTrade, where he served as my mentor when I first joined as a graduate engineer. From the very beginning, Tevin stood out as someone who not only possessed strong technical knowledge but also had a genuine passion for helping others grow.\n\nTevin’s ability to break down complex concepts and guide junior engineers through challenging problems made a huge difference in my own development. He’s a fast learner, consistently adaptable and has a calm, solutions-oriented approach that sets the tone for the entire team.\n\nBeyond his technical strengths, Tevin is a natural leader and an excellent team player. He brings out the best in those around him and ensures that projects are executed efficiently and collaboratively. It was truly a pleasure working with and learning from him, anyone would be lucky to have him on their team.",
+    project: "Born leader",
+    created_at: "2025-10-24",
+  },
+  {
+    id: 29,
+    name: "Arnaldo Mandlate",
+    title: "Consultant | Cloud engineer | AI Practitioner",
+    company: "Daemon",
+    avatar: "/testimonials/arnaldo.jpeg",
+    linkedin: "https://www.linkedin.com/in/arnaldo-mandlate/",
+    quote:
+      "I had the pleasure of working with Tevin for a number of years at Orange One Consulting on the as my Team Lead. Tevin is a fantastic collaborator who always brings a positive, can-do attitude to any challenge. His work on the Build Excel System was particularly impressive and a huge asset to our team's success. I highly recommend him.",
+    project: "Proactive & determined",
+    created_at: "2025-10-15",
+  },
+  {
+    id: 28,
+    name: "Jacques Millard",
+    title: "Chief Technology Officer | Cloud & Mobile Applications",
+    company: "Swipe iX",
+    avatar: "/testimonials/jacques.jpeg",
+    linkedin: "https://www.linkedin.com/in/jacquesmillard/",
+    quote:
+      "I’ve had the opportunity to work with Tevin, and he’s a really solid cloud engineer with a strong grasp of many AWS services and scalable system design. He’s particularly skilled with serverless architectures using AWS Lambda, and he brings a thoughtful, practical approach to problem-solving.\n\nTevin also has great experience with PHP and Laravel, which makes him versatile across both backend and cloud-based development. He’s dependable, easy to collaborate with, and consistently delivers quality work.\n\nIt’s been great working alongside Tevin — he’s a valuable addition to any team.",
+    project: "Consistent & skilled",
+    created_at: "2025-10-12",
+  },
+  {
     id: 27,
     name: "Patrick Ngandu",
     title: "Full stack Application Developer - Web / Mobile / Desktop",

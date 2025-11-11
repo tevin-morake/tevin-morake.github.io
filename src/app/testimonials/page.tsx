@@ -27,6 +27,8 @@ const companyLogos: Record<string, string> = {
   "Open Access Energy": "/company-logos/open_access_energy.jpeg",
   "Entelect": "/company-logos/entelect.png",
   "Kingdom pro": "/company-logos/kingdompro.png",
+  "Daemon": "/company-logos/daemon.jpeg",
+  "Scrums.com": "/company-logos/scrums.webp",
 };
 
 // Helper function to highlight key phrases
