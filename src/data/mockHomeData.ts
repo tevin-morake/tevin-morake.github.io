@@ -210,6 +210,18 @@ export const contact = {
 
 export const testimonials = [
   {
+    id: 27,
+    name: "Patrick Ngandu",
+    title: "Full stack Application Developer - Web / Mobile / Desktop",
+    company: "Kingdom pro",
+    avatar: "/testimonials/patrick.jpeg",
+    linkedin: "https://www.linkedin.com/in/patrick-ngandu-24660b54/",
+    quote:
+      "With no doubt, Tevin Morake is an asset to any team he is working with. Easily adapt with environments and people. A great personality that relates to many.\n\nWorks hard and expect nothing less than 100% of himself hence making it very easy to work with.\nI have no doubt that he will bring the same level of excellence and commitment to any organization he joins.",
+    project: "Adaptable & Relatable",
+    created_at: "2025-10-12",
+  },
+  {
     id: 26,
     name: "Katlego Mohoje",
     title: "Software Engineer",

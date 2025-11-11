@@ -25,7 +25,8 @@ const companyLogos: Record<string, string> = {
   "Hela Network": "/company-logos/hela.jpeg",
   "Hailer": "/company-logos/hailer.jpeg",
   "Open Access Energy": "/company-logos/open_access_energy.jpeg",
-  "Entelect": "/company-logos/entelect.png"
+  "Entelect": "/company-logos/entelect.png",
+  "Kingdom pro": "/company-logos/kingdompro.png",
 };
 
 // Helper function to highlight key phrases
