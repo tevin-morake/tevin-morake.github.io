@@ -66,9 +66,21 @@ jobs:
         env:
           NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
           NEXT_PUBLIC_ENABLE_CHATBOT: ${{ secrets.NEXT_PUBLIC_ENABLE_CHATBOT }}
+      
+      - name: Verify build output
+        run: |
+          if [ ! -d "./out" ]; then
+            echo "ERROR: Build output directory ./out not found"
+            exit 1
+          fi
+          if [ ! -f "./out/index.html" ]; then
+            echo "ERROR: index.html not found in ./out"
+            exit 1
+          fi
+          echo "✓ Build output verified: $(find ./out -type f | wc -l) files"
         
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./out
 
